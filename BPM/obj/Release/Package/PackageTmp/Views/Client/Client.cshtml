@@ -1,0 +1,163 @@
+﻿@using BPM.Dto.Configuration
+@model IEnumerable<ClientDto>
+
+@{
+    ViewBag.Title = "Client";
+}
+
+@section scripts{
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+
+<script src="~/Scripts/User/User.js"></script>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de clientes</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Client/Client">Clientes</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Formulario de creación-->
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar cliente</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Client/Add")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                @*<div class="row form-group">
+                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">ID</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="ClientId" name="ClientId" placeholder="ID" class="form-control"></div>
+                                    </div>*@
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="Client.Name" placeholder="Nombre" data-val="true" data-val-required="Este campo es obligatorio" required class="form-control" onkeypress="return validar(event)">
+                                    </div>
+                                </div>
+
+                                @*<div class="row form-group">
+                                        <div class="col col-md-3"><label for="select" class=" form-control-label">Estado</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="NameState" id="NameState" class="form-control">
+                                                <option value="1">Activo</option>
+                                                <option value="0">Inactivo</option>
+                                            </select>
+                                        </div>
+                                    </div>*@
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Barra con botón de creación de clientes y listado de clientes-->
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Clientes</strong>
+                <a href="AddClient" id="BtnAddClient" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar cliente</a>
+
+            </div>
+                <table class="table " id="bootstrap-data-table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Estado</th>
+                            <th style="width:auto">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ClientView in Model)
+                        {
+                            <tr>
+                                <td>  <span class="name">@ClientView.Name</span> </td>
+                                <td>  <span class="name">@ClientView.NameState</span> </td>
+                                <td>
+
+                                    <a onclick="document.location='@Url.Content("~/Client/Edit?IdClient="+ClientView.IdClient)'" id="BtnEditClient" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></a>
+                                    <a onclick="document.location='@Url.Content("~/Client/Remove?IdClient="+ClientView.IdClient)'" id="BtnAddClient" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-remove"> </i></a>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>
+

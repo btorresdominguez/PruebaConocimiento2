@@ -1,0 +1,400 @@
+﻿@using BPM.Dto.Models.Printing
+@model PrintingObjectsDto
+@{
+    ViewBag.Title = "Printing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+    {
+
+
+    <script>
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+                var company = document.getElementById('ddlCompany').value;
+                var lot = document.getElementById('lote').value;
+                var ref = document.getElementById('txtRef').value;
+                var type = document.getElementById('SelectedTypeLatterModify').value;
+
+                document.location.href = "/Printing/AddPqr?company=" + company + "&reference=" + ref + "&idLot=" + lot + "&SelectedTypeLatter=" + type;
+            });
+
+            $('#btnRemove').click(function () {
+                var company = document.getElementById('ddlCompany').value;
+                var lot = document.getElementById('lote').value;
+                var ref = document.getElementById('txtRef').value;
+                var type = document.getElementById('SelectedTypeLatterModify').value;
+
+                document.location.href = "/Printing/RemovePqr?company=" + company + "&reference=" + ref + "&idLot=" + lot+ "&SelectedTypeLatter=" + type;
+            });
+
+            $('#btnGenerate').click(function () {
+                var iDate = document.getElementById('initialDate').value;
+                var fDate = document.getElementById('finalDate').value;
+                var SelectedTypeLatter = document.getElementById('SelectedTypeLatter').value;
+                document.location.href = "GenerateLots?initialDate=" + iDate + "&finalDate=" + fDate+"&SelectedTypeLatter="+SelectedTypeLatter;
+            });
+        });
+    </script>
+}
+
+
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Impresión de Cartas</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Inicio</a></li>
+                            <li><a href="~/Printing/Printing">Cartas</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="danger">
+    <p class="error">@ViewBag.Error</p>
+</div>
+
+<div class="modal fade" id="configModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Configurar Impresora</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Printing/UpdatePrinterConfig")" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Impresora</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.Config.Name, new SelectList(Model.Printers, "Name", "Name"), "Seleccione una impresora", new { required = "required", id = "printers" })
+                                    </div>
+                                </div>
+
+                                <div>
+                                    </br>
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="lotModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Editar lote</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Lote</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedLot, new SelectList(Model.Lots, "Id", "Name"), "Seleccione un lote", new { required = "required", id = "lote" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Empresa</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedCompany, new SelectList(Model.Companies, "IdCompany", "Identifier"), "Seleccione una empresa", new { required = "required", id = "ddlCompany" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Referencia</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input class="form-control" id="txtRef" name="Referencia" placeholder="Referencia" value="@Model.Referencia" onkeypress="return validar(event)"></input>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Skill</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(model => model.SelectedTypeLatter, new SelectList(Model.TypeLatters, "Id", "Name"), "Seleccione un tipo de carta", new { required = "required", @class = "form-control", id = "SelectedTypeLatterModify" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div><button type="button" class="btn btn-primary btn-sm" id="btnAdd"><i class="fa fa-plus"> </i>&nbsp; Añadir Cartas</button></div>
+                                    <div>
+                                        <button type="button" class="btn btn-primary btn-sm" id="btnRemove"><i class="fa fa-minus"> </i>&nbsp; Quitar Cartas</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="generateModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Generar Lotes</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Fecha Inicial</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.TextBoxFor(model => model.InitialDate, new { @type = "date", @class = "form-control datepicker", @name = "InitialDate", required = "required", id = "initialDate" })
+                                        @Html.ValidationMessageFor(model => model.InitialDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Fecha Final</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.TextBoxFor(model => model.FinalDate, new { @type = "date", @class = "form-control datepicker", @name = "FinalDate", required = "required", id = "finalDate" })
+                                        @Html.ValidationMessageFor(model => model.FinalDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Skill</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(model => model.SelectedTypeLatter, new SelectList(Model.TypeLatters, "Id", "Name"), "Seleccione un tipo de carta", new { required = "required", @class = "form-control", id="SelectedTypeLatter" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div><button type="button" class="btn btn-primary btn-sm" id="btnGenerate"><i class="fa fa-plus"> </i>&nbsp; Generar Lotes</button></div>
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Importar Lotes</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Printing/Import")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Lote</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="file" id="Database" name="Database" placeholder="Ruta del Lote" required class="form-control" value="Database" onchange="checkfile(this)">
+                                        @Html.ValidationMessageFor(DataImportDto => DataImportDto.Database)
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Skill</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(model => model.SelectedTypeLatter, new SelectList(Model.TypeLatters, "Id", "Name"), "Seleccione un tipo de carta", new { required = "required", @class = "form-control", id = "SelectedTypeLatter" })
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">@Model.Message</label></div>
+                                </div>
+
+                                <div>
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Importar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Imprimir PQR</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Printing/AddPqrLot")" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Empresa</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedCompany, new SelectList(Model.Companies, "IdCompany", "Identifier"), "Seleccione una empresa", new { required = "required", id = "empresa" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Referencia</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input class="form-control" id="text-input" name="Referencia" placeholder="Referencia" value="@Model.Referencia" onkeypress="return validar(event)"></input>
+                                    </div>
+                                </div>
+                                <div>
+
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="select" class=" form-control-label">Skill</label></div>
+                                        <div class="col-12 col-md-9">
+                                            @Html.DropDownListFor(model => model.SelectedTypeLatter, new SelectList(Model.TypeLatters, "Id", "Name"), "Seleccione un tipo de carta", new { required = "required", @class = "form-control", id = "SelectedTypeLatter" })
+                                        </div>
+                                    </div>
+                                    </br>
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Agregar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <a href="ConfigurePrinter" id="BtnConfigurePrinter" type="button" class="btn btn-primary btn-sm" style="float: inherit;" data-toggle="modal" data-target="#configModal"><i class="fa"> </i>&nbsp;Configurar Impresora</a>
+                <a href="GenerateLot" id="BtnGenerateLot" type="button" class="btn btn-primary btn-sm" style="float: inherit;" data-toggle="modal" data-target="#generateModal"><i class="fa"> </i>&nbsp;Generar Lotes</a>
+                <a href="PrintPQR" id="BtnPrintPQR" type="button" class="btn btn-primary btn-sm" style="float: inherit;" data-toggle="modal" data-target="#printModal"><i class="fa"> </i>&nbsp;Imprimir PQR</a>
+                <a href="EditLot" id="BtnEditLot" type="button" class="btn btn-primary btn-sm" style="float: inherit;" data-toggle="modal" data-target="#lotModal"><i class="fa"> </i>&nbsp;Editar Lote</a>
+                <a href="ImportLot" id="BtnImportLot" type="button" class="btn btn-primary btn-sm" style="float: inherit;" data-toggle="modal" data-target="#importModal"><i class="fa"> </i>&nbsp;Importar Lote</a>
+
+            </div>
+            <table class="table " id="bootstrap-data-table">
+                <thead>
+                    <tr>
+                        <th hidden>Id</th>
+                        <th>Nombre</th>
+                        <th>Impreso</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var BaseView in Model.Lots)
+                    {
+                        <tr>
+                            <td hidden>  <span class="name">@BaseView.Id</span> </td>
+                            <td>  <span class="name">@BaseView.Name</span> </td>
+                            <td>
+                                @if (@BaseView.Printed)
+                                {
+                                    <span class="name">
+                                        Sí
+                                    </span>
+                                }
+                                else
+                                { <span class="name">
+                                        No
+                                    </span>}
+                            </td>
+                            <td>  <span class="name">@BaseView.CreatedDate</span> </td>
+                            <td>
+                                <a onclick="document.location='@Url.Content("~/Printing/PrintLot?id="+BaseView.Id)'" id="BtnPrint" class="btn btn-primary btn-sm" style="float: inherit;"><i class="fa fa-play">&nbsp; </i></a>
+                                <a onclick="document.location='@Url.Content("~/Printing/CancelPrint?id="+BaseView.Id)'" id="BtnCancel" class="btn btn-primary btn-sm" style="float: inherit;"><i class="fa fa-stop">&nbsp; </i></a>
+                                <a onclick="document.location='@Url.Content("~/Printing/GetSummary?id="+BaseView.Id)'" id="BtnReport" class="btn btn-primary btn-sm" style="float: Inherit;"><i class="fa fa-file-o">&nbsp; </i></a>
+                                <a onclick="document.location='@Url.Content("~/Printing/DeletePrint?id="+BaseView.Id)'" id="BtnPrint" class="btn btn-primary btn-sm" style="float: inherit;"><i class="fa fa-remove">&nbsp; </i></a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+    function checkfile(sender) {
+        var validExts = new Array(".xlsx", ".xls");
+        var fileExt = sender.value;
+        fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+        if (validExts.indexOf(fileExt) < 0) {
+            alert("Archivo inválido. Los archivos deben ser del tipo " +
+                validExts.toString());
+            sender.value = '';
+            return false;
+        }
+        else return true;
+    }
+</script>

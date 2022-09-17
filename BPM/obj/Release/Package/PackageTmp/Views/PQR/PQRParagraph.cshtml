@@ -1,0 +1,180 @@
+﻿@using BPM.Dto.Models
+@using BPM.Dto.Models.Latters
+@model ParagraphSelectionDto
+@{
+    ViewBag.Title = "PQRParagraph";
+}
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $('#buttonSubmit').click(function () {
+            var selected = $('.checkbox:checked'); // get the selected checkboxes
+
+            var paragraphs = '';
+            $.each(selected, function (index, item) { // loop through the selected checkboxes
+                var row = $(this).closest('tr'); // get the containing tr element
+                paragraphs += ',' + row.find('.idParagraph').text();
+            })
+            $('#selectedParagraphs').val(paragraphs);
+            //alert(paragraphs);
+        });
+
+        $('#frm').on('submit', function (e) {
+            document.getElementById("buttonSubmit").disabled = true;
+              var selected = $('.checkbox:checked'); // get the selected checkboxes
+
+            var paragraphs = '';
+            $.each(selected, function (index, item) { // loop through the selected checkboxes
+                var row = $(this).closest('tr'); // get the containing tr element
+                paragraphs += ',' + row.find('.idParagraph').text();
+            })
+            $('#selectedParagraphs').val(paragraphs);
+        });
+
+
+    </script>
+
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#bootstrap-data-table").sortable({
+                items: 'tr',
+                cursor: 'pointer',
+                axis: 'y',
+                dropOnEmpty: false,
+                start: function (e, ui) {
+                    ui.item.addClass("selected");
+                },
+                stop: function (e, ui) {
+                    ui.item.removeClass("selected");
+                },
+                receive: function (e, ui) {
+                    $(this).find("tbody").append(ui.item);
+                }
+            });
+        });
+    </script>
+
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Selección de párrafos tipo</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Inicio</a></li>
+                            <li><a href="~/PQR/PQR">PQRs</a></li>
+                            <li><a href="~/PQR/PQRManagement">Gestión de PQRs</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="danger">
+    <p class="error">@ViewBag.Error</p>
+</div>
+<form name="generate_form" action="@Url.Content("~/PQR/SelectParagraphs")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:100%" id="frm">
+    @Html.HiddenFor(m => m.selectedParagraphs, new { id = "selectedParagraphs" })
+    @Html.HiddenFor(m => m.pqr.ID, new { id = "pqr", Name = "pqr" })
+    <div class="content">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>*</th>
+                                        <th>ID</th>
+                                        <th>Tipo de párrafo</th>
+                                        <th>Descripción</th>
+                                        <th>Contenido</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Paragraphs != null)
+                                    {
+                                        foreach (ParagraphDto item in Model.Paragraphs)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @if (item.Checked)
+                                                    {
+                                                        <input type="checkbox" class="checkbox" checked="checked">
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" class="checkbox">
+                                                    }
+
+                                                </td>
+                                                <td class="idParagraph">@item.Id</td>
+                                                <td>@item.Name_TypeParagraph</td>
+                                                <td>@item.Description</td>
+                                                <td align="justify">@item.paragraphContent</td>
+
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="@Url.Content("~/PQR/CQManagement/")" style="float: initial; background-color:orangered" class="btn btn-primary btn-sm">Finalizar sin cartas</a>
+            <button style="float: initial;" id="buttonSubmit" type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#CreateDocumentModal">&nbsp; Seleccionar Párrafos</button>
+        </div>
+        <div class="modal fade bd-example-modal-lg" data-backdrop="static" id="CreateDocumentModal" data-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content" style="width: 48px">
+                    <span class="fa fa-spinner fa-spin fa-3x"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+
+

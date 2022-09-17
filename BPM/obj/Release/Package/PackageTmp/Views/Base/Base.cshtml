@@ -1,0 +1,201 @@
+﻿@using BPM.Dto.Models.Depuration
+@model BaseAllDto
+
+
+@section scripts{
+
+    <script>
+        function AddRule() {
+            var index = (new Date()).getTime();
+            var clone = $('#Filter').clone();
+            clone.html($(clone).html().replace(/\[#\]/g, '[' + index + ']'));
+            clone.html($(clone).html().replace(/"%"/g, '"' + index + '"'));
+            clone.html($(clone).html().replace('Filter', index));
+            clone.html($(clone).html().replace('Filter', index));
+            $('#Filters').append(clone.html());
+        }
+
+    </script>
+
+
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+
+@{
+    ViewBag.Title = "Base";
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de bases</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Configuración</a></li>
+                            <li><a href="#">Bases</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Filter" id="Filter" style="display:none">
+    @foreach (var Filter in Model.FilterDto)
+    {
+        Html.RenderPartial("FilterPartial", Filter);
+
+    }
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar base</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Base/Add")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Name" name="Name" required placeholder="Nombre" class="form-control"></div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Descripción</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Description" required placeholder="Descripción" class="form-control"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Servicio</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.Service, new SelectList(Model.ServiceDto, "IdService", "NameService"), "Seleccione un servicio", new { required = "required" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Skill</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.Skill, new SelectList(Model.SkillDto, "IdSkill", "Name"), "Seleccione un skill", new { required = "required" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Reglas</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <div class="Filters" id="Filters">
+                                            @foreach (var Filter in Model.FilterDto)
+                                            {
+                                                Html.RenderPartial("FilterPartialOne", Filter);
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    </br>
+
+                                    <button type="button" onclick="AddRule()" style="float: left;" class="btn btn-primary btn-sm"><i class="fa fa-plus"> </i>&nbsp; Agregar regla</button>
+                                    </br>
+                                </div>
+                                <div>
+                                    </br>
+
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Bases</strong>
+                <a href="AddSkill" id="BtnAddSkill" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar Base</a>
+
+            </div>
+            <table class="table " id="bootstrap-data-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Servicio</th>
+                        <th>Skill</th>
+                        <th>Estado</th>
+
+                        <th style="width:auto">Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var BaseView in Model.BaseDto)
+                    {
+                        <tr>
+                            <td>  <span class="name">@BaseView.Name</span> </td>
+                            <td>  <span class="name">@BaseView.Description</span> </td>
+                            <td>  <span class="name">@BaseView.NameService</span> </td>
+                            <td>  <span class="name">@BaseView.NameSkill</span> </td>
+                            <td>  <span class="name">@BaseView.NameState</span> </td>
+                            <td>
+                                <a onclick="document.location='@Url.Content("~/Base/Edit?IdBase="+BaseView.IdBase)'" id="BtnEditSkill" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></a>
+                                <a onclick="document.location='@Url.Content("~/Base/Remove?IdBase="+BaseView.IdBase)'" id="BtnAddSkill" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-remove"> </i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

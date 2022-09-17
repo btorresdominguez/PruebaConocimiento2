@@ -1,0 +1,136 @@
+﻿
+@using BPM.Dto.Models.Depuration
+@model BaseAllDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section scripts{
+
+    <script>
+        function AddRule() {
+            var index = (new Date()).getTime();
+            var clone = $('#Filter').clone();
+            clone.html($(clone).html().replace(/\[#\]/g, '[' + index + ']'));
+            clone.html($(clone).html().replace(/"%"/g, '"' + index + '"'));
+             clone.html($(clone).html().replace('Filter', index)); 
+            clone.html($(clone).html().replace('Filter', index )); 
+            $('#Filters').append(clone.html());
+        }
+    </script>
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Editar base</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Base/Base">Bases</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Filter" id="Filter" style="display:none">
+    @foreach (var Filter in Model.FilterDtoNew)
+    {
+        Html.RenderPartial("FilterPartial", Filter); 
+    }
+</div>
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/Base/Edit")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:65%">
+                <input type="hidden" name="IdBase" value="@Model.Base.IdBase" />
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Name" name="Name" placeholder="Nombre" required class="form-control" value="@Model.Base.Name" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Base.Name)
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Descripción</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Description" name="Description" placeholder="Descripcion" required class="form-control" value="@Model.Base.Description" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Base.Description)
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Servicio</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.Service, new SelectList(Model.ServiceDto, "IdService", "NameService", Model.Service), "Seleccione un servicio", new { required = "required" })
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Skill</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.Skill, new SelectList(Model.SkillDto, "IdSkill", "Name", Model.Skill), "Seleccione un skill", new { required = "required" })
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Reglas</label></div>
+                    <div class="col-12 col-md-9">
+                        <div class="Filters" id="Filters">
+                            @foreach (var Filter in Model.FilterDto)
+                            {
+                                Html.RenderPartial("FilterPartialGet", Filter);
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    </br>
+
+                    <button type="button" onclick="AddRule()" style="float: left;" class="btn btn-primary btn-sm"><i class="fa fa-plus"> </i>&nbsp; Agregar regla</button>
+                    </br>
+
+                </div>
+
+                <div>
+                    </br>
+
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Actualizar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+
+@Scripts.Render("~/Scripts/User/User.js")
+
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>

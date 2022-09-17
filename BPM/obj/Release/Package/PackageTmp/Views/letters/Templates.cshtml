@@ -1,0 +1,321 @@
+﻿@model List<BPM.Dto.Models.LattersSelectsDto>
+@section scripts{
+
+    <script src="~/Scripts/Angular.min.js"></script>
+    <script src="~/Scripts/angular.messages.min.js"></script>
+    <script src="~/Scripts/angular-ui-bootstrap.js"></script>
+    <script src="~/Scripts/PetitionsHttp.min.js"></script>
+    <script src="~/Scripts/Templates.min.js"></script>
+    <script src="~/Scripts/modalViewDocument.min.js"></script>
+
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+<div ng-app="app" ng-controller="LattersCtrl">
+    <div class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <div class="row m-0">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Cartas</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="~/Home/Index">Cartas</a></li>
+                                <li><a href="~/Letters/Templates">Plantillas</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 ng-show="!IsUpdate" class="modal-title" id="largeModalLabel">Agregar Plantilla</h5>
+                    <h5 ng-show="IsUpdate" class="modal-title" id="largeModalLabel">Actualizar Plantilla</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="content">
+                        <div class="card">
+                            <div class="card-body card-block">
+                                <form name="FormTemplate" ng-submit="initSubmit()" enctype="multipart/form-data" class="form-horizontal" novalidate>
+                                    <div class="row form-group">
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Nombre</label>
+                                            <input type="text" id="Name" name="Name" placeholder="Nombre" ng-model="model.Name" data-val="true" data-val-required="Este campo es obligatorio" class="form-control" required>
+                                            <div ng-messages="FormTemplate.Name.$error" ng-if="FormTemplate.Name.$touched || FormTemplate.$submitted" style="color:maroon" role="alert">
+                                                <div ng-message="required">Este campo es requerido</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Descripción</label>
+                                            <input type="text" id="text-input" name="Description" placeholder="Descripción" ng-model="model.Description" data-val="true" data-val-required="Este campo es obligatorio" required class="form-control">
+                                            <div ng-messages="FormTemplate.Description.$error" ng-if="FormTemplate.Description.$touched ||FormTemplate.$submitted" style="color:maroon" role="alert">
+                                                <div ng-message="required">Este campo es requerido</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Tipo de Plantilla</label>
+                                            <select class="form-control" id="typeLatter" name="TypeTemplate" data-val-required="Este campo es obligatorio" ng-model="model.Id_TypeTemplate" required
+                                                    ng-options="option.Id as option.Name for option in Selects.TypeTemplate">
+                                                <option value="" disabled>--Seleccione uno-- </option>
+                                            </select>
+                                            <div ng-messages="FormTemplate.TypeTemplate.$error" ng-if="FormTemplate.TypeTemplate.$touched ||FormTemplate.$submitted" style="color:maroon" role="alert">
+                                                <div ng-message="required">Este campo es requerido</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6" ng-if="model.Id_TypeTemplate && model.Id_TypeTemplate===1">
+                                            <label for="text-input" class=" form-control-label">Filial</label>
+                                            <select class="form-control" id="Compania" name="Compania" data-val-required="Este campo es obligatorio" ng-model="model.Id_Company" required
+                                                    ng-options="option.Id as option.Name for option in Selects.Company">
+                                                <option value="" disabled>--Seleccione uno-- </option>
+                                            </select>
+                                            <div ng-messages="FormTemplate.Compania.$error" ng-if="FormTemplate.Compania.$touched ||FormTemplate.$submitted" style="color:maroon" role="alert">
+                                                <div ng-message="required">Este campo es requerido</div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div ng-show="model.Id_TypeTemplate && model.Id_TypeTemplate===2" class="card">
+                                        <h3 class="center-text-av">Añadir Excepciones</h3>
+                                        <hr />
+                                        <div class="alert alert-danger" ng-show="errorsNotification.items">
+                                            <strong>Alerta!</strong> Por favor añada excepciones.
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label for="text-input" class=" form-control-label">Causa</label>
+                                                <select class="form-control" id="typeLatter" name="TypeNotification" data-val-required="Este campo es obligatorio" ng-model="SelectContext.Id_Cause" ng-options="option as option.Name for option in Selects.Cause track by option.Id" ng-disabled="SelectContext.Id_Skill || SelectContext.Id_City || SelectContext.Id_Company">
+                                                    <option value="0" selected>--Seleccione uno-- </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="text-input" class=" form-control-label">Habilidad</label>
+                                                <select class="form-control" id="typeLatter" name="TypeNotification" data-val-required="Este campo es obligatorio" ng-model="SelectContext.Id_Skill" ng-options="option as option.Name for option in Selects.Skill track by option.Id" ng-disabled="SelectContext.Id_Cause || SelectContext.Id_City || SelectContext.Id_Company">
+                                                    <option value="0" selected>--Seleccione uno-- </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="text-input" class=" form-control-label">Ciudad</label>
+                                                <select class="form-control" id="City" name="City" data-val-required="Este campo es obligatorio" ng-model="SelectContext.Id_City" ng-options="option as option.Name for option in Selects.City track by option.Id" ng-disabled="SelectContext.Id_Skill || SelectContext.Id_Cause || SelectContext.Id_Company">
+                                                    <option value="0" selected>--Seleccione uno-- </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="text-input" class=" form-control-label">Filial</label>
+                                                <select class="form-control" id="Company" name="Company" data-val-required="Este campo es obligatorio" ng-model="SelectContext.Id_Company" 
+                                                        ng-options="option as option.Name for option in Selects.Company" ng-disabled="SelectContext.Id_Skill || SelectContext.Id_Cause || SelectContext.Id_City">
+                                                    <option value="0" selected>--Seleccione uno-- </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row aling-left-pt-5">
+                                            <div class="col-md-2">
+                                                <button type="button" class="form-control btn btn-primary" title="Limpiar" ng-click="clearAdd()"><i class="fa fa-eraser"></i></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="button" class="form-control btn btn-primary" title="Añadir" ng-click="AddItem()"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+
+                                        <hr />
+                                        <div class="row" ng-repeat="item in Items">
+                                            <div class="col-md-2 center-text-av">
+                                                <label for="text-input" class="form-control-label">{{item.Id_Cause.Name}}</label>
+                                            </div>
+                                            <div class="col-md-2 center-text-av">
+                                                <label for="text-input" class=" form-control-label">{{item.Id_Skill.Name}}</label>
+                                            </div>
+                                            <div class="col-md-3 center-text-av">
+                                                <label for="text-input" class=" form-control-label">{{item.Id_City.Name}}</label>
+                                            </div>
+                                            <div class="col-md-3 center-text-av">
+                                                <label for="text-input" class=" form-control-label">{{item.Id_Company.Name}}</label>
+                                            </div>
+                                            <div class="col-md-2 center-text-av">
+                                                <i class="fa fa-trash" ng-click="Items.splice($index, 1);"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <h3 class="center-text-av">Añadir Plantillas</h3>
+                                        <hr />
+                                        <div class="alert alert-danger" ng-show="errorsNotification.files">
+                                            <strong>Alerta!</strong> Por favor añada plantillas.
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label for="text-input" class=" form-control-label">Tipo de carta</label>
+                                                <select class="form-control" id="typeLatter" name="typeLatter" data-val-required="Este campo es obligatorio" ng-model="newTemplate.Id_typeLatter"
+                                                        ng-options="option as option.Name for option in Selects.TypeLatter track by option.Id">
+                                                    <option value="" disabled>--Seleccione uno-- </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-5">
+                                                <label for="text-input" class=" form-control-label">Tipo de Notificación</label>
+                                                <select class="form-control" id="typeLatter" name="TypeNotification" data-val-required="Este campo es obligatorio" ng-model="newTemplate.Id_TypeNotification"
+                                                        ng-options="option as option.Name for option in Selects.TypeNotification track by option.Id">
+                                                    <option value="" disabled>--Seleccione uno-- </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <label for="text-input" class=" form-control-label">Plantilla</label>
+                                                <button class="form-control btn btn-primary" type="button" ng-click="CreateNewDocument()" ng-disabled="charges.createDocument"><i ng-show="charges.createDocument" class="fa fa-spinner fa-spin"></i><i ng-show="!charges.createDocument" class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row" ng-repeat="template in ListTemplates">
+                                            <div class="col-md-4 center-text-av">
+                                                <label for="text-input" class="form-control-label">{{template.Id_typeLatter.Name}}</label>
+                                            </div>
+                                            <div class="col-md-4 center-text-av">
+                                                <label for="text-input" class=" form-control-label">{{template.Id_TypeNotification.Name}}</label>
+                                            </div>
+                                            <div class="col-md-2 center-text-av">
+                                                <i class="fa fa-trash" ng-click="ListTemplates.splice($index, 1);"></i>
+                                            </div>
+                                            <div class="col-md-2" ng-click="GetPremisionFileEdit(template.Id_DocumentCloud);">
+                                                <i ng-show="charges.getModalDocument" class="fa fa-spinner fa-spin"></i><i ng-show="!charges.getModalDocument" class="fa fa-pencil-square-o"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-danger" ng-show="errorsNotification.submit">
+                                        <strong>Alerta!</strong> Ha ocurrido un error.
+                                    </div>
+                                    <div class="alert alert-success" ng-show="successNotification.submit && !IsUpdate">
+                                        <strong>Alerta!</strong> Se ha creado la plantilla correctamente.
+                                    </div>
+                                    <div class="alert alert-success" ng-show="successNotification.submit && IsUpdate">
+                                        <strong>Alerta!</strong> Se ha actualizado la plantilla correctamente.
+                                    </div>
+                                    <div class="row float-right">
+                                        <div class="col-md-3 ">
+                                            <button type="submit" class="btn btn-primary" ng-show="!IsUpdate" ng-disabled="charges.submitTotal"><i ng-show="charges.submitTotal" class="fa fa-spinner fa-spin"></i> Guardar</button>
+                                            <button type="submit" class="btn btn-primary" ng-show="IsUpdate" ng-disabled="charges.submitTotal"><i ng-show="charges.submitTotal" class="fa fa-spinner fa-spin"></i> Actualizar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="danger">
+                            <p class="error">@ViewBag.Error</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--ModalConfirm-->
+    <div class="modal" id="confirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">¿Desea borrar la plantilla?</h4>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="ConfirmDelete()" data-dismiss="modal">Borrar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--ModalConfirm-->
+
+    <div class="content">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">Plantillas</strong>
+                    <a href="#" id="BtnUpdateClient" type="button" class="btn btn-primary btn-sm" style="float: right; display:none;" data-toggle="modal" ng-click="UpdateClient()" data-target="#largeModal"></a>
+                    <a href="#" id="BtnAddClient" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal" ng-click="addClient()"><i class="fa fa-plus"> </i>&nbsp;Agregar Pantilla</a>
+
+                </div>
+                    <table class="table " id="bootstrap-data-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Tipo de plantilla</th>
+                                <th>Filial</th>
+                                <th>Número Excepciones</th>
+                                <th>Número Pantillas</th>
+                                <th style="width: 100px">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var FieldView in Model)
+                            {
+                                <tr>
+                                    <td>  <span class="name">@FieldView.Name</span> </td>
+                                    <td>  <span class="name">@FieldView.Description</span> </td>
+                                    <td>  <span class="name">@FieldView.Name_TypeTemplate</span> </td>
+                                    <td>  <span class="name">@FieldView.Name_Company</span> </td>
+                                    <td>  <span class="name">@FieldView.Number_Exceptions</span> </td>
+                                    <td>  <span class="name">@FieldView.Number_Documents</span> </td>
+
+                                    <td>
+
+                                        <button ng-click="ChargueModalDataEdit(@FieldView.Id)" id="BtnEditClient" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></button>
+                                        <button ng-click="IdDelete= @FieldView.Id" id="OpenModalConfirm" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirm" style="float: right;"><i class="fa fa-remove"> </i></button>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>

@@ -1,0 +1,202 @@
+﻿
+@using BPM.Dto.Configuration
+@model UserCreationDto
+@{
+    ViewBag.Title = "User";
+}
+@section scripts{
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de usuarios</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/User/User">Usuarios</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar usuario</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/User/Add")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Identificación</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="User" name="User" required placeholder="Identificación" class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="password-input" class=" form-control-label">Contraseña</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="password" id="password-input" required name="Password" placeholder="Contraseña" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombres</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Names" required placeholder="Nombres" class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Apellidos</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Surnames" required placeholder="Apellidos" class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Rol</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedRole, new SelectList(Model.RoleList, "IdRole", "Name"), "Seleccione un rol", new { required = "required", @class = "form-control" })
+                                    </div>
+
+
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Epx</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Epx" required placeholder="Epx" class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+
+
+                                <div>
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Usuarios</strong>
+                <a href="AddUser" id="BtnAddUser" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar usuario</a>
+            </div>
+       
+                <table class="table " id="bootstrap-data-table">
+                    <thead>
+                        <tr>
+                            <th class="serial">Identificación</th>
+                            <th class="avatar">Foto</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Epx</th>
+
+                            <th>Skill</th>
+                            <th style="width:auto">Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var UserView in Model.UserList)
+                        {
+                        <tr>
+                            <td class="serial">@UserView.IdNumber</td>
+                            <td class="avatar">
+                                <div class="round-img">
+                                    <a href="#"><img class="rounded-circle" src="~/Resources/Layout/img/avatar/1.jpg" alt=""></a>
+                                </div>
+                            </td>
+                            <td>  <span class="name">@UserView.Names</span> </td>
+                            <td>  <span class="name">@UserView.Surnames</span> </td>
+                            <td>
+                                <span class="name">@UserView.NameRol</span>
+                            </td>
+                            <td>
+                                <span class="name">@UserView.NameState</span>
+                            </td>
+                            <td>
+                                <span class="name">@UserView.Epx</span>
+                            </td>
+                            <td>
+                                <a onclick="document.location='@Url.Content("~/User/AddSkill?IdNumber="+UserView.IdNumber)'" id="BtnAddSkill" class="btn btn-primary btn-sm" style="float: none"><i class="fa fa-check"> </i></a>
+                            </td>
+                            <td>
+
+                                <a onclick="document.location='@Url.Content("~/User/Edit?IdNumber="+UserView.IdNumber)'" id="BtnEditUser" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></a>
+
+                                <a onclick="document.location='@Url.Content("~/User/Remove?IdNumber="+UserView.IdNumber)'" id="BtnAddUser" class="btn btn-primary btn-sm" style="float: right;"><i class="fa fa-remove"> </i></a>
+
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+@Scripts.Render("~/Scripts/User.js")
+
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>

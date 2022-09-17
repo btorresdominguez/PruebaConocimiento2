@@ -1,0 +1,127 @@
+﻿@using BPM.Dto.Configuration
+@model MEscalationCreationDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Editar Matriz de Escalamientos</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/MatrizEscalation/MatrizEscalation">Matriz de Escalamientos</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/MatrizEscalation/Edit")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+                <input type="hidden" name="IdMatrix" value="@Model.MatrizList.FirstOrDefault().IdMatrix" />
+
+
+              
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Área</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedOrganization, new SelectList(Model.OrganizationList, "IdAorganization", "Description", Model.MatrizList.FirstOrDefault().IdAOrganization, "Seleccione el Área Organizativa"), new { required = "required", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Empresa</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedCompany, new SelectList(Model.CompanyList, "IdCompany", "Description", Model.MatrizList.FirstOrDefault().IdCompany, "Seleccione la empresa"), new { required = "required", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Proceso</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedProcess, new SelectList(Model.ProcessList, "IdProcess", "Description", Model.MatrizList.FirstOrDefault().IdProcess, "Seleccione un proceso"), new { required = "required", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">C4C</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedC4C, new SelectList(Model.C4CList, "IdC4C", "Description", Model.MatrizList.FirstOrDefault().IdProcess, "Seleccione la unidad de envio C4C"), new { required = "required", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Causas</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="Cause" name="Cause" placeholder="Causa" value="@Model.MatrizList.FirstOrDefault().Cause" class="form-control" onkeypress="return validar(event)"></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="Names" name="Names" placeholder="Nombres" value="@Model.MatrizList.FirstOrDefault().Names" class="form-control" onkeypress="return validar(event)"></div>
+                </div>  
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="Email" name="Email" placeholder="Email" value="@Model.MatrizList.FirstOrDefault().Email" class="form-control" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Jefe1 </label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="Jefe1" name="Jefe1" placeholder="Jefe1" value="@Model.MatrizList.FirstOrDefault().Jefe1" class="form-control" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="Email2" name="Email2" placeholder="Email" value="@Model.MatrizList.FirstOrDefault().Email2" class="form-control" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Jefe2</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="Jefe2" name="Jefe2" placeholder="Jefe2" value="@Model.MatrizList.FirstOrDefault().Jefe2" class="form-control" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="Email3" name="Email3" placeholder="Email" value="@Model.MatrizList.FirstOrDefault().Email3" class="form-control" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Jefe3 </label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="Jefe3" name="Jefe3" placeholder="Jefe3" value="@Model.MatrizList.FirstOrDefault().Jefe2" class="form-control" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="Email4" name="Email4" placeholder="Email" value="@Model.MatrizList.FirstOrDefault().Email4" class="form-control" onkeypress="return validar(event)"></div>
+
+                    </div>
+
+                    <div>
+                        <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Actualizar</button>
+                    </div>
+</form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+
+@Scripts.Render("~/Scripts/User/User.js")
+
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>

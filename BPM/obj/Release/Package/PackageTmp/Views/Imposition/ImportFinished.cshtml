@@ -1,0 +1,121 @@
+﻿@using BPM.Dto.DataImport
+@model DataImportDto
+
+@{
+    ViewBag.Title = "DatabaseImport";
+}
+<script src="~/Scripts/User/User.js"></script>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Importación de Finalizados SGC</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Imposición</a></li>
+                            <li><a href="~/DatabaseImport/DatabaseImport">Importación de Finalizados SGC</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/Imposition/ImportFinished")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Finalizados</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="file" id="Database" name="Database" placeholder="Ruta de la base" required class="form-control" value="Database" onchange="checkfile(this)">
+                        @Html.ValidationMessageFor(DataImportDto => DataImportDto.Database)
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">@Model.Message</label></div>
+                </div>
+
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Importar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/Imposition/UpdateInconsistencies")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label">Finalizados e Inconsistencias</label></div>
+                    <div class="row form-group">
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <div class="dropdown">
+                            <a href="" class="form-control" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Elija el reporte que desea descargar...
+                            </a>
+
+                            <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="DownloadReportFinished/1">Finalizados SGC / BPM</a>
+                                <a class="nav-link" href="DownloadReportFinished/2">Inconsistencias</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label"></label></div>
+                </div>
+
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-download"> </i>&nbsp; Cargar inconsistencias a BOT</button>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-6"><label for="text-input" class=" form-control-label">@Model.MessageBot</label></div>
+                </div>
+
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" language="javascript">
+    function checkfile(sender) {
+        var validExts = new Array(".xlsx", ".xls");
+        var fileExt = sender.value;
+        fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+        if (validExts.indexOf(fileExt) < 0) {
+            alert("Archivo inválido. Los archivos deben ser del tipo " +
+                validExts.toString());
+            sender.value = '';
+            return false;
+        }
+        else return true;
+    }</script>
+
+
+

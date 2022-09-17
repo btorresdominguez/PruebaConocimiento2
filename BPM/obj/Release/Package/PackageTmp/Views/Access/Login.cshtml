@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BPM Integración con SAP</title>
+
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Business Login Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- css files -->
+    <link rel="shortcut icon" href="~/Resources/Layout/img/Icon1.ico">
+    <link href="~/Resources/Login/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Resources/Login/css/style.css" rel="stylesheet" />
+    <!-- //css files -->
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- //google fonts -->
+
+</head>
+<body>
+
+    <div class="signupform">
+        <div class="container">
+            <!-- main content -->
+            <div class="agile_info">
+                <div class="w3l_form">
+                    <div class="left_grid_info">
+                        <div>
+                            <div id="header">
+                                <h1>BPM</h1> Integración con SAP
+                            </div>
+                        </div>
+                        <br />
+                        <p>Automatización de procesos GSS Colombia</p>
+
+                        <img src="~/Resources/Login/img/image.jpg" />
+
+                    </div>
+                </div>
+
+                <div class="w3_info">
+                    <h2>Ingresar a tu cuenta</h2>
+                    <p>Ingrese sus datos para iniciar sesión.</p>
+
+                    <form action="@Url.Content("~/Access/Login")" method="post">
+                        <label>Usuario</label>
+                        <div class="input-group">
+                            <span class="fa fa-user" aria-hidden="true"></span>
+                            <input type="text" placeholder="Ingrese Su Usuario" required="" name="User">
+                        </div>
+                        <label>Contraseña</label>
+                        <div class="input-group">
+                            <span class="fa fa-lock" aria-hidden="true"></span>
+                            <input type="password" placeholder="Ingrese su contraseña" required="" name="Password">
+
+                        </div>
+                        <div class="danger">
+                            <p class="error">@ViewBag.Error</p>
+                        </div>
+
+                        <button class="btn btn-danger btn-block" type="submit">Ingresar</button>
+                    </form>
+                    <p class="account">Si olvidaste tu usuario/contraseña por favor comunicate con tu supervisor.</p>
+                    </br>
+                    </br>
+
+                </div>
+
+
+            </div>
+            <!-- //main content -->
+        </div>
+        <!-- footer -->
+        <div class="footer">
+        </div>
+        <!-- footer -->
+    </div>
+
+</body>
+</html>
+<style>
+
+    #header h1 {
+        display: inline;
+    }
+</style>
+
+

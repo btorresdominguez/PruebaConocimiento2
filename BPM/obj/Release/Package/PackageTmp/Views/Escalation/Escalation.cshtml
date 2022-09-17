@@ -1,0 +1,224 @@
+﻿@using BPM.Dto.Models.Depuration
+@model EscalationAllDto
+
+
+@section scripts{
+
+    <script>
+        function AddRule() {
+            var index = (new Date()).getTime();
+            var clone = $('#Filter').clone();
+            clone.html($(clone).html().replace(/\[#\]/g, '[' + index + ']'));
+            clone.html($(clone).html().replace(/"%"/g, '"' + index + '"'));
+            clone.html($(clone).html().replace('Filter', index));
+            clone.html($(clone).html().replace('Filter', index));
+            $('#Filters').append(clone.html());
+        }
+
+    </script>
+
+
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Escalamientos",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+
+    </script>
+
+}
+
+@{
+    ViewBag.Title = "Escalation";
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de Escalamientos </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Configuración</a></li>
+                            <li><a href="#">Escalamientos</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Filter" id="Filter" style="display:none">
+    @foreach (var Filter in Model.FilterEscDto)
+    {
+        Html.RenderPartial("FilterPartial", Filter);
+
+    }
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar Escalamiento</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Escalation/Add")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Name" name="Name" required placeholder="Nombre" class="form-control"></div>
+                                </div>
+
+
+                                <input type="hidden" id="Orden" name="Orden" required placeholder="Orden" class="form-control">
+
+                              
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Filtros</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <div class="Filters" id="Filters">
+                                            @foreach (var Filter in Model.FilterEscDto)
+                                            {
+                                                Html.RenderPartial("FilterPartialOne", Filter);
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    </br>
+
+                                    <button type="button" onclick="AddRule()" style="float: left;" class="btn btn-primary btn-sm"><i class="fa fa-plus"> </i>&nbsp; Agregar regla</button>
+                                    </br>
+                                </div>
+                                <div>
+                                    </br>
+
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    @if (ViewBag.mensaje == 2)
+                    {
+                        <label class="danger"> El registro ya existe</label>
+                    }
+                    <div class="danger">
+                        <p class="error">
+                            @ViewBag.Error
+                        </p>
+                        @if (ViewBag.mensaje == 2)
+                        {
+                            <label class="danger"> El registro ya existe</label>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title"></strong>
+                <a href="AddSkill" id="BtnAddSkill" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar Escalamiento </a>
+
+            </div>
+            <table class="table" id="bootstrap-data-table">
+                <thead>
+                    <tr>
+                        <th>Orden</th>
+                        <th>Nombre</th>
+                        <th>Condicion</th>
+                        <th>Accion</th>
+                        <th>Valor</th>
+                        <th>Accion</th>
+                        <th>Estado</th>
+                        <th style="width:auto">Orden</th>
+                        <th style="width:auto">Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                  
+
+
+                    @foreach (var EscalationView in Model.EscalationDto)
+
+                    {
+
+                        <tr>
+                            <td>  <span class="name">@EscalationView.Orden  </span> </td>
+                            <td>  <span class="name">@EscalationView.NameEscalation</span> </td>
+                            <td>  <span class="name">@EscalationView.NameField</span> </td> 
+                            <td>  <span class="name">@EscalationView.NameAction</span> </td>
+                            <td>  <span class="name">@EscalationView.Value</span> </td>
+                            <td>  <span class="name">@EscalationView.NameCondition</span> </td>
+                            <td>  Habilitado </td>
+                            <td>
+                                <a onclick="document.location='@Url.Content("~/Escalation/Filtro?IdEscalation="+EscalationView.IdEscalation)'" id="BtnAddSkill" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: left;"><i class="fa fa-arrow-circle-o-down"> </i></a>
+                                <a onclick="document.location='@Url.Content("~/Escalation/FiltroUp?IdEscalation="+EscalationView.IdEscalation)'" id="BtnAddSkill" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-arrow-circle-o-up"> </i></a>
+                            </td> 
+                            <td>
+                                <a onclick="document.location='@Url.Content("~/Escalation/Edit?IdEscalation="+EscalationView.IdEscalation)'" id="BtnEditSkill" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></a>
+                                <a onclick="document.location='@Url.Content("~/Escalation/Remove?IdEscalation="+EscalationView.IdEscalation)'" id="BtnAddSkill" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-remove"> </i></a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+@*<script>
+        $(document).ready(function () {
+            $('bootstrap-data-table').DataTable();
+        });
+
+    </script>*@

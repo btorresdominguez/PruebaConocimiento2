@@ -1,0 +1,171 @@
+﻿@model  BPM.Dto.Models.Configuration.RoleCreationDto
+
+@{
+    ViewBag.Title = "Role";
+}
+
+@section scripts{
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+
+<script src="~/Scripts/User/User.js"></script>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de roles</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Role/Role">Roles</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar rol</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Role/Add")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Name" required name="Name" placeholder="Rol" class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Descripción</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" required name="Description" placeholder="Descripción" class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label class=" form-control-label">Modulos</label></div>
+                                    <div class="col col-md-9">
+                                        <div class="form-check">
+                                            @foreach (var ModuleView in Model.ModuleList)
+                                            {
+
+                                                <div class="checkbox ">
+                                                    <input type="checkbox" name="SelectedModules" value="@ModuleView.IdModule" />
+                                                    <label for="@ModuleView.Name">@ModuleView.Name</label>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Roles</strong>
+                <a href="AddRole" id="BtnAddRole" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar rol</a>
+
+            </div>
+                <table class="table " id="bootstrap-data-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Estado</th>
+                            <th style="width:auto">Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var RoleView in Model.RoleList)
+                        {
+                            <tr>
+                                <td>  <span class="name">@RoleView.Name</span> </td>
+                                <td>  <span class="name">@RoleView.Description</span> </td>
+                                <td>  <span class="name">@RoleView.NameState</span> </td>
+                                <td>
+                                    <a onclick="document.location='@Url.Content("~/Role/Edit?IdRole="+@RoleView.IdRole)'" id="BtnEditRole" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></a>
+                                    <a onclick="document.location='@Url.Content("~/Role/Remove?IdRole="+@RoleView.IdRole)'" id="BtnAddRole" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-remove"> </i></a>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>
+

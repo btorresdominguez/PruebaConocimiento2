@@ -1,0 +1,13 @@
+﻿
+@using BPM.Dto.Models.Configuration
+@model  FilterCreationDto
+
+<div class="Filter" id="Filter">
+
+    @Html.DropDownListFor(m => m.Fields, new SelectList(Model.ListFieldDto, "IdField", "Name"), "", new { required = "required" })
+    @Html.DropDownListFor(m => m.Actions, new SelectList(Model.ListActions, "IdAction", "Action"), "", new { required = "required" })
+    @Html.TextBox("Values", Model.Values, new { required = "required" })
+    @Html.DropDownListFor(m => m.Conditions, new SelectList(Model.ListConditions, "IdCondition", "NameCondition"), "", new { required = "required" })
+
+    <br />
+</div>

@@ -1,0 +1,3066 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BPMModelStoreContainer" CdmEntityContainer="BPMEntities">
+    <EntitySetMapping Name="Action">
+      <EntityTypeMapping TypeName="BPMModel.Action">
+        <MappingFragment StoreEntitySet="Action">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Action1" ColumnName="Action" />
+          <ScalarProperty Name="IdAction" ColumnName="IdAction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Base">
+      <EntityTypeMapping TypeName="BPMModel.Base">
+        <MappingFragment StoreEntitySet="Base">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+          <ScalarProperty Name="Old" ColumnName="Old" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cause">
+      <EntityTypeMapping TypeName="BPMModel.Cause">
+        <MappingFragment StoreEntitySet="Cause">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Matter" ColumnName="Matter" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="BPMModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company">
+      <EntityTypeMapping TypeName="BPMModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Condition">
+      <EntityTypeMapping TypeName="BPMModel.Condition">
+        <MappingFragment StoreEntitySet="Condition">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Condition1" ColumnName="Condition" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCondition" ColumnName="IdCondition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filter">
+      <EntityTypeMapping TypeName="BPMModel.Filter">
+        <MappingFragment StoreEntitySet="Filter">
+          <ScalarProperty Name="TypeFilter" ColumnName="TypeFilter" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="IdBase" ColumnName="IdBase" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login_Log">
+      <EntityTypeMapping TypeName="BPMModel.Login_Log">
+        <MappingFragment StoreEntitySet="Login_Log">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operation">
+      <EntityTypeMapping TypeName="BPMModel.Operation">
+        <MappingFragment StoreEntitySet="Operation">
+          <ScalarProperty Name="IdModule" ColumnName="IdModule" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PQR_Latters">
+      <EntityTypeMapping TypeName="BPMModel.PQR_Latters">
+        <MappingFragment StoreEntitySet="PQR_Latters">
+          <ScalarProperty Name="Id_DocumentCloud" ColumnName="Id_DocumentCloud" />
+          <ScalarProperty Name="Id_typeLatter" ColumnName="Id_typeLatter" />
+          <ScalarProperty Name="Id_PQR" ColumnName="Id_PQR" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PQR_Log">
+      <EntityTypeMapping TypeName="BPMModel.PQR_Log">
+        <MappingFragment StoreEntitySet="PQR_Log">
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PQR_State">
+      <EntityTypeMapping TypeName="BPMModel.PQR_State">
+        <MappingFragment StoreEntitySet="PQR_State">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="BPMModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="BPMModel.Service">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skill">
+      <EntityTypeMapping TypeName="BPMModel.Skill">
+        <MappingFragment StoreEntitySet="Skill">
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="State">
+      <EntityTypeMapping TypeName="BPMModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="BPMModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Epx" ColumnName="Epx" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Surnames" ColumnName="Surnames" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Written">
+      <EntityTypeMapping TypeName="BPMModel.Written">
+        <MappingFragment StoreEntitySet="Written">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Observation" ColumnName="Observation" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Writting_State">
+      <EntityTypeMapping TypeName="BPMModel.Writting_State">
+        <MappingFragment StoreEntitySet="Writting_State">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IdWritting" ColumnName="IdWritting" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exceptions">
+      <EntityTypeMapping TypeName="BPMModel.Exceptions">
+        <MappingFragment StoreEntitySet="Exceptions">
+          <ScalarProperty Name="Id_Company" ColumnName="Id_Company" />
+          <ScalarProperty Name="Id_City" ColumnName="Id_City" />
+          <ScalarProperty Name="Id_Skill" ColumnName="Id_Skill" />
+          <ScalarProperty Name="Id_Cause" ColumnName="Id_Cause" />
+          <ScalarProperty Name="Id_Template" ColumnName="Id_Template" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paragraph">
+      <EntityTypeMapping TypeName="BPMModel.Paragraph">
+        <MappingFragment StoreEntitySet="Paragraph">
+          <ScalarProperty Name="paragraphContent" ColumnName="paragraphContent" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id_TypeParagraph" ColumnName="Id_TypeParagraph" />
+          <ScalarProperty Name="Id_Cause" ColumnName="Id_Cause" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PQR_Paragraph">
+      <EntityTypeMapping TypeName="BPMModel.PQR_Paragraph">
+        <MappingFragment StoreEntitySet="PQR_Paragraph">
+          <ScalarProperty Name="Id_Paragraph" ColumnName="Id_Paragraph" />
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Template">
+      <EntityTypeMapping TypeName="BPMModel.Template">
+        <MappingFragment StoreEntitySet="Template">
+          <ScalarProperty Name="Id_Company" ColumnName="Id_Company" />
+          <ScalarProperty Name="Id_TypeTemplate" ColumnName="Id_TypeTemplate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Template_TypeNotification">
+      <EntityTypeMapping TypeName="BPMModel.Template_TypeNotification">
+        <MappingFragment StoreEntitySet="Template_TypeNotification">
+          <ScalarProperty Name="Id_DocumentCloud" ColumnName="Id_DocumentCloud" />
+          <ScalarProperty Name="Id_typeLatter" ColumnName="Id_typeLatter" />
+          <ScalarProperty Name="Id_TypeNotification" ColumnName="Id_TypeNotification" />
+          <ScalarProperty Name="Id_Template" ColumnName="Id_Template" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="BPMModel.Tokens">
+        <MappingFragment StoreEntitySet="Tokens">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Formule" ColumnName="Formule" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeLatter">
+      <EntityTypeMapping TypeName="BPMModel.TypeLatter">
+        <MappingFragment StoreEntitySet="TypeLatter">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeNotification">
+      <EntityTypeMapping TypeName="BPMModel.TypeNotification">
+        <MappingFragment StoreEntitySet="TypeNotification">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeParagraph">
+      <EntityTypeMapping TypeName="BPMModel.TypeParagraph">
+        <MappingFragment StoreEntitySet="TypeParagraph">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeTemplate">
+      <EntityTypeMapping TypeName="BPMModel.TypeTemplate">
+        <MappingFragment StoreEntitySet="TypeTemplate">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Role_Operation" TypeName="BPMModel.Role_Operation" StoreEntitySet="Role_Operation">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="IdRole" />
+      </EndProperty>
+      <EndProperty Name="Operation">
+        <ScalarProperty Name="Id" ColumnName="IdOperation" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Skill_User" TypeName="BPMModel.Skill_User" StoreEntitySet="Skill_User">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="IdUser" />
+      </EndProperty>
+      <EndProperty Name="Skill">
+        <ScalarProperty Name="Id" ColumnName="IdSkill" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddBase" FunctionName="BPMModel.Store.Sp_AddBase" />
+    <FunctionImportMapping FunctionImportName="Sp_AddCause" FunctionName="BPMModel.Store.Sp_AddCause" />
+    <FunctionImportMapping FunctionImportName="Sp_AddClient" FunctionName="BPMModel.Store.Sp_AddClient" />
+    <FunctionImportMapping FunctionImportName="Sp_AddCompany" FunctionName="BPMModel.Store.Sp_AddCompany" />
+    <FunctionImportMapping FunctionImportName="Sp_AddFilterBase" FunctionName="BPMModel.Store.Sp_AddFilterBase" />
+    <FunctionImportMapping FunctionImportName="Sp_AddModule" FunctionName="BPMModel.Store.Sp_AddModule" />
+    <FunctionImportMapping FunctionImportName="Sp_AddModuleRole" FunctionName="BPMModel.Store.Sp_AddModuleRole" />
+    <FunctionImportMapping FunctionImportName="Sp_AddRol" FunctionName="BPMModel.Store.Sp_AddRol" />
+    <FunctionImportMapping FunctionImportName="Sp_AddSkill" FunctionName="BPMModel.Store.Sp_AddSkill" />
+    <FunctionImportMapping FunctionImportName="Sp_AddUserSkills" FunctionName="BPMModel.Store.Sp_AddUserSkills" />
+    <FunctionImportMapping FunctionImportName="Sp_AssignPQRS" FunctionName="BPMModel.Store.Sp_AssignPQRS" />
+    <FunctionImportMapping FunctionImportName="Sp_EditBase" FunctionName="BPMModel.Store.Sp_EditBase" />
+    <FunctionImportMapping FunctionImportName="Sp_EditCause" FunctionName="BPMModel.Store.Sp_EditCause" />
+    <FunctionImportMapping FunctionImportName="Sp_EditClient" FunctionName="BPMModel.Store.Sp_EditClient" />
+    <FunctionImportMapping FunctionImportName="Sp_EditCompany" FunctionName="BPMModel.Store.Sp_EditCompany" />
+    <FunctionImportMapping FunctionImportName="Sp_EditModule" FunctionName="BPMModel.Store.Sp_EditModule" />
+    <FunctionImportMapping FunctionImportName="Sp_EditRol" FunctionName="BPMModel.Store.Sp_EditRol" />
+    <FunctionImportMapping FunctionImportName="Sp_EditSkill" FunctionName="BPMModel.Store.Sp_EditSkill" />
+    <FunctionImportMapping FunctionImportName="Sp_GetActions" FunctionName="BPMModel.Store.Sp_GetActions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetActions_Result">
+          <ScalarProperty Name="IdAction" ColumnName="IdAction" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetAdvisers" FunctionName="BPMModel.Store.Sp_GetAdvisers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetAdvisers_Result">
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetBase" FunctionName="BPMModel.Store.Sp_GetBase">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetBase_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="Old" ColumnName="Old" />
+          <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameSkill" ColumnName="NameSkill" />
+          <ScalarProperty Name="NameService" ColumnName="NameService" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetBases" FunctionName="BPMModel.Store.Sp_GetBases">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetBases_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IdService" ColumnName="IdService" />
+          <ScalarProperty Name="Old" ColumnName="Old" />
+          <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameService" ColumnName="NameService" />
+          <ScalarProperty Name="NameSkill" ColumnName="NameSkill" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCauseParagraphs" FunctionName="BPMModel.Store.Sp_GetCauseParagraphs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCauseParagraphs_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Cause" ColumnName="Id_Cause" />
+          <ScalarProperty Name="Id_TypeParagraph" ColumnName="Id_TypeParagraph" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="paragraphContent" ColumnName="paragraphContent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCauses" FunctionName="BPMModel.Store.Sp_GetCauses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCauses_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Matter" ColumnName="Matter" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameStat" ColumnName="NameStat" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCities" FunctionName="BPMModel.Store.Sp_GetCities">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCities_Result">
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetClients" FunctionName="BPMModel.Store.Sp_GetClients">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetClients_Result">
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCompanies" FunctionName="BPMModel.Store.Sp_GetCompanies">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCompanies_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetConditions" FunctionName="BPMModel.Store.Sp_GetConditions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetConditions_Result">
+          <ScalarProperty Name="IdCondition" ColumnName="IdCondition" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetDailyReport" FunctionName="BPMModel.Store.Sp_GetDailyReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetDailyReport_Result">
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+          <ScalarProperty Name="Tipificación" ColumnName="Tipificación" />
+          <ScalarProperty Name="Día_1" ColumnName="Día 1" />
+          <ScalarProperty Name="Día_2" ColumnName="Día 2" />
+          <ScalarProperty Name="Día_3" ColumnName="Día 3" />
+          <ScalarProperty Name="Día_4" ColumnName="Día 4" />
+          <ScalarProperty Name="Día_5" ColumnName="Día 5" />
+          <ScalarProperty Name="Día_6" ColumnName="Día 6" />
+          <ScalarProperty Name="Día_7" ColumnName="Día 7" />
+          <ScalarProperty Name="Día_8" ColumnName="Día 8" />
+          <ScalarProperty Name="Día_9" ColumnName="Día 9" />
+          <ScalarProperty Name="Día_10" ColumnName="Día 10" />
+          <ScalarProperty Name="Día_11" ColumnName="Día 11" />
+          <ScalarProperty Name="Día_12" ColumnName="Día 12" />
+          <ScalarProperty Name="Día_13" ColumnName="Día 13" />
+          <ScalarProperty Name="Día_14" ColumnName="Día 14" />
+          <ScalarProperty Name="Día_15" ColumnName="Día 15" />
+          <ScalarProperty Name="Otro" ColumnName="Otro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetDuplicatePQR" FunctionName="BPMModel.Store.Sp_GetDuplicatePQR" />
+    <FunctionImportMapping FunctionImportName="Sp_GetFiltersBases" FunctionName="BPMModel.Store.Sp_GetFiltersBases">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFiltersBases_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="IdBase" ColumnName="IdBase" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="TypeFilter" ColumnName="TypeFilter" />
+          <ScalarProperty Name="NameField" ColumnName="NameField" />
+          <ScalarProperty Name="NameCondition" ColumnName="NameCondition" />
+          <ScalarProperty Name="NameAction" ColumnName="NameAction" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetModules" FunctionName="BPMModel.Store.Sp_GetModules">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetModules_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetModulesRoles" FunctionName="BPMModel.Store.Sp_GetModulesRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetModulesRoles_Result">
+          <ScalarProperty Name="IdModule" ColumnName="IdModule" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Permit" ColumnName="Permit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRLetters" FunctionName="BPMModel.Store.Sp_GetPQRLetters">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQRLetters_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_PQR" ColumnName="Id_PQR" />
+          <ScalarProperty Name="Id_typeLatter" ColumnName="Id_typeLatter" />
+          <ScalarProperty Name="Id_DocumentCloud" ColumnName="Id_DocumentCloud" />
+          <ScalarProperty Name="NameTypeLater" ColumnName="NameTypeLater" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRLetters_Delete" FunctionName="BPMModel.Store.Sp_GetPQRLetters_Delete" />
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRLetters_view" FunctionName="BPMModel.Store.Sp_GetPQRLetters_view">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQRLetters_view_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_PQR" ColumnName="Id_PQR" />
+          <ScalarProperty Name="Id_typeLatter" ColumnName="Id_typeLatter" />
+          <ScalarProperty Name="Name_typeLatter" ColumnName="Name_typeLatter" />
+          <ScalarProperty Name="Id_DocumentCloud" ColumnName="Id_DocumentCloud" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRLog" FunctionName="BPMModel.Store.Sp_GetPQRLog">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQRLog_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="Filial" ColumnName="Filial" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Surnames" ColumnName="Surnames" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRLog_IdPqr" FunctionName="BPMModel.Store.Sp_GetPQRLog_IdPqr">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQRLog_IdPqr_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="Filial" ColumnName="Filial" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Surnames" ColumnName="Surnames" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRParagraphs" FunctionName="BPMModel.Store.Sp_GetPQRParagraphs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQRParagraphs_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="Id_Paragraph" ColumnName="Id_Paragraph" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRReference" FunctionName="BPMModel.Store.Sp_GetPQRReference">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQRReference_Result">
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="POLIZA" ColumnName="POLIZA" />
+          <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE CLIENTE" />
+          <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="F_RADICACION" ColumnName="F_RADICACION" />
+          <ScalarProperty Name="DIAS_GESTION" ColumnName="DIAS GESTION" />
+          <ScalarProperty Name="UN__GENERADORA" ColumnName="UN. GENERADORA" />
+          <ScalarProperty Name="UN__ENVIO_ACTUAL" ColumnName="UN. ENVIO ACTUAL" />
+          <ScalarProperty Name="USUARIO_ALTA" ColumnName="USUARIO ALTA" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="DESC__ACTIV_" ColumnName="DESC. ACTIV." />
+          <ScalarProperty Name="DESC__CAUSA" ColumnName="DESC. CAUSA" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ORIGEN" ColumnName="ORIGEN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+          <ScalarProperty Name="CODIGO_CAUSA" ColumnName="CODIGO CAUSA" />
+          <ScalarProperty Name="GESTIONABLE" ColumnName="GESTIONABLE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetRoles" FunctionName="BPMModel.Store.Sp_GetRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetRoles_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetServices" FunctionName="BPMModel.Store.Sp_GetServices">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetServices_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetSkill" FunctionName="BPMModel.Store.Sp_GetSkill">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetSkill_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetStates" FunctionName="BPMModel.Store.Sp_GetStates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetStates_Result">
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUserModules" FunctionName="BPMModel.Store.Sp_GetUserModules">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetUserModules_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUserSalt" FunctionName="BPMModel.Store.Sp_GetUserSalt" />
+    <FunctionImportMapping FunctionImportName="Sp_GetUserSkills" FunctionName="BPMModel.Store.Sp_GetUserSkills">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetUserSkills_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUserStates" FunctionName="BPMModel.Store.Sp_GetUserStates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetUserStates_Result">
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_IdentifyPossibleWritings" FunctionName="BPMModel.Store.Sp_IdentifyPossibleWritings">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_IdentifyPossibleWritings_Result">
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Policy" ColumnName="Policy" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="ManagementDays" ColumnName="ManagementDays" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Surnames" ColumnName="Surnames" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_IdentifyTemplate" FunctionName="BPMModel.Store.Sp_IdentifyTemplate" />
+    <FunctionImportMapping FunctionImportName="Sp_Login" FunctionName="BPMModel.Store.Sp_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_Login_Result">
+          <ScalarProperty Name="LoggingStatus" ColumnName="LoggingStatus" />
+          <ScalarProperty Name="LoggingStatusDescription" ColumnName="LoggingStatusDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_ModulesPerUser" FunctionName="BPMModel.Store.Sp_ModulesPerUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_ModulesPerUser_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PQR_Latters_Insert" FunctionName="BPMModel.Store.SP_PQR_Latters_Insert" />
+    <FunctionImportMapping FunctionImportName="Sp_ReassignPQR" FunctionName="BPMModel.Store.Sp_ReassignPQR" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveBase" FunctionName="BPMModel.Store.Sp_RemoveBase" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveCause" FunctionName="BPMModel.Store.Sp_RemoveCause" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveClient" FunctionName="BPMModel.Store.Sp_RemoveClient" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveCompany" FunctionName="BPMModel.Store.Sp_RemoveCompany" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveFiltersBases" FunctionName="BPMModel.Store.Sp_RemoveFiltersBases" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveModule" FunctionName="BPMModel.Store.Sp_RemoveModule" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveModulesRole" FunctionName="BPMModel.Store.Sp_RemoveModulesRole" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveRole" FunctionName="BPMModel.Store.Sp_RemoveRole" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveSkill" FunctionName="BPMModel.Store.Sp_RemoveSkill" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveUser" FunctionName="BPMModel.Store.Sp_RemoveUser" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveUserSkills" FunctionName="BPMModel.Store.Sp_RemoveUserSkills" />
+    <FunctionImportMapping FunctionImportName="Sp_UpdatePossibleWritings" FunctionName="BPMModel.Store.Sp_UpdatePossibleWritings" />
+    <FunctionImportMapping FunctionImportName="Sp_UpdateWritings" FunctionName="BPMModel.Store.Sp_UpdateWritings" />
+    <FunctionImportMapping FunctionImportName="Sp_UpdateWritten" FunctionName="BPMModel.Store.Sp_UpdateWritten" />
+    <FunctionImportMapping FunctionImportName="Sp_VerifyModuleUser" FunctionName="BPMModel.Store.Sp_VerifyModuleUser" />
+    <FunctionImportMapping FunctionImportName="splitstring" FunctionName="BPMModel.Store.splitstring" />
+    <FunctionImportMapping FunctionImportName="SP_Exceptions_Delete" FunctionName="BPMModel.Store.SP_Exceptions_Delete" />
+    <FunctionImportMapping FunctionImportName="SP_Exceptions_Insert" FunctionName="BPMModel.Store.SP_Exceptions_Insert" />
+    <FunctionImportMapping FunctionImportName="SP_Paragraph_Delete" FunctionName="BPMModel.Store.SP_Paragraph_Delete" />
+    <FunctionImportMapping FunctionImportName="SP_Paragraph_get" FunctionName="BPMModel.Store.SP_Paragraph_get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_Paragraph_get_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Cause" ColumnName="Id_Cause" />
+          <ScalarProperty Name="CauseCode" ColumnName="CauseCode" />
+          <ScalarProperty Name="Description_code" ColumnName="Description_code" />
+          <ScalarProperty Name="Id_TypeParagraph" ColumnName="Id_TypeParagraph" />
+          <ScalarProperty Name="Name_TypeParagraph" ColumnName="Name_TypeParagraph" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="paragraphContent" ColumnName="paragraphContent" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Paragraph_Insert" FunctionName="BPMModel.Store.SP_Paragraph_Insert" />
+    <FunctionImportMapping FunctionImportName="SP_Paragraph_Update" FunctionName="BPMModel.Store.SP_Paragraph_Update" />
+    <FunctionImportMapping FunctionImportName="SP_PQR_Paragraph_Delete" FunctionName="BPMModel.Store.SP_PQR_Paragraph_Delete" />
+    <FunctionImportMapping FunctionImportName="SP_PQR_Paragraph_Insert" FunctionName="BPMModel.Store.SP_PQR_Paragraph_Insert" />
+    <FunctionImportMapping FunctionImportName="SP_SelectTemplateLatter_Get" FunctionName="BPMModel.Store.SP_SelectTemplateLatter_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_SelectTemplateLatter_Get_Result">
+          <ScalarProperty Name="Id_DocumentCloud" ColumnName="Id_DocumentCloud" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id_TypeNotification" ColumnName="Id_TypeNotification" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Template_Delete" FunctionName="BPMModel.Store.SP_Template_Delete" />
+    <FunctionImportMapping FunctionImportName="SP_Template_Get" FunctionName="BPMModel.Store.SP_Template_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_Template_Get_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id_TypeTemplate" ColumnName="Id_TypeTemplate" />
+          <ScalarProperty Name="Name_TypeTemplate" ColumnName="Name_TypeTemplate" />
+          <ScalarProperty Name="Id_Company" ColumnName="Id_Company" />
+          <ScalarProperty Name="Name_Company" ColumnName="Name_Company" />
+          <ScalarProperty Name="Number_Exceptions" ColumnName="Number_Exceptions" />
+          <ScalarProperty Name="Number_Documents" ColumnName="Number_Documents" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Template_Insert" FunctionName="BPMModel.Store.SP_Template_Insert" />
+    <FunctionImportMapping FunctionImportName="SP_Template_TypeNotification_Delete" FunctionName="BPMModel.Store.SP_Template_TypeNotification_Delete" />
+    <FunctionImportMapping FunctionImportName="SP_Template_TypeNotification_Insert" FunctionName="BPMModel.Store.SP_Template_TypeNotification_Insert" />
+    <FunctionImportMapping FunctionImportName="SP_Template_TypeNotificationContext_Get" FunctionName="BPMModel.Store.SP_Template_TypeNotificationContext_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_Template_TypeNotificationContext_Get_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Template" ColumnName="Id_Template" />
+          <ScalarProperty Name="Id_TypeNotification" ColumnName="Id_TypeNotification" />
+          <ScalarProperty Name="Id_typeLatter" ColumnName="Id_typeLatter" />
+          <ScalarProperty Name="Id_DocumentCloud" ColumnName="Id_DocumentCloud" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Template_Update" FunctionName="BPMModel.Store.SP_Template_Update" />
+    <FunctionImportMapping FunctionImportName="SP_TemplateContext_Get" FunctionName="BPMModel.Store.SP_TemplateContext_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_TemplateContext_Get_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id_TypeTemplate" ColumnName="Id_TypeTemplate" />
+          <ScalarProperty Name="Id_Company" ColumnName="Id_Company" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Tokens_GetForLatters" FunctionName="BPMModel.Store.SP_Tokens_GetForLatters">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_Tokens_GetForLatters_Result">
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_TypeLatter_Get" FunctionName="BPMModel.Store.SP_TypeLatter_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_TypeLatter_Get_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_TypeNotification_Get" FunctionName="BPMModel.Store.SP_TypeNotification_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_TypeNotification_Get_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_TypeParagraph_Get" FunctionName="BPMModel.Store.SP_TypeParagraph_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_TypeParagraph_Get_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_TypeTemplate_Get" FunctionName="BPMModel.Store.SP_TypeTemplate_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_TypeTemplate_Get_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetDeliveryUnit" FunctionName="BPMModel.Store.Sp_GetDeliveryUnit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetDeliveryUnit_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetJustified" FunctionName="BPMModel.Store.Sp_GetJustified">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetJustified_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetResult" FunctionName="BPMModel.Store.Sp_GetResult">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetResult_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddUsers" FunctionName="BPMModel.Store.Sp_AddUsers" />
+    <FunctionImportMapping FunctionImportName="Sp_EditUser" FunctionName="BPMModel.Store.Sp_EditUser" />
+    <FunctionImportMapping FunctionImportName="Sp_GetUser" FunctionName="BPMModel.Store.Sp_GetUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetUser_Result1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Surnames" ColumnName="Surnames" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Epx" ColumnName="Epx" />
+          <ScalarProperty Name="NameRol" ColumnName="NameRol" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUsers" FunctionName="BPMModel.Store.Sp_GetUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetUsers_Result1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Surnames" ColumnName="Surnames" />
+          <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Epx" ColumnName="Epx" />
+          <ScalarProperty Name="NameRol" ColumnName="NameRol" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_LoadInconsistenciesBOT" FunctionName="BPMModel.Store.Sp_LoadInconsistenciesBOT" />
+    <FunctionImportMapping FunctionImportName="Sp_DeleteFinishedSGC" FunctionName="BPMModel.Store.Sp_DeleteFinishedSGC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_DeleteFinishedSGC_Result">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_EditFtp" FunctionName="BPMModel.Store.Sp_EditFtp" />
+    <FunctionImportMapping FunctionImportName="Sp_GetFtps" FunctionName="BPMModel.Store.Sp_GetFtps">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFtps_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Host" ColumnName="Host" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_RemoveFtp" FunctionName="BPMModel.Store.Sp_RemoveFtp" />
+    <FunctionImportMapping FunctionImportName="Sp_CreateSinglePqrLot" FunctionName="BPMModel.Store.Sp_CreateSinglePqrLot" />
+    <FunctionImportMapping FunctionImportName="Sp_GetAllLots" FunctionName="BPMModel.Store.Sp_GetAllLots">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetAllLots_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Printed" ColumnName="Printed" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetLotLetters" FunctionName="BPMModel.Store.Sp_GetLotLetters">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetLotLetters_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="IdLetter" ColumnName="IdLetter" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IdLot" ColumnName="IdLot" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPrinterInfo" FunctionName="BPMModel.Store.Sp_GetPrinterInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPrinterInfo_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+          <ScalarProperty Name="PrinterPath" ColumnName="PrinterPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_UpdateLetter" FunctionName="BPMModel.Store.Sp_UpdateLetter" />
+    <FunctionImportMapping FunctionImportName="Sp_UpdateLotState" FunctionName="BPMModel.Store.Sp_UpdateLotState" />
+    <FunctionImportMapping FunctionImportName="Sp_UpdatePrinterConfiguration" FunctionName="BPMModel.Store.Sp_UpdatePrinterConfiguration" />
+    <FunctionImportMapping FunctionImportName="Sp_AddFtp" FunctionName="BPMModel.Store.Sp_AddFtp" />
+    <EntitySetMapping Name="Ftps">
+      <EntityTypeMapping TypeName="BPMModel.Ftps">
+        <MappingFragment StoreEntitySet="Ftps">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Host" ColumnName="Host" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lots">
+      <EntityTypeMapping TypeName="BPMModel.Lots">
+        <MappingFragment StoreEntitySet="Lots">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IdFtp" ColumnName="IdFtp" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="DateInit" ColumnName="DateInit" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetLotsActive" FunctionName="BPMModel.Store.Sp_GetLotsActive">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetLotsActive_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateInit" ColumnName="DateInit" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Run" ColumnName="Run" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetLotsOld" FunctionName="BPMModel.Store.Sp_GetLotsOld">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetLotsOld_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateInit" ColumnName="DateInit" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Run" ColumnName="Run" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddLotFtp" FunctionName="BPMModel.Store.Sp_AddLotFtp" />
+    <FunctionImportMapping FunctionImportName="Sp_PauseFtp" FunctionName="BPMModel.Store.Sp_PauseFtp" />
+    <FunctionImportMapping FunctionImportName="Sp_AddScan" FunctionName="BPMModel.Store.Sp_AddScan" />
+    <FunctionImportMapping FunctionImportName="Sp_GetFtp" FunctionName="BPMModel.Store.Sp_GetFtp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFtp_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Host" ColumnName="Host" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetLetters" FunctionName="BPMModel.Store.Sp_GetLetters">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetLetters_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdPqr" ColumnName="IdPqr" />
+          <ScalarProperty Name="IdLatter" ColumnName="IdLatter" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Policy" ColumnName="Policy" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="TypeNotification" ColumnName="TypeNotification" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TypeLatter" ColumnName="TypeLatter" />
+          <ScalarProperty Name="IdLot" ColumnName="IdLot" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetLot" FunctionName="BPMModel.Store.Sp_GetLot">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetLot_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateInit" ColumnName="DateInit" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="IdFtp" ColumnName="IdFtp" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_UpdateStateLatter" FunctionName="BPMModel.Store.Sp_UpdateStateLatter" />
+    <FunctionImportMapping FunctionImportName="Sp_UpdateStateLot" FunctionName="BPMModel.Store.Sp_UpdateStateLot" />
+    <FunctionImportMapping FunctionImportName="Sp_CancelLot" FunctionName="BPMModel.Store.Sp_CancelLot" />
+    <FunctionImportMapping FunctionImportName="Sp_GetLotInfo" FunctionName="BPMModel.Store.Sp_GetLotInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetLotInfo_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Printed" ColumnName="Printed" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllPQRfromBPM" FunctionName="BPMModel.Store.GetAllPQRfromBPM">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.GetAllPQRfromBPM_Result">
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Policy" ColumnName="Policy" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="FilingDate" ColumnName="FilingDate" />
+          <ScalarProperty Name="ManagementDays" ColumnName="ManagementDays" />
+          <ScalarProperty Name="GeneratingUnit" ColumnName="GeneratingUnit" />
+          <ScalarProperty Name="CurrentDeliveryUnit" ColumnName="CurrentDeliveryUnit" />
+          <ScalarProperty Name="PostingUser" ColumnName="PostingUser" />
+          <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+          <ScalarProperty Name="CauseDescription" ColumnName="CauseDescription" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="Dialing" ColumnName="Dialing" />
+          <ScalarProperty Name="IdBase" ColumnName="IdBase" />
+          <ScalarProperty Name="Written" ColumnName="Written" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="ManagementDate" ColumnName="ManagementDate" />
+          <ScalarProperty Name="DataCaptureDate" ColumnName="DataCaptureDate" />
+          <ScalarProperty Name="PrintingDate" ColumnName="PrintingDate" />
+          <ScalarProperty Name="ScanDate" ColumnName="ScanDate" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NotificationMethod" ColumnName="NotificationMethod" />
+          <ScalarProperty Name="LetterPath" ColumnName="LetterPath" />
+          <ScalarProperty Name="Petente" ColumnName="Petente" />
+          <ScalarProperty Name="ManagementAddress" ColumnName="ManagementAddress" />
+          <ScalarProperty Name="ManagementNeighborhood" ColumnName="ManagementNeighborhood" />
+          <ScalarProperty Name="LetterReference" ColumnName="LetterReference" />
+          <ScalarProperty Name="ManagementContent" ColumnName="ManagementContent" />
+          <ScalarProperty Name="ManagementObservations" ColumnName="ManagementObservations" />
+          <ScalarProperty Name="ManagementWeight" ColumnName="ManagementWeight" />
+          <ScalarProperty Name="ManagementTelephone" ColumnName="ManagementTelephone" />
+          <ScalarProperty Name="ManagementMail" ColumnName="ManagementMail" />
+          <ScalarProperty Name="ManagementCity" ColumnName="ManagementCity" />
+          <ScalarProperty Name="PropertyAddress" ColumnName="PropertyAddress" />
+          <ScalarProperty Name="DayLa" ColumnName="DayLa" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Justified" ColumnName="Justified" />
+          <ScalarProperty Name="DeliveryUnit" ColumnName="DeliveryUnit" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="StatePQR" ColumnName="StatePQR" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateDataPQRfromBotBPM" FunctionName="BPMModel.Store.UpdateDataPQRfromBotBPM" />
+    <FunctionImportMapping FunctionImportName="SP_Tokens_GetForLattersOLD" FunctionName="BPMModel.Store.SP_Tokens_GetForLattersOLD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_Tokens_GetForLattersOLD_Result">
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddPqrToLot" FunctionName="BPMModel.Store.Sp_AddPqrToLot" />
+    <FunctionImportMapping FunctionImportName="Sp_RemovePqrFromLot" FunctionName="BPMModel.Store.Sp_RemovePqrFromLot" />
+    <FunctionImportMapping FunctionImportName="GetLotReport" FunctionName="BPMModel.Store.GetLotReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.GetLotReport_Result">
+          <ScalarProperty Name="PQR" ColumnName="PQR" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="IdCloud" ColumnName="IdCloud" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="DiasGestion" ColumnName="DiasGestion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Set_Process_State" FunctionName="BPMModel.Store.SP_Set_Process_State" />
+    <FunctionImportMapping FunctionImportName="Sp_GetFinalizedLotReport" FunctionName="BPMModel.Store.Sp_GetFinalizedLotReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFinalizedLotReport_Result">
+          <ScalarProperty Name="PQR" ColumnName="PQR" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="IdCloud" ColumnName="IdCloud" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="DiasGestion" ColumnName="DiasGestion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Pistoleado" ColumnName="Pistoleado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Get_ProcessType" FunctionName="BPMModel.Store.SP_Get_ProcessType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_Get_ProcessType_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DescriptionProcess" ColumnName="DescriptionProcess" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Especification" ColumnName="Especification" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Uri" ColumnName="Uri" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ExceptionsContext_Get1" FunctionName="BPMModel.Store.SP_ExceptionsContext_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_ExceptionsContext_Get1_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Template" ColumnName="Id_Template" />
+          <ScalarProperty Name="Id_Cause" ColumnName="Id_Cause" />
+          <ScalarProperty Name="Id_Skill" ColumnName="Id_Skill" />
+          <ScalarProperty Name="Id_City" ColumnName="Id_City" />
+          <ScalarProperty Name="Id_Company" ColumnName="Id_Company" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_CreatedLot" FunctionName="BPMModel.Store.Sp_CreatedLot" />
+    <FunctionImportMapping FunctionImportName="Sp_CreatedLotFtp" FunctionName="BPMModel.Store.Sp_CreatedLotFtp" />
+    <FunctionImportMapping FunctionImportName="Sp_DeletePrint" FunctionName="BPMModel.Store.Sp_DeletePrint" />
+    <FunctionImportMapping FunctionImportName="Sp_CreateLot" FunctionName="BPMModel.Store.Sp_CreateLot" />
+    <FunctionImportMapping FunctionImportName="Sp_AddLettersToLot" FunctionName="BPMModel.Store.Sp_AddLettersToLot" />
+    <FunctionImportMapping FunctionImportName="Sp_GetDailyScanReport" FunctionName="BPMModel.Store.Sp_GetDailyScanReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetDailyScanReport_Result1">
+          <ScalarProperty Name="IdPqr" ColumnName="IdPqr" />
+          <ScalarProperty Name="Scan" ColumnName="Scan" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Module">
+      <EntityTypeMapping TypeName="BPMModel.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetStatesCQ" FunctionName="BPMModel.Store.Sp_GetStatesCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetStatesCQ_Result">
+          <ScalarProperty Name="IdStateCQ" ColumnName="IdStateCQ" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Justified">
+      <EntityTypeMapping TypeName="BPMModel.Justified">
+        <MappingFragment StoreEntitySet="Justified">
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OriginQCs">
+      <EntityTypeMapping TypeName="BPMModel.OriginQC">
+        <MappingFragment StoreEntitySet="OriginQC">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdOrigin" ColumnName="IdOrigin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetOrigines" FunctionName="BPMModel.Store.Sp_GetOrigines">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetOrigines_Result">
+          <ScalarProperty Name="IdOrigin" ColumnName="IdOrigin" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Resultadoes">
+      <EntityTypeMapping TypeName="BPMModel.Resultado">
+        <MappingFragment StoreEntitySet="Resultado">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdResultado" ColumnName="IdResultado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetResultados" FunctionName="BPMModel.Store.Sp_GetResultados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetResultados_Result">
+          <ScalarProperty Name="IdResultado" ColumnName="IdResultado" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCertificados" FunctionName="BPMModel.Store.Sp_GetCertificados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCertificados_Result">
+          <ScalarProperty Name="IdCertificado" ColumnName="IdCertificado" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetContactos" FunctionName="BPMModel.Store.Sp_GetContactos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetContactos_Result">
+          <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetContestados" FunctionName="BPMModel.Store.Sp_GetContestados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetContestados_Result">
+          <ScalarProperty Name="IdContesta" ColumnName="IdContesta" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetNotificados" FunctionName="BPMModel.Store.Sp_GetNotificados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetNotificados_Result">
+          <ScalarProperty Name="IdNotificacion" ColumnName="IdNotificacion" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetSMSs" FunctionName="BPMModel.Store.Sp_GetSMSs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetSMSs_Result">
+          <ScalarProperty Name="IdSMS" ColumnName="IdSMS" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Certificadoes">
+      <EntityTypeMapping TypeName="BPMModel.Certificado">
+        <MappingFragment StoreEntitySet="Certificado">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCertificado" ColumnName="IdCertificado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contactoes">
+      <EntityTypeMapping TypeName="BPMModel.Contacto">
+        <MappingFragment StoreEntitySet="Contacto">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contestas">
+      <EntityTypeMapping TypeName="BPMModel.Contesta">
+        <MappingFragment StoreEntitySet="Contesta">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdContesta" ColumnName="IdContesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notificacions">
+      <EntityTypeMapping TypeName="BPMModel.Notificacion">
+        <MappingFragment StoreEntitySet="Notificacion">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdNotificacion" ColumnName="IdNotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMS">
+      <EntityTypeMapping TypeName="BPMModel.SM">
+        <MappingFragment StoreEntitySet="SMS">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdSMS" ColumnName="IdSMS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUserCQ" FunctionName="BPMModel.Store.Sp_GetUserCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetUserCQ_Result1">
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ManagementDate" ColumnName="ManagementDate" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="PqrsCQs">
+      <EntityTypeMapping TypeName="BPMModel.PqrsCQ">
+        <MappingFragment StoreEntitySet="PqrsCQ">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdPQRS" ColumnName="IdPQRS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProvinciaCQs">
+      <EntityTypeMapping TypeName="BPMModel.ProvinciaCQ">
+        <MappingFragment StoreEntitySet="ProvinciaCQ">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPqrsCQ" FunctionName="BPMModel.Store.Sp_GetPqrsCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPqrsCQ_Result">
+          <ScalarProperty Name="IdPQRS" ColumnName="IdPQRS" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetProvincia" FunctionName="BPMModel.Store.Sp_GetProvincia">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetProvincia_Result">
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCompaniesCQ" FunctionName="BPMModel.Store.Sp_GetCompaniesCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCompaniesCQ_Result1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCauseParagraphsCQ" FunctionName="BPMModel.Store.Sp_GetCauseParagraphsCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCauseParagraphsCQ_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Cause" ColumnName="Id_Cause" />
+          <ScalarProperty Name="Id_TypeParagraph" ColumnName="Id_TypeParagraph" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="paragraphContent" ColumnName="paragraphContent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Checked" ColumnName="Checked" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Tokens_GetForLattersCQ" FunctionName="BPMModel.Store.SP_Tokens_GetForLattersCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_Tokens_GetForLattersCQ_Result">
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PQR_Paragraph_DeleteCQ" FunctionName="BPMModel.Store.SP_PQR_Paragraph_DeleteCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_PQR_Paragraph_DeleteCQ_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="Id_Paragraph" ColumnName="Id_Paragraph" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PQR_Paragraph_InsertCQ" FunctionName="BPMModel.Store.SP_PQR_Paragraph_InsertCQ" />
+    <FunctionImportMapping FunctionImportName="Sp_IdentifyTemplateCQ" FunctionName="BPMModel.Store.Sp_IdentifyTemplateCQ" />
+    <FunctionImportMapping FunctionImportName="SP_SelectTemplateLatter_GetCQ" FunctionName="BPMModel.Store.SP_SelectTemplateLatter_GetCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.SP_SelectTemplateLatter_GetCQ_Result">
+          <ScalarProperty Name="Id_DocumentCloud" ColumnName="Id_DocumentCloud" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id_TypeNotification" ColumnName="Id_TypeNotification" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCQ" FunctionName="BPMModel.Store.Sp_GetCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCQ_Result">
+          <ScalarProperty Name="Idcq" ColumnName="Idcq" />
+          <ScalarProperty Name="NotificationMethod" ColumnName="NotificationMethod" />
+          <ScalarProperty Name="Typing" ColumnName="Typing" />
+          <ScalarProperty Name="ManagementMail" ColumnName="ManagementMail" />
+          <ScalarProperty Name="AffairMail" ColumnName="AffairMail" />
+          <ScalarProperty Name="EmailAccount" ColumnName="EmailAccount" />
+          <ScalarProperty Name="IdOrigin" ColumnName="IdOrigin" />
+          <ScalarProperty Name="GeneratingUnit" ColumnName="GeneratingUnit" />
+          <ScalarProperty Name="Policy" ColumnName="Policy" />
+          <ScalarProperty Name="Delegation" ColumnName="Delegation" />
+          <ScalarProperty Name="ManagementTelephone" ColumnName="ManagementTelephone" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="ManagementAddress" ColumnName="ManagementAddress" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Channel" ColumnName="Channel" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+          <ScalarProperty Name="Administrative_Action" ColumnName="Administrative_Action" />
+          <ScalarProperty Name="ManagementQueue" ColumnName="ManagementQueue" />
+          <ScalarProperty Name="TailCase" ColumnName="TailCase" />
+          <ScalarProperty Name="Ticket" ColumnName="Ticket" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="Reassigned" ColumnName="Reassigned" />
+          <ScalarProperty Name="IdResultado" ColumnName="IdResultado" />
+          <ScalarProperty Name="Letter" ColumnName="Letter" />
+          <ScalarProperty Name="CustomeRequest" ColumnName="CustomeRequest" />
+          <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+          <ScalarProperty Name="IdSMS" ColumnName="IdSMS" />
+          <ScalarProperty Name="NotificationTelephone" ColumnName="NotificationTelephone" />
+          <ScalarProperty Name="IdContesta" ColumnName="IdContesta" />
+          <ScalarProperty Name="IdCertificado" ColumnName="IdCertificado" />
+          <ScalarProperty Name="IdNoticacion" ColumnName="IdNoticacion" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DateEmail" ColumnName="DateEmail" />
+          <ScalarProperty Name="ManagementDate" ColumnName="ManagementDate" />
+          <ScalarProperty Name="ClaimDate" ColumnName="ClaimDate" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="PQRS" ColumnName="PQRS" />
+          <ScalarProperty Name="EmailRS" ColumnName="EmailRS" />
+          <ScalarProperty Name="Market" ColumnName="Market" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRLetters_DeleteCQ" FunctionName="BPMModel.Store.Sp_GetPQRLetters_DeleteCQ" />
+    <FunctionImportMapping FunctionImportName="SP_PQR_Latters_InsertCQ" FunctionName="BPMModel.Store.SP_PQR_Latters_InsertCQ" />
+    <FunctionImportMapping FunctionImportName="Sp_GetPQRLettersCQ" FunctionName="BPMModel.Store.Sp_GetPQRLettersCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQRLettersCQ_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_PQR" ColumnName="Id_PQR" />
+          <ScalarProperty Name="Id_typeLatter" ColumnName="Id_typeLatter" />
+          <ScalarProperty Name="Id_DocumentCloud" ColumnName="Id_DocumentCloud" />
+          <ScalarProperty Name="NameTypeLater" ColumnName="NameTypeLater" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Chanels">
+      <EntityTypeMapping TypeName="BPMModel.Chanel">
+        <MappingFragment StoreEntitySet="Chanel">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdChanel" ColumnName="IdChanel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="BPMModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LetterCQs">
+      <EntityTypeMapping TypeName="BPMModel.LetterCQ">
+        <MappingFragment StoreEntitySet="LetterCQ">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdLetter" ColumnName="IdLetter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddCQ" FunctionName="BPMModel.Store.Sp_AddCQ" />
+    <FunctionImportMapping FunctionImportName="Sp_GetChanel" FunctionName="BPMModel.Store.Sp_GetChanel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetChanel_Result">
+          <ScalarProperty Name="IdChanel" ColumnName="IdChanel" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetEvent" FunctionName="BPMModel.Store.Sp_GetEvent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEvent_Result">
+          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetLetter" FunctionName="BPMModel.Store.Sp_GetLetter">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetLetter_Result">
+          <ScalarProperty Name="IdLetter" ColumnName="IdLetter" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AddCQs">
+      <EntityTypeMapping TypeName="BPMModel.AddCQ">
+        <MappingFragment StoreEntitySet="AddCQs">
+          <ScalarProperty Name="Letter" ColumnName="Letter" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="Chanel" ColumnName="Chanel" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="Market" ColumnName="Market" />
+          <ScalarProperty Name="EmailRS" ColumnName="EmailRS" />
+          <ScalarProperty Name="PQRS" ColumnName="PQRS" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="ClaimDate" ColumnName="ClaimDate" />
+          <ScalarProperty Name="ManagementDate" ColumnName="ManagementDate" />
+          <ScalarProperty Name="DateEmail" ColumnName="DateEmail" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="IdNoticacion" ColumnName="IdNoticacion" />
+          <ScalarProperty Name="IdCertificado" ColumnName="IdCertificado" />
+          <ScalarProperty Name="IdContesta" ColumnName="IdContesta" />
+          <ScalarProperty Name="NotificationTelephone" ColumnName="NotificationTelephone" />
+          <ScalarProperty Name="IdSMS" ColumnName="IdSMS" />
+          <ScalarProperty Name="IdContacto" ColumnName="IdContacto" />
+          <ScalarProperty Name="CustomeRequest" ColumnName="CustomeRequest" />
+          <ScalarProperty Name="IdResultado" ColumnName="IdResultado" />
+          <ScalarProperty Name="Reassigned" ColumnName="Reassigned" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="Ticket" ColumnName="Ticket" />
+          <ScalarProperty Name="TailCase" ColumnName="TailCase" />
+          <ScalarProperty Name="ManagementQueue" ColumnName="ManagementQueue" />
+          <ScalarProperty Name="Administrative_Action" ColumnName="Administrative_Action" />
+          <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="ManagementAddress" ColumnName="ManagementAddress" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ManagementTelephone" ColumnName="ManagementTelephone" />
+          <ScalarProperty Name="Delegation" ColumnName="Delegation" />
+          <ScalarProperty Name="Policy" ColumnName="Policy" />
+          <ScalarProperty Name="GeneratingUnit" ColumnName="GeneratingUnit" />
+          <ScalarProperty Name="IdOrigin" ColumnName="IdOrigin" />
+          <ScalarProperty Name="EmailAccount" ColumnName="EmailAccount" />
+          <ScalarProperty Name="AffairMail" ColumnName="AffairMail" />
+          <ScalarProperty Name="ManagementMail" ColumnName="ManagementMail" />
+          <ScalarProperty Name="Typing" ColumnName="Typing" />
+          <ScalarProperty Name="NotificationMethod" ColumnName="NotificationMethod" />
+          <ScalarProperty Name="Idcq" ColumnName="Idcq" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetRedesCQReportDto" FunctionName="BPMModel.Store.Sp_GetRedesCQReportDto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetRedesCQReportDto_Result">
+          <ScalarProperty Name="Metodo_Notificacion" ColumnName="Metodo_Notificacion" />
+          <ScalarProperty Name="Tipificacion" ColumnName="Tipificacion" />
+          <ScalarProperty Name="Correo_Recibido" ColumnName="Correo_Recibido" />
+          <ScalarProperty Name="Asunto_Correo" ColumnName="Asunto_Correo" />
+          <ScalarProperty Name="Cuenta_Correo" ColumnName="Cuenta_Correo" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Unidad_Generadora" ColumnName="Unidad_Generadora" />
+          <ScalarProperty Name="Poliza" ColumnName="Poliza" />
+          <ScalarProperty Name="Delegacion" ColumnName="Delegacion" />
+          <ScalarProperty Name="Telefono_Contacto" ColumnName="Telefono_Contacto" />
+          <ScalarProperty Name="Justificado" ColumnName="Justificado" />
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Nombre_Petente" ColumnName="Nombre_Petente" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Canal" ColumnName="Canal" />
+          <ScalarProperty Name="Evento" ColumnName="Evento" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Actuacion_Administrativa" ColumnName="Actuacion_Administrativa" />
+          <ScalarProperty Name="Cola_Gestion" ColumnName="Cola_Gestion" />
+          <ScalarProperty Name="Cola_Caso" ColumnName="Cola_Caso" />
+          <ScalarProperty Name="Ticket" ColumnName="Ticket" />
+          <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+          <ScalarProperty Name="Reasignado" ColumnName="Reasignado" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Carta_Ofrecimiento_Disculpas" ColumnName="Carta_Ofrecimiento_Disculpas" />
+          <ScalarProperty Name="Solicitud_clientes" ColumnName="Solicitud_clientes" />
+          <ScalarProperty Name="Contactacion" ColumnName="Contactacion" />
+          <ScalarProperty Name="Llamada_SMS_MensajeCorreodeVoz" ColumnName="Llamada_SMS_MensajeCorreodeVoz" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="No_Efectivo" ColumnName="No_Efectivo" />
+          <ScalarProperty Name="Certificado" ColumnName="Certificado" />
+          <ScalarProperty Name="Notificacion" ColumnName="Notificacion" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Fecha_Recepcion" ColumnName="Fecha_Recepcion" />
+          <ScalarProperty Name="Fecha_Gestion" ColumnName="Fecha_Gestion" />
+          <ScalarProperty Name="Fecha_Reclamacion" ColumnName="Fecha_Reclamacion" />
+          <ScalarProperty Name="PQRS" ColumnName="PQRS" />
+          <ScalarProperty Name="Correo_Electronico" ColumnName="Correo_Electronico" />
+          <ScalarProperty Name="Mercado" ColumnName="Mercado" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetCQReportDto" FunctionName="BPMModel.Store.Sp_GetCQReportDto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCQReportDto_Result">
+          <ScalarProperty Name="Metodo_Notificacion" ColumnName="Metodo_Notificacion" />
+          <ScalarProperty Name="Tipificacion" ColumnName="Tipificacion" />
+          <ScalarProperty Name="Correo_Recibido" ColumnName="Correo_Recibido" />
+          <ScalarProperty Name="Asunto_Correo" ColumnName="Asunto_Correo" />
+          <ScalarProperty Name="Cuenta_Correo" ColumnName="Cuenta_Correo" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Unidad_Generadora" ColumnName="Unidad_Generadora" />
+          <ScalarProperty Name="Poliza" ColumnName="Poliza" />
+          <ScalarProperty Name="Delegacion" ColumnName="Delegacion" />
+          <ScalarProperty Name="Telefono_Contacto" ColumnName="Telefono_Contacto" />
+          <ScalarProperty Name="Justificado" ColumnName="Justificado" />
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Nombre_Petente" ColumnName="Nombre_Petente" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Canal" ColumnName="Canal" />
+          <ScalarProperty Name="Evento" ColumnName="Evento" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Actuacion_Administrativa" ColumnName="Actuacion_Administrativa" />
+          <ScalarProperty Name="Cola_Gestion" ColumnName="Cola_Gestion" />
+          <ScalarProperty Name="Cola_Caso" ColumnName="Cola_Caso" />
+          <ScalarProperty Name="Ticket" ColumnName="Ticket" />
+          <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+          <ScalarProperty Name="Reasignado" ColumnName="Reasignado" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Carta_Ofrecimiento_Disculpas" ColumnName="Carta_Ofrecimiento_Disculpas" />
+          <ScalarProperty Name="Solicitud_clientes" ColumnName="Solicitud_clientes" />
+          <ScalarProperty Name="Contactacion" ColumnName="Contactacion" />
+          <ScalarProperty Name="Llamada_SMS_MensajeCorreodeVoz" ColumnName="Llamada_SMS_MensajeCorreodeVoz" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="No_Efectivo" ColumnName="No_Efectivo" />
+          <ScalarProperty Name="Certificado" ColumnName="Certificado" />
+          <ScalarProperty Name="Notificacion" ColumnName="Notificacion" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Fecha_Recepcion" ColumnName="Fecha_Recepcion" />
+          <ScalarProperty Name="Fecha_Gestion" ColumnName="Fecha_Gestion" />
+          <ScalarProperty Name="Fecha_Reclamacion" ColumnName="Fecha_Reclamacion" />
+          <ScalarProperty Name="PQRS" ColumnName="PQRS" />
+          <ScalarProperty Name="Correo_Electronico" ColumnName="Correo_Electronico" />
+          <ScalarProperty Name="Mercado" ColumnName="Mercado" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetDailyBase" FunctionName="BPMModel.Store.Sp_GetDailyBase">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetDailyBase_Result">
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="TIPIFICACIÓN" ColumnName="TIPIFICACIÓN" />
+          <ScalarProperty Name="USUARIO_RESPONSABLE" ColumnName="USUARIO RESPONSABLE" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetFilteredPQRList" FunctionName="BPMModel.Store.Sp_GetFilteredPQRList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFilteredPQRList_Result">
+          <ScalarProperty Name="IdPqr" ColumnName="IdPqr" />
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="TITULAR_CC" ColumnName="TITULAR CC" />
+          <ScalarProperty Name="TEL__FIJO_BP" ColumnName="TEL. FIJO BP" />
+          <ScalarProperty Name="TEL__MÓVIL_BP" ColumnName="TEL. MÓVIL BP" />
+          <ScalarProperty Name="E_MAIL_BP" ColumnName="E-MAIL BP" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DIRECCIÓN_BP" ColumnName="DIRECCIÓN BP" />
+          <ScalarProperty Name="NOMBRE_DEL_CONTACTO" ColumnName="NOMBRE DEL CONTACTO" />
+          <ScalarProperty Name="MUNICIPIO_CONTACTO" ColumnName="MUNICIPIO CONTACTO" />
+          <ScalarProperty Name="DIRECCIÓN_CONTACTO" ColumnName="DIRECCIÓN CONTACTO" />
+          <ScalarProperty Name="TEL__FIJO_CONTACTO" ColumnName="TEL. FIJO CONTACTO" />
+          <ScalarProperty Name="TEL__MÓVIL_CONTACTO" ColumnName="TEL. MÓVIL CONTACTO" />
+          <ScalarProperty Name="E_MAIL_CONTACTO" ColumnName="E-MAIL CONTACTO" />
+          <ScalarProperty Name="DIRECC__NOTIFICACIÓN" ColumnName="DIRECC. NOTIFICACIÓN" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="ORIGEN_DEL_TCK" ColumnName="ORIGEN DEL TCK" />
+          <ScalarProperty Name="RADICACIÓN_ESPECIAL" ColumnName="RADICACIÓN ESPECIAL" />
+          <ScalarProperty Name="TIPO_DE_MATRIZ" ColumnName="TIPO DE MATRIZ" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="FECHA_RADICACIÓN" ColumnName="FECHA RADICACIÓN" />
+          <ScalarProperty Name="TÉCNICO_DE_RADICACIÓN" ColumnName="TÉCNICO DE RADICACIÓN" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+          <ScalarProperty Name="UNIDAD_GENERADORA" ColumnName="UNIDAD GENERADORA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="AUTORIZA_RESPUESTA_E_MAIL" ColumnName="AUTORIZA RESPUESTA E-MAIL" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_ACTUAL" ColumnName="UNIDAD DE ENVÍO ACTUAL" />
+          <ScalarProperty Name="FECHA_FINALIZADO" ColumnName="FECHA FINALIZADO" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_FINALIZADO" ColumnName="UNIDAD DE ENVÍO FINALIZADO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="MOTIVO_DE_CIERRE" ColumnName="MOTIVO DE CIERRE" />
+          <ScalarProperty Name="DÍAS_FINALIZACIÓN" ColumnName="DÍAS FINALIZACIÓN" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+          <ScalarProperty Name="CÓDIGO_CAUSA" ColumnName="CÓDIGO CAUSA" />
+          <ScalarProperty Name="GESTIONALBE" ColumnName="GESTIONALBE" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="canCheck" ColumnName="canCheck" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetFilteredPQRs" FunctionName="BPMModel.Store.Sp_GetFilteredPQRs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFilteredPQRs_Result">
+          <ScalarProperty Name="IdPqr" ColumnName="IdPqr" />
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="TITULAR_CC" ColumnName="TITULAR CC" />
+          <ScalarProperty Name="TEL__FIJO_BP" ColumnName="TEL. FIJO BP" />
+          <ScalarProperty Name="TEL__MÓVIL_BP" ColumnName="TEL. MÓVIL BP" />
+          <ScalarProperty Name="E_MAIL_BP" ColumnName="E-MAIL BP" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DIRECCIÓN_BP" ColumnName="DIRECCIÓN BP" />
+          <ScalarProperty Name="NOMBRE_DEL_CONTACTO" ColumnName="NOMBRE DEL CONTACTO" />
+          <ScalarProperty Name="MUNICIPIO_CONTACTO" ColumnName="MUNICIPIO CONTACTO" />
+          <ScalarProperty Name="DIRECCIÓN_CONTACTO" ColumnName="DIRECCIÓN CONTACTO" />
+          <ScalarProperty Name="TEL__FIJO_CONTACTO" ColumnName="TEL. FIJO CONTACTO" />
+          <ScalarProperty Name="TEL__MÓVIL_CONTACTO" ColumnName="TEL. MÓVIL CONTACTO" />
+          <ScalarProperty Name="E_MAIL_CONTACTO" ColumnName="E-MAIL CONTACTO" />
+          <ScalarProperty Name="DIRECC__NOTIFICACIÓN" ColumnName="DIRECC. NOTIFICACIÓN" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="ORIGEN_DEL_TCK" ColumnName="ORIGEN DEL TCK" />
+          <ScalarProperty Name="RADICACIÓN_ESPECIAL" ColumnName="RADICACIÓN ESPECIAL" />
+          <ScalarProperty Name="TIPO_DE_MATRIZ" ColumnName="TIPO DE MATRIZ" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="FECHA_RADICACIÓN" ColumnName="FECHA RADICACIÓN" />
+          <ScalarProperty Name="TÉCNICO_DE_RADICACIÓN" ColumnName="TÉCNICO DE RADICACIÓN" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+          <ScalarProperty Name="UNIDAD_GENERADORA" ColumnName="UNIDAD GENERADORA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="AUTORIZA_RESPUESTA_E_MAIL" ColumnName="AUTORIZA RESPUESTA E-MAIL" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_ACTUAL" ColumnName="UNIDAD DE ENVÍO ACTUAL" />
+          <ScalarProperty Name="FECHA_FINALIZADO" ColumnName="FECHA FINALIZADO" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_FINALIZADO" ColumnName="UNIDAD DE ENVÍO FINALIZADO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="MOTIVO_DE_CIERRE" ColumnName="MOTIVO DE CIERRE" />
+          <ScalarProperty Name="DÍAS_FINALIZACIÓN" ColumnName="DÍAS FINALIZACIÓN" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+          <ScalarProperty Name="CÓDIGO_CAUSA" ColumnName="CÓDIGO CAUSA" />
+          <ScalarProperty Name="GESTIONALBE" ColumnName="GESTIONALBE" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="Written" ColumnName="Written" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUserPQR" FunctionName="BPMModel.Store.Sp_GetUserPQR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetUserPQR_Result">
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="TITULAR_CC" ColumnName="TITULAR CC" />
+          <ScalarProperty Name="TEL__FIJO_BP" ColumnName="TEL. FIJO BP" />
+          <ScalarProperty Name="TEL__MÓVIL_BP" ColumnName="TEL. MÓVIL BP" />
+          <ScalarProperty Name="E_MAIL_BP" ColumnName="E-MAIL BP" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DIRECCIÓN_BP" ColumnName="DIRECCIÓN BP" />
+          <ScalarProperty Name="NOMBRE_DEL_CONTACTO" ColumnName="NOMBRE DEL CONTACTO" />
+          <ScalarProperty Name="MUNICIPIO_CONTACTO" ColumnName="MUNICIPIO CONTACTO" />
+          <ScalarProperty Name="DIRECCIÓN_CONTACTO" ColumnName="DIRECCIÓN CONTACTO" />
+          <ScalarProperty Name="TEL__FIJO_CONTACTO" ColumnName="TEL. FIJO CONTACTO" />
+          <ScalarProperty Name="TEL__MÓVIL_CONTACTO" ColumnName="TEL. MÓVIL CONTACTO" />
+          <ScalarProperty Name="E_MAIL_CONTACTO" ColumnName="E-MAIL CONTACTO" />
+          <ScalarProperty Name="DIRECC__NOTIFICACIÓN" ColumnName="DIRECC. NOTIFICACIÓN" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="ORIGEN_DEL_TCK" ColumnName="ORIGEN DEL TCK" />
+          <ScalarProperty Name="RADICACIÓN_ESPECIAL" ColumnName="RADICACIÓN ESPECIAL" />
+          <ScalarProperty Name="TIPO_DE_MATRIZ" ColumnName="TIPO DE MATRIZ" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="CÓDIGO_CAUSA" ColumnName="CÓDIGO CAUSA" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="FECHA_RADICACIÓN" ColumnName="FECHA RADICACIÓN" />
+          <ScalarProperty Name="TÉCNICO_DE_RADICACIÓN" ColumnName="TÉCNICO DE RADICACIÓN" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="UNIDAD_GENERADORA" ColumnName="UNIDAD GENERADORA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="AUTORIZA_RESPUESTA_E_MAIL" ColumnName="AUTORIZA RESPUESTA E-MAIL" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_ACTUAL" ColumnName="UNIDAD DE ENVÍO ACTUAL" />
+          <ScalarProperty Name="FECHA_FINALIZADO" ColumnName="FECHA FINALIZADO" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_FINALIZADO" ColumnName="UNIDAD DE ENVÍO FINALIZADO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="MOTIVO_DE_CIERRE" ColumnName="MOTIVO DE CIERRE" />
+          <ScalarProperty Name="DÍAS_FINALIZACIÓN" ColumnName="DÍAS FINALIZACIÓN" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+          <ScalarProperty Name="GESTIONABLE" ColumnName="GESTIONABLE" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+          <ScalarProperty Name="CanCheck" ColumnName="CanCheck" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddMatriz" FunctionName="BPMModel.Store.Sp_AddMatriz" />
+    <FunctionImportMapping FunctionImportName="Sp_EditMatriz" FunctionName="BPMModel.Store.Sp_EditMatriz" />
+    <FunctionImportMapping FunctionImportName="Sp_GetActivity" FunctionName="BPMModel.Store.Sp_GetActivity">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetActivity_Result">
+          <ScalarProperty Name="IdActivity" ColumnName="IdActivity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetEvents" FunctionName="BPMModel.Store.Sp_GetEvents">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEvents_Result">
+          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetMarkets" FunctionName="BPMModel.Store.Sp_GetMarkets">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetMarkets_Result">
+          <ScalarProperty Name="IdMarket" ColumnName="IdMarket" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUserMatriz" FunctionName="BPMModel.Store.Sp_GetUserMatriz" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveMatriz" FunctionName="BPMModel.Store.Sp_RemoveMatriz" />
+    <EntitySetMapping Name="Event_Radication">
+      <EntityTypeMapping TypeName="BPMModel.Event_Radication">
+        <MappingFragment StoreEntitySet="Event_Radication">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Markets">
+      <EntityTypeMapping TypeName="BPMModel.Market">
+        <MappingFragment StoreEntitySet="Market">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IdMarket" ColumnName="IdMarket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetGlobalImpositionReport" FunctionName="BPMModel.Store.Sp_GetGlobalImpositionReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetGlobalImpositionReport_Result">
+          <ScalarProperty Name="EmpresaID" ColumnName="EmpresaID" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Cuenta_Contrato" ColumnName="Cuenta_Contrato" />
+          <ScalarProperty Name="TitularCC" ColumnName="TitularCC" />
+          <ScalarProperty Name="TELFijoBP" ColumnName="TELFijoBP" />
+          <ScalarProperty Name="TELMovilBP" ColumnName="TELMovilBP" />
+          <ScalarProperty Name="EMAILBP" ColumnName="EMAILBP" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="DireccionBP" ColumnName="DireccionBP" />
+          <ScalarProperty Name="Nombre_Cliente" ColumnName="Nombre_Cliente" />
+          <ScalarProperty Name="Municipio_Contacto" ColumnName="Municipio_Contacto" />
+          <ScalarProperty Name="Direccion_Contacto" ColumnName="Direccion_Contacto" />
+          <ScalarProperty Name="TELFijo_Contacto" ColumnName="TELFijo_Contacto" />
+          <ScalarProperty Name="TELMovil_Contacto" ColumnName="TELMovil_Contacto" />
+          <ScalarProperty Name="EMAIL_Contacto" ColumnName="EMAIL_Contacto" />
+          <ScalarProperty Name="ID_Ticket_PQR" ColumnName="ID_Ticket_PQR" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Fecha_Radicacion" ColumnName="Fecha_Radicacion" />
+          <ScalarProperty Name="Dias_Gestion" ColumnName="Dias_Gestion" />
+          <ScalarProperty Name="Un_Generadora" ColumnName="Un_Generadora" />
+          <ScalarProperty Name="Un_EnvioActual" ColumnName="Un_EnvioActual" />
+          <ScalarProperty Name="Usuario_Alta" ColumnName="Usuario_Alta" />
+          <ScalarProperty Name="Asesor" ColumnName="Asesor" />
+          <ScalarProperty Name="Desc_Activ" ColumnName="Desc_Activ" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="Desc_Causa" ColumnName="Desc_Causa" />
+          <ScalarProperty Name="Evento" ColumnName="Evento" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Fecha_Cargue" ColumnName="Fecha_Cargue" />
+          <ScalarProperty Name="Fecha_Cierre" ColumnName="Fecha_Cierre" />
+          <ScalarProperty Name="Tipificacion" ColumnName="Tipificacion" />
+          <ScalarProperty Name="Metodo_Notificacion" ColumnName="Metodo_Notificacion" />
+          <ScalarProperty Name="Intento_1" ColumnName="Intento 1" />
+          <ScalarProperty Name="Intento_2" ColumnName="Intento 2" />
+          <ScalarProperty Name="Intento_3" ColumnName="Intento 3" />
+          <ScalarProperty Name="Motivo_No_Contacto" ColumnName="Motivo No Contacto" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Nombre_Destinatario_Imposicion" ColumnName="Nombre Destinatario-Imposicion" />
+          <ScalarProperty Name="Direccion_Imposicion" ColumnName="Direccion-Imposicion" />
+          <ScalarProperty Name="Ciudad_Imposicion" ColumnName="Ciudad-Imposicion" />
+          <ScalarProperty Name="Referencia_Imposicion" ColumnName="Referencia-Imposicion" />
+          <ScalarProperty Name="Contenido_Imposicion" ColumnName="Contenido-Imposicion" />
+          <ScalarProperty Name="Observaciones_Imposicion" ColumnName="Observaciones-Imposicion" />
+          <ScalarProperty Name="Peso_Imposicion" ColumnName="Peso-Imposicion" />
+          <ScalarProperty Name="Fecha_Ingreso_Imposicion" ColumnName="Fecha Ingreso-Imposicion" />
+          <ScalarProperty Name="Observaciones_Asesor_Imposicion" ColumnName="Observaciones Asesor-Imposicion" />
+          <ScalarProperty Name="Ubicacion_Carta_Imposicion" ColumnName="Ubicacion Carta-Imposicion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPhysicalImpositionReport" FunctionName="BPMModel.Store.Sp_GetPhysicalImpositionReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPhysicalImpositionReport_Result">
+          <ScalarProperty Name="Nombre_Destinatario" ColumnName="Nombre Destinatario" />
+          <ScalarProperty Name="Direccion_y_Barrio" ColumnName="Direccion y Barrio" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="ID_Ticket_PQR" ColumnName="ID_Ticket_PQR" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Ubicacion_Carta" ColumnName="Ubicacion Carta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetMailImpositionReport" FunctionName="BPMModel.Store.Sp_GetMailImpositionReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetMailImpositionReport_Result">
+          <ScalarProperty Name="ID_Ticket_PQR" ColumnName="ID_Ticket_PQR" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha Ingreso" />
+          <ScalarProperty Name="Filial" ColumnName="Filial" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Id_Certimail" ColumnName="Id Certimail" />
+          <ScalarProperty Name="Ubicacion_Carta" ColumnName="Ubicacion Carta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetInconsistenciesBPMandSGC" FunctionName="BPMModel.Store.Sp_GetInconsistenciesBPMandSGC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetInconsistenciesBPMandSGC_Result">
+          <ScalarProperty Name="EmpresaID" ColumnName="EmpresaID" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Cuenta_Contrato" ColumnName="Cuenta_Contrato" />
+          <ScalarProperty Name="TitularCC" ColumnName="TitularCC" />
+          <ScalarProperty Name="TELFijoBP" ColumnName="TELFijoBP" />
+          <ScalarProperty Name="TELMovilBP" ColumnName="TELMovilBP" />
+          <ScalarProperty Name="EMAILBP" ColumnName="EMAILBP" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="DireccionBP" ColumnName="DireccionBP" />
+          <ScalarProperty Name="Municipio_Contacto" ColumnName="Municipio_Contacto" />
+          <ScalarProperty Name="Direccion_Contacto" ColumnName="Direccion_Contacto" />
+          <ScalarProperty Name="TELFijo_Contacto" ColumnName="TELFijo_Contacto" />
+          <ScalarProperty Name="TELMovil_Contacto" ColumnName="TELMovil_Contacto" />
+          <ScalarProperty Name="EMAIL_Contacto" ColumnName="EMAIL_Contacto" />
+          <ScalarProperty Name="ID_Ticket_PQR" ColumnName="ID_Ticket_PQR" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Fecha_Radicacion" ColumnName="Fecha_Radicacion" />
+          <ScalarProperty Name="Dias_Gestion" ColumnName="Dias_Gestion" />
+          <ScalarProperty Name="Un_Generadora" ColumnName="Un_Generadora" />
+          <ScalarProperty Name="Un_EnvioActual" ColumnName="Un_EnvioActual" />
+          <ScalarProperty Name="Usuario_Alta" ColumnName="Usuario_Alta" />
+          <ScalarProperty Name="Asesor" ColumnName="Asesor" />
+          <ScalarProperty Name="Desc_Activ" ColumnName="Desc_Activ" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="Desc_Causa" ColumnName="Desc_Causa" />
+          <ScalarProperty Name="Evento" ColumnName="Evento" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Fecha_Cargue" ColumnName="Fecha_Cargue" />
+          <ScalarProperty Name="Fecha_Cierre" ColumnName="Fecha_Cierre" />
+          <ScalarProperty Name="Tipificacion" ColumnName="Tipificacion" />
+          <ScalarProperty Name="Metodo_Notificacion" ColumnName="Metodo_Notificacion" />
+          <ScalarProperty Name="Intento_1" ColumnName="Intento 1" />
+          <ScalarProperty Name="Intento_2" ColumnName="Intento 2" />
+          <ScalarProperty Name="Intento_3" ColumnName="Intento 3" />
+          <ScalarProperty Name="Motivo_No_Contacto" ColumnName="Motivo No Contacto" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Nombre_Destinatario_Imposicion" ColumnName="Nombre Destinatario-Imposicion" />
+          <ScalarProperty Name="Direccion_Imposicion" ColumnName="Direccion-Imposicion" />
+          <ScalarProperty Name="Ciudad_Imposicion" ColumnName="Ciudad-Imposicion" />
+          <ScalarProperty Name="Referencia_Imposicion" ColumnName="Referencia-Imposicion" />
+          <ScalarProperty Name="Contenido_Imposicion" ColumnName="Contenido-Imposicion" />
+          <ScalarProperty Name="Observaciones_Imposicion" ColumnName="Observaciones-Imposicion" />
+          <ScalarProperty Name="Peso_Imposicion" ColumnName="Peso-Imposicion" />
+          <ScalarProperty Name="Fecha_Ingreso_Imposicion" ColumnName="Fecha Ingreso-Imposicion" />
+          <ScalarProperty Name="Observaciones_Asesor_Imposicion" ColumnName="Observaciones Asesor-Imposicion" />
+          <ScalarProperty Name="Ubicacion_Carta_Imposicion" ColumnName="Ubicacion Carta-Imposicion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetAssignedPQRsReport" FunctionName="BPMModel.Store.Sp_GetAssignedPQRsReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetAssignedPQRsReport_Result">
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="TITULAR_CC" ColumnName="TITULAR CC" />
+          <ScalarProperty Name="TEL__FIJO_BP" ColumnName="TEL. FIJO BP" />
+          <ScalarProperty Name="TEL__MÓVIL_BP" ColumnName="TEL. MÓVIL BP" />
+          <ScalarProperty Name="E_MAIL_BP" ColumnName="E-MAIL BP" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DIRECCIÓN_BP" ColumnName="DIRECCIÓN BP" />
+          <ScalarProperty Name="NOMBRE_DEL_CONTACTO" ColumnName="NOMBRE DEL CONTACTO" />
+          <ScalarProperty Name="MUNICIPIO_CONTACTO" ColumnName="MUNICIPIO CONTACTO" />
+          <ScalarProperty Name="DIRECCIÓN_CONTACTO" ColumnName="DIRECCIÓN CONTACTO" />
+          <ScalarProperty Name="TEL__FIJO_CONTACTO" ColumnName="TEL. FIJO CONTACTO" />
+          <ScalarProperty Name="TEL__MÓVIL_CONTACTO" ColumnName="TEL. MÓVIL CONTACTO" />
+          <ScalarProperty Name="E_MAIL_CONTACTO" ColumnName="E-MAIL CONTACTO" />
+          <ScalarProperty Name="DIRECC__NOTIFICACIÓN" ColumnName="DIRECC. NOTIFICACIÓN" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="ORIGEN_DEL_TCK" ColumnName="ORIGEN DEL TCK" />
+          <ScalarProperty Name="RADICACIÓN_ESPECIAL" ColumnName="RADICACIÓN ESPECIAL" />
+          <ScalarProperty Name="TIPO_DE_MATRIZ" ColumnName="TIPO DE MATRIZ" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="CÓDIGO_CAUSA" ColumnName="CÓDIGO CAUSA" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="FECHA_RADICACIÓN" ColumnName="FECHA RADICACIÓN" />
+          <ScalarProperty Name="TÉCNICO_DE_RADICACIÓN" ColumnName="TÉCNICO DE RADICACIÓN" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="UNIDAD_GENERADORA" ColumnName="UNIDAD GENERADORA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="AUTORIZA_RESPUESTA_E_MAIL" ColumnName="AUTORIZA RESPUESTA E-MAIL" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_ACTUAL" ColumnName="UNIDAD DE ENVÍO ACTUAL" />
+          <ScalarProperty Name="FECHA_FINALIZADO" ColumnName="FECHA FINALIZADO" />
+          <ScalarProperty Name="TÉCNICO_FINALIZACIÓN" ColumnName="TÉCNICO_FINALIZACIÓN" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_FINALIZADO" ColumnName="UNIDAD DE ENVÍO FINALIZADO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="MOTIVO_DE_CIERRE" ColumnName="MOTIVO DE CIERRE" />
+          <ScalarProperty Name="DÍAS_FINALIZACIÓN" ColumnName="DÍAS FINALIZACIÓN" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetAssignedPQRReport" FunctionName="BPMModel.Store.Sp_GetAssignedPQRReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetAssignedPQRReport_Result">
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="TITULAR_CC" ColumnName="TITULAR CC" />
+          <ScalarProperty Name="TEL__FIJO_BP" ColumnName="TEL. FIJO BP" />
+          <ScalarProperty Name="TEL__MÓVIL_BP" ColumnName="TEL. MÓVIL BP" />
+          <ScalarProperty Name="E_MAIL_BP" ColumnName="E-MAIL BP" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DIRECCIÓN_BP" ColumnName="DIRECCIÓN BP" />
+          <ScalarProperty Name="NOMBRE_DEL_CONTACTO" ColumnName="NOMBRE DEL CONTACTO" />
+          <ScalarProperty Name="MUNICIPIO_CONTACTO" ColumnName="MUNICIPIO CONTACTO" />
+          <ScalarProperty Name="DIRECCIÓN_CONTACTO" ColumnName="DIRECCIÓN CONTACTO" />
+          <ScalarProperty Name="TEL__FIJO_CONTACTO" ColumnName="TEL. FIJO CONTACTO" />
+          <ScalarProperty Name="TEL__MÓVIL_CONTACTO" ColumnName="TEL. MÓVIL CONTACTO" />
+          <ScalarProperty Name="E_MAIL_CONTACTO" ColumnName="E-MAIL CONTACTO" />
+          <ScalarProperty Name="DIRECC__NOTIFICACIÓN" ColumnName="DIRECC. NOTIFICACIÓN" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="ORIGEN_DEL_TCK" ColumnName="ORIGEN DEL TCK" />
+          <ScalarProperty Name="RADICACIÓN_ESPECIAL" ColumnName="RADICACIÓN ESPECIAL" />
+          <ScalarProperty Name="TIPO_DE_MATRIZ" ColumnName="TIPO DE MATRIZ" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="CÓDIGO_CAUSA" ColumnName="CÓDIGO CAUSA" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="FECHA_RADICACIÓN" ColumnName="FECHA RADICACIÓN" />
+          <ScalarProperty Name="TÉCNICO_DE_RADICACIÓN" ColumnName="TÉCNICO DE RADICACIÓN" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="UNIDAD_GENERADORA" ColumnName="UNIDAD GENERADORA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="AUTORIZA_RESPUESTA_E_MAIL" ColumnName="AUTORIZA RESPUESTA E-MAIL" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_ACTUAL" ColumnName="UNIDAD DE ENVÍO ACTUAL" />
+          <ScalarProperty Name="FECHA_FINALIZADO" ColumnName="FECHA FINALIZADO" />
+          <ScalarProperty Name="TÉCNICO_FINALIZACIÓN" ColumnName="TÉCNICO_FINALIZACIÓN" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_FINALIZADO" ColumnName="UNIDAD DE ENVÍO FINALIZADO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="MOTIVO_DE_CIERRE" ColumnName="MOTIVO DE CIERRE" />
+          <ScalarProperty Name="DÍAS_FINALIZACIÓN" ColumnName="DÍAS FINALIZACIÓN" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetFinishedBPMandSGC" FunctionName="BPMModel.Store.Sp_GetFinishedBPMandSGC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFinishedBPMandSGC_Result">
+          <ScalarProperty Name="EmpresaID" ColumnName="EmpresaID" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Cuenta_Contrato" ColumnName="Cuenta_Contrato" />
+          <ScalarProperty Name="TitularCC" ColumnName="TitularCC" />
+          <ScalarProperty Name="TELFijoBP" ColumnName="TELFijoBP" />
+          <ScalarProperty Name="TELMovilBP" ColumnName="TELMovilBP" />
+          <ScalarProperty Name="EMAILBP" ColumnName="EMAILBP" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="DireccionBP" ColumnName="DireccionBP" />
+          <ScalarProperty Name="Municipio_Contacto" ColumnName="Municipio_Contacto" />
+          <ScalarProperty Name="Direccion_Contacto" ColumnName="Direccion_Contacto" />
+          <ScalarProperty Name="TELFijo_Contacto" ColumnName="TELFijo_Contacto" />
+          <ScalarProperty Name="TELMovil_Contacto" ColumnName="TELMovil_Contacto" />
+          <ScalarProperty Name="EMAIL_Contacto" ColumnName="EMAIL_Contacto" />
+          <ScalarProperty Name="ID_Ticket_PQR" ColumnName="ID_Ticket_PQR" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Fecha_Radicacion" ColumnName="Fecha_Radicacion" />
+          <ScalarProperty Name="Dias_Gestion" ColumnName="Dias_Gestion" />
+          <ScalarProperty Name="Un_Generadora" ColumnName="Un_Generadora" />
+          <ScalarProperty Name="Un_EnvioActual" ColumnName="Un_EnvioActual" />
+          <ScalarProperty Name="Usuario_Alta" ColumnName="Usuario_Alta" />
+          <ScalarProperty Name="Asesor" ColumnName="Asesor" />
+          <ScalarProperty Name="Desc_Activ" ColumnName="Desc_Activ" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="Desc_Causa" ColumnName="Desc_Causa" />
+          <ScalarProperty Name="Evento" ColumnName="Evento" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Fecha_Cargue" ColumnName="Fecha_Cargue" />
+          <ScalarProperty Name="Fecha_Cierre" ColumnName="Fecha_Cierre" />
+          <ScalarProperty Name="Tipificacion" ColumnName="Tipificacion" />
+          <ScalarProperty Name="Metodo_Notificacion" ColumnName="Metodo_Notificacion" />
+          <ScalarProperty Name="Intento_1" ColumnName="Intento 1" />
+          <ScalarProperty Name="Intento_2" ColumnName="Intento 2" />
+          <ScalarProperty Name="Intento_3" ColumnName="Intento 3" />
+          <ScalarProperty Name="Motivo_No_Contacto" ColumnName="Motivo No Contacto" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Nombre_Destinatario_Imposicion" ColumnName="Nombre Destinatario-Imposicion" />
+          <ScalarProperty Name="Direccion_Imposicion" ColumnName="Direccion-Imposicion" />
+          <ScalarProperty Name="Ciudad_Imposicion" ColumnName="Ciudad-Imposicion" />
+          <ScalarProperty Name="Referencia_Imposicion" ColumnName="Referencia-Imposicion" />
+          <ScalarProperty Name="Contenido_Imposicion" ColumnName="Contenido-Imposicion" />
+          <ScalarProperty Name="Observaciones_Imposicion" ColumnName="Observaciones-Imposicion" />
+          <ScalarProperty Name="Peso_Imposicion" ColumnName="Peso-Imposicion" />
+          <ScalarProperty Name="Fecha_Ingreso_Imposicion" ColumnName="Fecha Ingreso-Imposicion" />
+          <ScalarProperty Name="Observaciones_Asesor_Imposicion" ColumnName="Observaciones Asesor-Imposicion" />
+          <ScalarProperty Name="Ubicacion_Carta_Imposicion" ColumnName="Ubicacion Carta-Imposicion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetSAP" FunctionName="BPMModel.Store.Sp_GetSAP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetSAP_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
+          <ScalarProperty Name="Sales_Territory_ID" ColumnName="Sales_Territory_ID" />
+          <ScalarProperty Name="Ticket_result" ColumnName="Ticket_result" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetResults" FunctionName="BPMModel.Store.Sp_GetResults">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetResults_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Matrix_Radication">
+      <EntityTypeMapping TypeName="BPMModel.Matrix_Radication">
+        <MappingFragment StoreEntitySet="Matrix_Radication">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdResult" ColumnName="IdResult" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+          <ScalarProperty Name="IdActivity" ColumnName="IdActivity" />
+          <ScalarProperty Name="IdMarket" ColumnName="IdMarket" />
+          <ScalarProperty Name="IdMatrix" ColumnName="IdMatrix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetMatriz" FunctionName="BPMModel.Store.Sp_GetMatriz">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetMatriz_Result">
+          <ScalarProperty Name="IdMatrix" ColumnName="IdMatrix" />
+          <ScalarProperty Name="NameMarket" ColumnName="NameMarket" />
+          <ScalarProperty Name="NameActivity" ColumnName="NameActivity" />
+          <ScalarProperty Name="NameEvent" ColumnName="NameEvent" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="NameResult" ColumnName="NameResult" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="BPMModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddCity" FunctionName="BPMModel.Store.Sp_AddCity" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveCity" FunctionName="BPMModel.Store.Sp_RemoveCity" />
+    <FunctionImportMapping FunctionImportName="Sp_GetCitys" FunctionName="BPMModel.Store.Sp_GetCitys">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetCitys_Result">
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_EditCity" FunctionName="BPMModel.Store.Sp_EditCity" />
+    <EntitySetMapping Name="Result">
+      <EntityTypeMapping TypeName="BPMModel.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetResultC4C" FunctionName="BPMModel.Store.Sp_GetResultC4C" />
+    <FunctionImportMapping FunctionImportName="Sp_GetPQR_Edit_View" FunctionName="BPMModel.Store.Sp_GetPQR_Edit_View" />
+    <FunctionImportMapping FunctionImportName="Sp_GetPQR_View" FunctionName="BPMModel.Store.Sp_GetPQR_View">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQR_View_Result">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NotificationMethod" ColumnName="NotificationMethod" />
+          <ScalarProperty Name="LetterPath" ColumnName="LetterPath" />
+          <ScalarProperty Name="Petente" ColumnName="Petente" />
+          <ScalarProperty Name="ManagementAddress" ColumnName="ManagementAddress" />
+          <ScalarProperty Name="ManagementNeighborhood" ColumnName="ManagementNeighborhood" />
+          <ScalarProperty Name="LetterReference" ColumnName="LetterReference" />
+          <ScalarProperty Name="ManagementContent" ColumnName="ManagementContent" />
+          <ScalarProperty Name="ManagementObservations" ColumnName="ManagementObservations" />
+          <ScalarProperty Name="ManagementWeight" ColumnName="ManagementWeight" />
+          <ScalarProperty Name="ManagementTelephone" ColumnName="ManagementTelephone" />
+          <ScalarProperty Name="ManagementMail" ColumnName="ManagementMail" />
+          <ScalarProperty Name="ManagementCity" ColumnName="ManagementCity" />
+          <ScalarProperty Name="ManagementDays" ColumnName="ManagementDays" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetGlobalDashboardReport" FunctionName="BPMModel.Store.Sp_GetGlobalDashboardReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetGlobalDashboardReport_Result">
+          <ScalarProperty Name="Metodo_Notificacion" ColumnName="Metodo_Notificacion" />
+          <ScalarProperty Name="Tipificacion" ColumnName="Tipificacion" />
+          <ScalarProperty Name="Correo_Recibido" ColumnName="Correo_Recibido" />
+          <ScalarProperty Name="Asunto_Correo" ColumnName="Asunto_Correo" />
+          <ScalarProperty Name="Cuenta_Correo" ColumnName="Cuenta_Correo" />
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Unidad_Generadora" ColumnName="Unidad_Generadora" />
+          <ScalarProperty Name="Poliza" ColumnName="Poliza" />
+          <ScalarProperty Name="Delegacion" ColumnName="Delegacion" />
+          <ScalarProperty Name="Telefono_Contacto" ColumnName="Telefono_Contacto" />
+          <ScalarProperty Name="Justificado" ColumnName="Justificado" />
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+          <ScalarProperty Name="Causa" ColumnName="Causa" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Nombre_Petente" ColumnName="Nombre_Petente" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Canal" ColumnName="Canal" />
+          <ScalarProperty Name="Evento" ColumnName="Evento" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Actuacion_Administrativa" ColumnName="Actuacion_Administrativa" />
+          <ScalarProperty Name="Cola_Gestion" ColumnName="Cola_Gestion" />
+          <ScalarProperty Name="Cola_Caso" ColumnName="Cola_Caso" />
+          <ScalarProperty Name="Ticket" ColumnName="Ticket" />
+          <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+          <ScalarProperty Name="Reasignado" ColumnName="Reasignado" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Carta_Ofrecimiento_Disculpas" ColumnName="Carta_Ofrecimiento_Disculpas" />
+          <ScalarProperty Name="Solicitud_clientes" ColumnName="Solicitud_clientes" />
+          <ScalarProperty Name="Contactacion" ColumnName="Contactacion" />
+          <ScalarProperty Name="Llamada_SMS_MensajeCorreodeVoz" ColumnName="Llamada_SMS_MensajeCorreodeVoz" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="No_Efectivo" ColumnName="No_Efectivo" />
+          <ScalarProperty Name="Certificado" ColumnName="Certificado" />
+          <ScalarProperty Name="Notificacion" ColumnName="Notificacion" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Fecha_Recepcion" ColumnName="Fecha_Recepcion" />
+          <ScalarProperty Name="Fecha_Gestion" ColumnName="Fecha_Gestion" />
+          <ScalarProperty Name="Fecha_Reclamacion" ColumnName="Fecha_Reclamacion" />
+          <ScalarProperty Name="PQRS" ColumnName="PQRS" />
+          <ScalarProperty Name="Correo_Electronico" ColumnName="Correo_Electronico" />
+          <ScalarProperty Name="Mercado" ColumnName="Mercado" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_Depuration" FunctionName="BPMModel.Store.Sp_Depuration" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveFiltersEscalations" FunctionName="BPMModel.Store.Sp_RemoveFiltersEscalations" />
+    <FunctionImportMapping FunctionImportName="Sp_AddFilterEscalation" FunctionName="BPMModel.Store.Sp_AddFilterEscalation" />
+    <EntitySetMapping Name="Field">
+      <EntityTypeMapping TypeName="BPMModel.Field">
+        <MappingFragment StoreEntitySet="Field">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetFields" FunctionName="BPMModel.Store.Sp_GetFields">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFields_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetFieldsEscalation" FunctionName="BPMModel.Store.Sp_GetFieldsEscalation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFieldsEscalation_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Filter_Escalation">
+      <EntityTypeMapping TypeName="BPMModel.Filter_Escalation">
+        <MappingFragment StoreEntitySet="Filter_Escalation">
+          <ScalarProperty Name="TypeFilter" ColumnName="TypeFilter" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="IdEscalation" ColumnName="IdEscalation" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_RemoveEscalation" FunctionName="BPMModel.Store.Sp_RemoveEscalation" />
+    <EntitySetMapping Name="Field_Escalation">
+      <EntityTypeMapping TypeName="BPMModel.Field_Escalation">
+        <MappingFragment StoreEntitySet="Field_Escalation">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetFiltersEscalations" FunctionName="BPMModel.Store.Sp_GetFiltersEscalations">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFiltersEscalations_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="IdEscalation" ColumnName="IdEscalation" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="TypeFilter" ColumnName="TypeFilter" />
+          <ScalarProperty Name="NameField" ColumnName="NameField" />
+          <ScalarProperty Name="NameCondition" ColumnName="NameCondition" />
+          <ScalarProperty Name="NameAction" ColumnName="NameAction" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_FiltroEscalation" FunctionName="BPMModel.Store.Sp_FiltroEscalation" />
+    <FunctionImportMapping FunctionImportName="Sp_EditEscalation" FunctionName="BPMModel.Store.Sp_EditEscalation" />
+    <FunctionImportMapping FunctionImportName="Sp_GetEscalation" FunctionName="BPMModel.Store.Sp_GetEscalation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEscalation_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_DepurationEscalation" FunctionName="BPMModel.Store.Sp_DepurationEscalation" />
+    <FunctionImportMapping FunctionImportName="Sp_FiltroUpEscalation" FunctionName="BPMModel.Store.Sp_FiltroUpEscalation" />
+    <EntitySetMapping Name="EscalationCompany">
+      <EntityTypeMapping TypeName="BPMModel.EscalationCompany">
+        <MappingFragment StoreEntitySet="EscalationCompany">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EscalationOrganizativa">
+      <EntityTypeMapping TypeName="BPMModel.EscalationOrganizativa">
+        <MappingFragment StoreEntitySet="EscalationOrganizativa">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IdAorganization" ColumnName="IdAorganization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EscalationProcess">
+      <EntityTypeMapping TypeName="BPMModel.EscalationProcess">
+        <MappingFragment StoreEntitySet="EscalationProcess">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IdProcess" ColumnName="IdProcess" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetEscalationCompany" FunctionName="BPMModel.Store.Sp_GetEscalationCompany">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEscalationCompany_Result">
+          <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetEscalationOrg" FunctionName="BPMModel.Store.Sp_GetEscalationOrg">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEscalationOrg_Result">
+          <ScalarProperty Name="IdAorganization" ColumnName="IdAorganization" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetEscalationProcess" FunctionName="BPMModel.Store.Sp_GetEscalationProcess">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEscalationProcess_Result">
+          <ScalarProperty Name="IdProcess" ColumnName="IdProcess" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_RemoveMatrizEscalation" FunctionName="BPMModel.Store.Sp_RemoveMatrizEscalation" />
+    <EntitySetMapping Name="Escalation">
+      <EntityTypeMapping TypeName="BPMModel.Escalation">
+        <MappingFragment StoreEntitySet="Escalation">
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddEscalation" FunctionName="BPMModel.Store.Sp_AddEscalation" />
+    <FunctionImportMapping FunctionImportName="Sp_RemoveSendEmail" FunctionName="BPMModel.Store.Sp_RemoveSendEmail" />
+    <EntitySetMapping Name="SendEmail">
+      <EntityTypeMapping TypeName="BPMModel.SendEmail">
+        <MappingFragment StoreEntitySet="SendEmail">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="Affair" ColumnName="Affair" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_EditSendEmail" FunctionName="BPMModel.Store.Sp_EditSendEmail" />
+    <FunctionImportMapping FunctionImportName="Sp_GetSendEmails" FunctionName="BPMModel.Store.Sp_GetSendEmails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetSendEmails_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Affair" ColumnName="Affair" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddSendEmail" FunctionName="BPMModel.Store.Sp_AddSendEmail" />
+    <FunctionImportMapping FunctionImportName="Sp_GetMatrizEscalation" FunctionName="BPMModel.Store.Sp_GetMatrizEscalation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetMatrizEscalation_Result">
+          <ScalarProperty Name="IdMatrix" ColumnName="IdMatrix" />
+          <ScalarProperty Name="NameAOrganization" ColumnName="NameAOrganization" />
+          <ScalarProperty Name="NameCompany" ColumnName="NameCompany" />
+          <ScalarProperty Name="NameProcess" ColumnName="NameProcess" />
+          <ScalarProperty Name="NameC4C" ColumnName="NameC4C" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Jefe1" ColumnName="Jefe1" />
+          <ScalarProperty Name="Email2" ColumnName="Email2" />
+          <ScalarProperty Name="Jefe2" ColumnName="Jefe2" />
+          <ScalarProperty Name="Email3" ColumnName="Email3" />
+          <ScalarProperty Name="Jefe3" ColumnName="Jefe3" />
+          <ScalarProperty Name="Email4" ColumnName="Email4" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_EmailsAutomaticEscalation" FunctionName="BPMModel.Store.Sp_EmailsAutomaticEscalation" />
+    <FunctionImportMapping FunctionImportName="Sp_AddMatrizEscalation" FunctionName="BPMModel.Store.Sp_AddMatrizEscalation" />
+    <FunctionImportMapping FunctionImportName="Sp_EditMatrizEscalation" FunctionName="BPMModel.Store.Sp_EditMatrizEscalation" />
+    <EntitySetMapping Name="Matrix_Escalation">
+      <EntityTypeMapping TypeName="BPMModel.Matrix_Escalation">
+        <MappingFragment StoreEntitySet="Matrix_Escalation">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="Email4" ColumnName="Email4" />
+          <ScalarProperty Name="Jefe3" ColumnName="Jefe3" />
+          <ScalarProperty Name="Email3" ColumnName="Email3" />
+          <ScalarProperty Name="Jefe2" ColumnName="Jefe2" />
+          <ScalarProperty Name="Email2" ColumnName="Email2" />
+          <ScalarProperty Name="Jefe1" ColumnName="Jefe1" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Cause" ColumnName="Cause" />
+          <ScalarProperty Name="IdC4C" ColumnName="IdC4C" />
+          <ScalarProperty Name="IdProcess" ColumnName="IdProcess" />
+          <ScalarProperty Name="IdCompany" ColumnName="IdCompany" />
+          <ScalarProperty Name="IdAorganization" ColumnName="IdAorganization" />
+          <ScalarProperty Name="IdMatrix" ColumnName="IdMatrix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetReportSendEmail" FunctionName="BPMModel.Store.Sp_GetReportSendEmail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetReportSendEmail_Result">
+          <ScalarProperty Name="DIA_DE_GESTION" ColumnName="DIA_DE_GESTION" />
+          <ScalarProperty Name="TICKET" ColumnName="TICKET" />
+          <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+          <ScalarProperty Name="SOCIEDAD" ColumnName="SOCIEDAD" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="PRIMER" ColumnName="PRIMER" />
+          <ScalarProperty Name="SEGUNDO_FUNCIONARIO" ColumnName="SEGUNDO_FUNCIONARIO" />
+          <ScalarProperty Name="FECHA_CORREO" ColumnName="FECHA_CORREO" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="UNIDAD_DE_ENVIO" ColumnName="UNIDAD_DE_ENVIO" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="STATUS_E" ColumnName="STATUS_E" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetEscalations" FunctionName="BPMModel.Store.Sp_GetEscalations">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEscalations_Result">
+          <ScalarProperty Name="NameField" ColumnName="NameField" />
+          <ScalarProperty Name="NameCondition" ColumnName="NameCondition" />
+          <ScalarProperty Name="NameAction" ColumnName="NameAction" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="NameEscalation" ColumnName="NameEscalation" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="IdEscalation" ColumnName="IdEscalation" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetStateEscalation" FunctionName="BPMModel.Store.Sp_GetStateEscalation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetStateEscalation_Result">
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetFilteredEscalationList" FunctionName="BPMModel.Store.Sp_GetFilteredEscalationList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetFilteredEscalationList_Result">
+          <ScalarProperty Name="IdPqr" ColumnName="IdPqr" />
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="TITULAR_CC" ColumnName="TITULAR CC" />
+          <ScalarProperty Name="TEL__FIJO_BP" ColumnName="TEL. FIJO BP" />
+          <ScalarProperty Name="TEL__MÓVIL_BP" ColumnName="TEL. MÓVIL BP" />
+          <ScalarProperty Name="E_MAIL_BP" ColumnName="E-MAIL BP" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DIRECCIÓN_BP" ColumnName="DIRECCIÓN BP" />
+          <ScalarProperty Name="NOMBRE_DEL_CONTACTO" ColumnName="NOMBRE DEL CONTACTO" />
+          <ScalarProperty Name="MUNICIPIO_CONTACTO" ColumnName="MUNICIPIO CONTACTO" />
+          <ScalarProperty Name="DIRECCIÓN_CONTACTO" ColumnName="DIRECCIÓN CONTACTO" />
+          <ScalarProperty Name="TEL__FIJO_CONTACTO" ColumnName="TEL. FIJO CONTACTO" />
+          <ScalarProperty Name="TEL__MÓVIL_CONTACTO" ColumnName="TEL. MÓVIL CONTACTO" />
+          <ScalarProperty Name="E_MAIL_CONTACTO" ColumnName="E-MAIL CONTACTO" />
+          <ScalarProperty Name="DIRECC__NOTIFICACIÓN" ColumnName="DIRECC. NOTIFICACIÓN" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="ORIGEN_DEL_TCK" ColumnName="ORIGEN DEL TCK" />
+          <ScalarProperty Name="RADICACIÓN_ESPECIAL" ColumnName="RADICACIÓN ESPECIAL" />
+          <ScalarProperty Name="TIPO_DE_MATRIZ" ColumnName="TIPO DE MATRIZ" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="FECHA_RADICACIÓN" ColumnName="FECHA RADICACIÓN" />
+          <ScalarProperty Name="TÉCNICO_DE_RADICACIÓN" ColumnName="TÉCNICO DE RADICACIÓN" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+          <ScalarProperty Name="UNIDAD_GENERADORA" ColumnName="UNIDAD GENERADORA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="AUTORIZA_RESPUESTA_E_MAIL" ColumnName="AUTORIZA RESPUESTA E-MAIL" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_ACTUAL" ColumnName="UNIDAD DE ENVÍO ACTUAL" />
+          <ScalarProperty Name="FECHA_FINALIZADO" ColumnName="FECHA FINALIZADO" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_FINALIZADO" ColumnName="UNIDAD DE ENVÍO FINALIZADO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="MOTIVO_DE_CIERRE" ColumnName="MOTIVO DE CIERRE" />
+          <ScalarProperty Name="DÍAS_FINALIZACIÓN" ColumnName="DÍAS FINALIZACIÓN" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+          <ScalarProperty Name="CÓDIGO_CAUSA" ColumnName="CÓDIGO CAUSA" />
+          <ScalarProperty Name="GESTIONALBE" ColumnName="GESTIONALBE" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="canCheck" ColumnName="canCheck" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUserPQRs" FunctionName="BPMModel.Store.Sp_GetUserPQRs" />
+    <FunctionImportMapping FunctionImportName="Sp_StatusEscalationPQR" FunctionName="BPMModel.Store.Sp_StatusEscalationPQR" />
+    <FunctionImportMapping FunctionImportName="Sp_ManageEscalationsPQR" FunctionName="BPMModel.Store.Sp_ManageEscalationsPQR" />
+    <EntitySetMapping Name="EscalationC4C">
+      <EntityTypeMapping TypeName="BPMModel.EscalationC4C">
+        <MappingFragment StoreEntitySet="EscalationC4C">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IdC4C" ColumnName="IdC4C" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetEscalationC4C" FunctionName="BPMModel.Store.Sp_GetEscalationC4C">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEscalationC4C_Result">
+          <ScalarProperty Name="IdC4C" ColumnName="IdC4C" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetUserPQREscalation" FunctionName="BPMModel.Store.Sp_GetUserPQREscalation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetUserPQREscalation_Result">
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="TITULAR_CC" ColumnName="TITULAR CC" />
+          <ScalarProperty Name="TEL__FIJO_BP" ColumnName="TEL. FIJO BP" />
+          <ScalarProperty Name="TEL__MÓVIL_BP" ColumnName="TEL. MÓVIL BP" />
+          <ScalarProperty Name="E_MAIL_BP" ColumnName="E-MAIL BP" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DIRECCIÓN_BP" ColumnName="DIRECCIÓN BP" />
+          <ScalarProperty Name="NOMBRE_DEL_CONTACTO" ColumnName="NOMBRE DEL CONTACTO" />
+          <ScalarProperty Name="MUNICIPIO_CONTACTO" ColumnName="MUNICIPIO CONTACTO" />
+          <ScalarProperty Name="DIRECCIÓN_CONTACTO" ColumnName="DIRECCIÓN CONTACTO" />
+          <ScalarProperty Name="TEL__FIJO_CONTACTO" ColumnName="TEL. FIJO CONTACTO" />
+          <ScalarProperty Name="TEL__MÓVIL_CONTACTO" ColumnName="TEL. MÓVIL CONTACTO" />
+          <ScalarProperty Name="E_MAIL_CONTACTO" ColumnName="E-MAIL CONTACTO" />
+          <ScalarProperty Name="DIRECC__NOTIFICACIÓN" ColumnName="DIRECC. NOTIFICACIÓN" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="ORIGEN_DEL_TCK" ColumnName="ORIGEN DEL TCK" />
+          <ScalarProperty Name="RADICACIÓN_ESPECIAL" ColumnName="RADICACIÓN ESPECIAL" />
+          <ScalarProperty Name="TIPO_DE_MATRIZ" ColumnName="TIPO DE MATRIZ" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="CÓDIGO_CAUSA" ColumnName="CÓDIGO CAUSA" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="FECHA_RADICACIÓN" ColumnName="FECHA RADICACIÓN" />
+          <ScalarProperty Name="TÉCNICO_DE_RADICACIÓN" ColumnName="TÉCNICO DE RADICACIÓN" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="UNIDAD_GENERADORA" ColumnName="UNIDAD GENERADORA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="AUTORIZA_RESPUESTA_E_MAIL" ColumnName="AUTORIZA RESPUESTA E-MAIL" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_ACTUAL" ColumnName="UNIDAD DE ENVÍO ACTUAL" />
+          <ScalarProperty Name="FECHA_FINALIZADO" ColumnName="FECHA FINALIZADO" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_FINALIZADO" ColumnName="UNIDAD DE ENVÍO FINALIZADO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="MOTIVO_DE_CIERRE" ColumnName="MOTIVO DE CIERRE" />
+          <ScalarProperty Name="DÍAS_FINALIZACIÓN" ColumnName="DÍAS FINALIZACIÓN" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+          <ScalarProperty Name="GESTIONABLE" ColumnName="GESTIONABLE" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+          <ScalarProperty Name="CanCheck" ColumnName="CanCheck" />
+          <ScalarProperty Name="StateEscalations" ColumnName="StateEscalations" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetReportSendEmailManual" FunctionName="BPMModel.Store.Sp_GetReportSendEmailManual">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetReportSendEmailManual_Result">
+          <ScalarProperty Name="DIA_DE_GESTION" ColumnName="DIA_DE_GESTION" />
+          <ScalarProperty Name="TICKET" ColumnName="TICKET" />
+          <ScalarProperty Name="CUENTA" ColumnName="CUENTA" />
+          <ScalarProperty Name="SOCIEDAD" ColumnName="SOCIEDAD" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="PRIMER" ColumnName="PRIMER" />
+          <ScalarProperty Name="SEGUNDO_FUNCIONARIO" ColumnName="SEGUNDO_FUNCIONARIO" />
+          <ScalarProperty Name="FECHA_CORREO" ColumnName="FECHA_CORREO" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="UNIDAD_DE_ENVIO" ColumnName="UNIDAD_DE_ENVIO" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="STATUS_E" ColumnName="STATUS_E" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQREscalation" FunctionName="BPMModel.Store.Sp_GetPQREscalation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQREscalation_Result">
+          <ScalarProperty Name="IdManual" ColumnName="IdManual" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ObservationsAnalista" ColumnName="ObservationsAnalista" />
+          <ScalarProperty Name="StateEscalations" ColumnName="StateEscalations" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="NameC4C" ColumnName="NameC4C" />
+          <ScalarProperty Name="Nameorganization" ColumnName="Nameorganization" />
+          <ScalarProperty Name="NameProcess" ColumnName="NameProcess" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="EscalationManual">
+      <EntityTypeMapping TypeName="BPMModel.EscalationManual">
+        <MappingFragment StoreEntitySet="EscalationManual">
+          <ScalarProperty Name="DateEmail" ColumnName="DateEmail" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="IdC4C" ColumnName="IdC4C" />
+          <ScalarProperty Name="IdProcess" ColumnName="IdProcess" />
+          <ScalarProperty Name="IdAorganization" ColumnName="IdAorganization" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="StateEscalations" ColumnName="StateEscalations" />
+          <ScalarProperty Name="ObservationsAnalista" ColumnName="ObservationsAnalista" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="IdManual" ColumnName="IdManual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PQR">
+      <EntityTypeMapping TypeName="BPMModel.PQR">
+        <MappingFragment StoreEntitySet="PQR">
+          <ScalarProperty Name="IdEscalamiento" ColumnName="IdEscalamiento" />
+          <ScalarProperty Name="ObservationsEscalations" ColumnName="ObservationsEscalations" />
+          <ScalarProperty Name="ResultMatrix" ColumnName="ResultMatrix" />
+          <ScalarProperty Name="StatePQR" ColumnName="StatePQR" />
+          <ScalarProperty Name="DeliveryUnit" ColumnName="DeliveryUnit" />
+          <ScalarProperty Name="Justified" ColumnName="Justified" />
+          <ScalarProperty Name="PropertyAddress" ColumnName="PropertyAddress" />
+          <ScalarProperty Name="ManagementTelephone" ColumnName="ManagementTelephone" />
+          <ScalarProperty Name="ManagementWeight" ColumnName="ManagementWeight" />
+          <ScalarProperty Name="ManagementObservations" ColumnName="ManagementObservations" />
+          <ScalarProperty Name="ManagementContent" ColumnName="ManagementContent" />
+          <ScalarProperty Name="LetterReference" ColumnName="LetterReference" />
+          <ScalarProperty Name="ManagementNeighborhood" ColumnName="ManagementNeighborhood" />
+          <ScalarProperty Name="ManagementAddress" ColumnName="ManagementAddress" />
+          <ScalarProperty Name="Petente" ColumnName="Petente" />
+          <ScalarProperty Name="LetterPath" ColumnName="LetterPath" />
+          <ScalarProperty Name="NotificationMethod" ColumnName="NotificationMethod" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IdSkill" ColumnName="IdSkill" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="ScanDate" ColumnName="ScanDate" />
+          <ScalarProperty Name="PrintingDate" ColumnName="PrintingDate" />
+          <ScalarProperty Name="DataCaptureDate" ColumnName="DataCaptureDate" />
+          <ScalarProperty Name="ManagementDate" ColumnName="ManagementDate" />
+          <ScalarProperty Name="Written" ColumnName="Written" />
+          <ScalarProperty Name="IdBase" ColumnName="IdBase" />
+          <ScalarProperty Name="Observations" ColumnName="Observations" />
+          <ScalarProperty Name="Activity" ColumnName="Activity" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DayLa" ColumnName="DayLa" />
+          <ScalarProperty Name="EndDialingDate" ColumnName="EndDialingDate" />
+          <ScalarProperty Name="CreationDialingDate" ColumnName="CreationDialingDate" />
+          <ScalarProperty Name="Dialing" ColumnName="Dialing" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="ManagementDays" ColumnName="ManagementDays" />
+          <ScalarProperty Name="FinalDay" ColumnName="FinalDay" />
+          <ScalarProperty Name="ClosingReason" ColumnName="ClosingReason" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="FinalDeliveryUnit" ColumnName="FinalDeliveryUnit" />
+          <ScalarProperty Name="UserFinal" ColumnName="UserFinal" />
+          <ScalarProperty Name="FinalizedDate" ColumnName="FinalizedDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CurrentDeliveryUnit" ColumnName="CurrentDeliveryUnit" />
+          <ScalarProperty Name="AuthorizesEmail" ColumnName="AuthorizesEmail" />
+          <ScalarProperty Name="States" ColumnName="States" />
+          <ScalarProperty Name="GeneratingUnit" ColumnName="GeneratingUnit" />
+          <ScalarProperty Name="PostingUser" ColumnName="PostingUser" />
+          <ScalarProperty Name="FilingDate" ColumnName="FilingDate" />
+          <ScalarProperty Name="CauseDescription" ColumnName="CauseDescription" />
+          <ScalarProperty Name="CauseCode" ColumnName="CauseCode" />
+          <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+          <ScalarProperty Name="Event" ColumnName="Event" />
+          <ScalarProperty Name="TypeMatrix" ColumnName="TypeMatrix" />
+          <ScalarProperty Name="FilingSpecial" ColumnName="FilingSpecial" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="ManagementMail" ColumnName="ManagementMail" />
+          <ScalarProperty Name="EmailContact" ColumnName="EmailContact" />
+          <ScalarProperty Name="MobileContact" ColumnName="MobileContact" />
+          <ScalarProperty Name="TelephoneContact" ColumnName="TelephoneContact" />
+          <ScalarProperty Name="AddressContact" ColumnName="AddressContact" />
+          <ScalarProperty Name="MunicipalityContact" ColumnName="MunicipalityContact" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="AddressBP" ColumnName="AddressBP" />
+          <ScalarProperty Name="ManagementCity" ColumnName="ManagementCity" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="EmailBP" ColumnName="EmailBP" />
+          <ScalarProperty Name="MobileBP" ColumnName="MobileBP" />
+          <ScalarProperty Name="TelephoneBP" ColumnName="TelephoneBP" />
+          <ScalarProperty Name="NameCC" ColumnName="NameCC" />
+          <ScalarProperty Name="Policy" ColumnName="Policy" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetPQR" FunctionName="BPMModel.Store.Sp_GetPQR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetPQR_Result">
+          <ScalarProperty Name="IdPQR" ColumnName="IdPQR" />
+          <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="POLIZA" ColumnName="POLIZA" />
+          <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE CLIENTE" />
+          <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="F_RADICACION" ColumnName="F_RADICACION" />
+          <ScalarProperty Name="DIAS_GESTION" ColumnName="DIAS GESTION" />
+          <ScalarProperty Name="UN__GENERADORA" ColumnName="UN. GENERADORA" />
+          <ScalarProperty Name="UN__ENVIO_ACTUAL" ColumnName="UN. ENVIO ACTUAL" />
+          <ScalarProperty Name="USUARIO_ALTA" ColumnName="USUARIO ALTA" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="DESC__ACTIV_" ColumnName="DESC. ACTIV." />
+          <ScalarProperty Name="DESC__CAUSA" ColumnName="DESC. CAUSA" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ORIGEN" ColumnName="ORIGEN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+          <ScalarProperty Name="CODIGO_CAUSA" ColumnName="CODIGO CAUSA" />
+          <ScalarProperty Name="GESTIONABLE" ColumnName="GESTIONABLE" />
+          <ScalarProperty Name="PropertyAddress" ColumnName="PropertyAddress" />
+          <ScalarProperty Name="Petente" ColumnName="Petente" />
+          <ScalarProperty Name="ManagementAddress" ColumnName="ManagementAddress" />
+          <ScalarProperty Name="ManagementNeighborhood" ColumnName="ManagementNeighborhood" />
+          <ScalarProperty Name="LetterReference" ColumnName="LetterReference" />
+          <ScalarProperty Name="ManagementContent" ColumnName="ManagementContent" />
+          <ScalarProperty Name="ManagementWeight" ColumnName="ManagementWeight" />
+          <ScalarProperty Name="ManagementTelephone" ColumnName="ManagementTelephone" />
+          <ScalarProperty Name="ManagementMail" ColumnName="ManagementMail" />
+          <ScalarProperty Name="ManagementCity" ColumnName="ManagementCity" />
+          <ScalarProperty Name="ObservacionesEscaladas" ColumnName="ObservacionesEscaladas" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_ManagePQR" FunctionName="BPMModel.Store.Sp_ManagePQR" />
+    <FunctionImportMapping FunctionImportName="sp_getEmailEscalation" FunctionName="BPMModel.Store.sp_getEmailEscalation" />
+    <FunctionImportMapping FunctionImportName="Sp_GetEscalationAA" FunctionName="BPMModel.Store.Sp_GetEscalationAA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetEscalationAA_Result">
+          <ScalarProperty Name="IdAA" ColumnName="IdAA" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameState" ColumnName="NameState" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_DepurationBase" FunctionName="BPMModel.Store.Sp_DepurationBase">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_DepurationBase_Result">
+          <ScalarProperty Name="EMPRESA_ID" ColumnName="EMPRESA ID" />
+          <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+          <ScalarProperty Name="CUENTA_CONTRATO" ColumnName="CUENTA CONTRATO" />
+          <ScalarProperty Name="TITULAR_CC" ColumnName="TITULAR CC" />
+          <ScalarProperty Name="TEL__FIJO_BP" ColumnName="TEL. FIJO BP" />
+          <ScalarProperty Name="TEL__MÓVIL_BP" ColumnName="TEL. MÓVIL BP" />
+          <ScalarProperty Name="E_MAIL_BP" ColumnName="E-MAIL BP" />
+          <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+          <ScalarProperty Name="MUNICIPIO" ColumnName="MUNICIPIO" />
+          <ScalarProperty Name="DIRECCIÓN_BP" ColumnName="DIRECCIÓN BP" />
+          <ScalarProperty Name="NOMBRE_DEL_CONTACTO" ColumnName="NOMBRE DEL CONTACTO" />
+          <ScalarProperty Name="MUNICIPIO_CONTACTO" ColumnName="MUNICIPIO CONTACTO" />
+          <ScalarProperty Name="DIRECCIÓN_CONTACTO" ColumnName="DIRECCIÓN CONTACTO" />
+          <ScalarProperty Name="TEL__FIJO_CONTACTO" ColumnName="TEL. FIJO CONTACTO" />
+          <ScalarProperty Name="TEL__MÓVIL_CONTACTO" ColumnName="TEL. MÓVIL CONTACTO" />
+          <ScalarProperty Name="E_MAIL_CONTACTO" ColumnName="E-MAIL CONTACTO" />
+          <ScalarProperty Name="DIRECC__NOTIFICACIÓN" ColumnName="DIRECC. NOTIFICACIÓN" />
+          <ScalarProperty Name="ID_TICKET_PQR" ColumnName="ID TICKET PQR" />
+          <ScalarProperty Name="ORIGEN_DEL_TCK" ColumnName="ORIGEN DEL TCK" />
+          <ScalarProperty Name="RADICACIÓN_ESPECIAL" ColumnName="RADICACIÓN ESPECIAL" />
+          <ScalarProperty Name="TIPO_DE_MATRIZ" ColumnName="TIPO DE MATRIZ" />
+          <ScalarProperty Name="EVENTO" ColumnName="EVENTO" />
+          <ScalarProperty Name="ACTIVIDAD" ColumnName="ACTIVIDAD" />
+          <ScalarProperty Name="CÓDIGO_CAUSA" ColumnName="CÓDIGO CAUSA" />
+          <ScalarProperty Name="CAUSA" ColumnName="CAUSA" />
+          <ScalarProperty Name="FECHA_RADICACIÓN" ColumnName="FECHA RADICACIÓN" />
+          <ScalarProperty Name="TÉCNICO_DE_RADICACIÓN" ColumnName="TÉCNICO DE RADICACIÓN" />
+          <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+          <ScalarProperty Name="NOMBRE_ASESOR" ColumnName="NOMBRE ASESOR" />
+          <ScalarProperty Name="SKILL" ColumnName="SKILL" />
+          <ScalarProperty Name="UNIDAD_GENERADORA" ColumnName="UNIDAD GENERADORA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="AUTORIZA_RESPUESTA_E_MAIL" ColumnName="AUTORIZA RESPUESTA E-MAIL" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_ACTUAL" ColumnName="UNIDAD DE ENVÍO ACTUAL" />
+          <ScalarProperty Name="FECHA_FINALIZADO" ColumnName="FECHA FINALIZADO" />
+          <ScalarProperty Name="TÉCNICO_FINALIZACIÓN" ColumnName="TÉCNICO_FINALIZACIÓN" />
+          <ScalarProperty Name="UNIDAD_DE_ENVÍO_FINALIZADO" ColumnName="UNIDAD DE ENVÍO FINALIZADO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="MOTIVO_DE_CIERRE" ColumnName="MOTIVO DE CIERRE" />
+          <ScalarProperty Name="DÍAS_FINALIZACIÓN" ColumnName="DÍAS FINALIZACIÓN" />
+          <ScalarProperty Name="DÍAS_DE_GESTIÓN" ColumnName="DÍAS DE GESTIÓN" />
+          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+          <ScalarProperty Name="BASE" ColumnName="BASE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_email" FunctionName="BPMModel.Store.sp_email" />
+    <FunctionImportMapping FunctionImportName="Sp_EmailsAutomaticEscalation2do" FunctionName="BPMModel.Store.Sp_EmailsAutomaticEscalation2do" />
+    <FunctionImportMapping FunctionImportName="Sp_EmailsAutomaticManual1" FunctionName="BPMModel.Store.Sp_EmailsAutomaticManual" />
+    <FunctionImportMapping FunctionImportName="Sp_EmailsAutomaticManual2do" FunctionName="BPMModel.Store.Sp_EmailsAutomaticManual2do" />
+    <FunctionImportMapping FunctionImportName="sp_insertLog" FunctionName="BPMModel.Store.sp_insertLog" />
+    <FunctionImportMapping FunctionImportName="Sp_GetSendEmailManual" FunctionName="BPMModel.Store.Sp_GetSendEmailManual">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetSendEmailManual_Result">
+          <ScalarProperty Name="Names" ColumnName="Names" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Escalamiento" ColumnName="Escalamiento" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_GetSAPNote" FunctionName="BPMModel.Store.Sp_GetSAPNote">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BPMModel.Sp_GetSAPNote_Result">
+          <ScalarProperty Name="ServiceRequestID" ColumnName="ServiceRequestID" />
+          <ScalarProperty Name="FormattedText" ColumnName="FormattedText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_AddPQREscalation" FunctionName="BPMModel.Store.Sp_AddPQREscalation" />
+  </EntityContainerMapping>
+</Mapping>

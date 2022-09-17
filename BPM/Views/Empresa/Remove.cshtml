@@ -1,0 +1,56 @@
+﻿@using BPM.Dto.Configuration
+@model BancoDto
+@{
+    ViewBag.Title = "Remove";
+}
+
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>¿Estas seguro de desactivar el Banco?</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Banco/Banco">Bancos</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+
+            <form action="@Url.Content("~/Banco/Remove")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+                <input type="hidden" name="IdClient" value="@Model.IdBanco" />
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">@Model.Nombre</label></div>
+                </div>
+             
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Desactivar</button>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+
+@Scripts.Render("~/Scripts/User/User.js")

@@ -1,0 +1,198 @@
+﻿@model BPM.Dto.Models.Latters.LattersPQRModelInitDto
+
+@section styles{
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+}
+<script src="~/Scripts/modalViewDocument.min.js"></script>
+
+<div ng-app="app">
+    <input type="hidden" id="ContextPQR" value="@Model.Id" />
+    <div class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <div class="row m-0">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Detalle del PQR</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="~/PQR/PQR">PQRS</a></li>
+                                <li><a href="~/PQR/PQR">Detalle del PQR</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div ng-cloak>
+            <md-content>
+                <md-tabs class="md-danger" md-dynamic-height md-border-bottom>
+                    <md-tab label="General">
+                        <md-content class="md-padding" ng-controller="GeneralCtrl" ng-init="init()">
+                            <h2 class="md-display-1">
+                                General  <md-switch ng-model="Update" aria-label="Switch 1"></md-switch>
+                            </h2>
+                            <div class="content">
+                                <form name="FormGeneralPQR" ng-submit="submitForm()" enctype="multipart/form-data" class="form-horizontal" novalidate>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Tipificación</label>
+                                            <select class="form-control" ng-disabled="!Update" id="State" name="State"  ng-model="model.State" 
+                                                    ng-options="option.Id as option.Name for option in Selects.Tipification">
+                                                <option value="" disabled>--Seleccione uno-- </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Método de notificación</label>
+                                            <select class="form-control" ng-disabled="!Update" id="NotificationMethod" name="NotificationMethod"  ng-model="model.NotificationMethod" 
+                                                    ng-options="option.Name as option.Name for option in Selects.TypeNotification">
+                                                <option value="" disabled>--Seleccione uno-- </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Ubicación Carta</label>
+                                            <textarea ng-model="model.LetterPath" ng-disabled="!Update" id="LetterPath" name="LetterPath" class="form-control" ></textarea>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Petente</label>
+                                            <input type="text" id="text-input" ng-disabled="!Update" name="Petente" placeholder="" ng-model="model.Petente"  class="form-control">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Dirección</label>
+                                            <input type="text" id="text-input" ng-disabled="!Update" name="ManagementAddress" placeholder="" ng-model="model.ManagementAddress"  class="form-control">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Barrio</label>
+                                            <input type="text" id="text-input" ng-disabled="!Update" name="ManagementNeighborhood" placeholder="" ng-model="model.ManagementNeighborhood"  class="form-control">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Ciudad</label>
+                                            <select class="form-control" id="ManagementCity" ng-disabled="!Update" name="ManagementCity"  ng-model="model.ManagementCity" 
+                                                    ng-options="option.Id as option.Name for option in Selects.City">
+                                                <option value="" disabled>--Seleccione uno-- </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Correo</label>
+                                            <input type="text" id="text-input" ng-disabled="!Update" name="ManagementMail" placeholder="" ng-model="model.ManagementMail"  class="form-control">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Teléfono</label>
+                                            <input type="text" id="text-input" ng-disabled="!Update" name="ManagementTelephone" placeholder="" ng-model="model.ManagementTelephone"  class="form-control">
+                                        </div>
+                                        @if(ViewBag.RolContext != 29){
+                                            <div class="col-md-6">
+                                                <label for="text-input" class=" form-control-label">Días de Gestión</label>
+                                                <input type="number" id="text-input" ng-disabled="!Update" name="ManagementDays" placeholder="" ng-model="model.ManagementDays" class="form-control">
+                                            </div>
+                                        }
+
+                                    </div>
+                                    <div class="row  float-right" ng-show="Update">
+                                        <div class="col-md-6">
+                                            <button type="submit" class="btn btn-primary" ng-disabled="charges.submitTotal"><i ng-show="charges.submitTotal" class="fa fa-spinner fa-spin"></i> Actualizar</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Cartas del PQR">
+                        <md-content class="md-padding">
+                            <h2 class="md-display-1">
+                                Cartas del PQR
+                                <a href="@Url.Action("PQRParagraph","PQR",new {pqr=Model.Id })" class="btn btn-primary float-right m-r-2">Re-generar Cartas</a>
+                            </h2>
+
+
+                            <div class="content" ng-controller="LattersCtrl">
+
+                                <div class="table-stats order-table ov-h">
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+                                                <th>Tipo de carta</th>
+                                                <th style="width:auto">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var FieldView in Model.LattersPqr)
+                                            {
+                                                <tr>
+                                                    <td>  <span class="name">@FieldView.Name_typeLatter</span> </td>
+                                                    <td>
+
+                                                        <button onclick="viewDocumentInModal('@FieldView.Id_DocumentCloud','false')" id="BtnEditClient" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></button>
+                                                        <button onclick="ChargeDownLoadDocx('@FieldView.Id_DocumentCloud')" id="OpenModalConfirm" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirm" style="float: right;"><i class="fa fa-download"> </i></button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Histórico">
+                        <md-content class="md-padding">
+                            <h2 class="md-display-1">Histórico</h2>
+                            <div class="content" ng-controller="HistoricalCtrl">
+
+                                <div class="table-stats order-table ov-h">
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+                                                <th>Descipción</th>
+                                                <th>Usuario</th>
+                                                <th>Fecha</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var Item in Model.HistoryLogPQ)
+                                            {
+                                                <tr>
+                                                    <td>  <span class="name">@Item.EventDescription</span> </td>
+                                                    <td>  <span class="name">@Item.Names @Item.Surnames</span> </td>
+                                                    <td>  <span class="name">@Item.EventDate</span> </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+<script src="~/Scripts/PetitionsHttp.min.js"></script>
+<script src="~/Scripts/PQRView.min.js"></script>

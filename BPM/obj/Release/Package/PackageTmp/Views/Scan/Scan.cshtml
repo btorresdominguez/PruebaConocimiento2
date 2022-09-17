@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Scan";
+}
+<script src="~/Scripts/User/User.js"></script>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Pistoleo</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Impresión</a></li>
+                            <li><a href="~/Imposition/Imposition">Pistoleo</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <form action="@Url.Content("~/Scan/Add")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+            <div class="row form-group">
+                <div class="col col-md-3"><label for="text-input" class=" form-control-label">Código de barras</label></div>
+                <div class="col-12 col-md-9">
+                    <div class="col-12 col-md-9"><textarea name="Code" id="Code"rows="9" placeholder="Códigos de barras" class="form-control"></textarea></div>
+
+                </div>
+            </div>
+
+
+            <div>
+                <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

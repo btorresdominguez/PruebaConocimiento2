@@ -1,0 +1,211 @@
+﻿
+@using BPM.Dto.Models.Ftp
+@model LotsLetters
+@{
+    ViewBag.Title = "Ftps";
+}
+
+@section scripts{
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Traslado de cartas</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Imposición</a></li>
+                            <li><a href="#">Traslado de cartas</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar traslado de cartas</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Ftp/AddLot")" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fecha Inicial</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.TextBoxFor(model => model.DateInit, new { @type = "date", @class = "form-control datepicker", @name = "InitialDate", required = "required" })
+                                        @Html.ValidationMessageFor(model => model.DateInit, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fecha Final</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.TextBoxFor(model => model.DateEnd, new { @type = "date", @class = "form-control datepicker", @name = "FinalDate", required = "required" })
+                                        @Html.ValidationMessageFor(model => model.DateEnd, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Ftp</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedFtp, new SelectList(Model.FtpDto, "Id", "Name"), "Seleccione un ftp", new { required = "required", @class = "form-control" })
+                                    </div>
+
+                                </div>
+
+                                <div>
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Activos</strong>
+                <div style="float: right">
+
+                    <a onclick="document.location='@Url.Content("~/Ftp/TransferLetters")'" href="#" id="BtnAddUser" type="button" class="btn btn-primary btn-sm" style="float: left;margin-right:10px; "><i class="fa fa-refresh"> </i>&nbsp;Actualizar</a>
+                    <a href="AddUser" id="BtnAddUser" type="button" class="btn btn-primary btn-sm" style="float: right; " data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Nuevo</a>
+
+                </div>
+            </div>
+            <table class="table " id="bootstrap-data-table1">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Fecha inicial</th>
+                        <th>Fecha Final</th>
+                        <th>Ftp</th>
+                        <th>Total</th>
+                        <th>Copiada</th>
+                        <th>Porcentaje</th>
+                        <th style="width:auto"></th>
+                        <th style="width:auto">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var LotActive in Model.LotLettersActive)
+                    {
+                    <tr>
+                        <td>  <span class="name">@LotActive.Date.ToString("dd/MM/yyyy")</span> </td>
+                        <td>  <span class="name">@LotActive.DateInit.ToString("dd/MM/yyyy")</span> </td>
+                        <td>  <span class="name">@LotActive.DateEnd.ToString("dd/MM/yyyy")</span> </td>
+                        <td>  <span class="name">@LotActive.Name</span></td>
+                        <td>  <span class="name">@LotActive.Count</span> </td>
+                        <td>  <span class="name">@LotActive.Run</span> </td>
+                        <td>  <span class="name">@LotActive.Percentage</span> </td>
+                        <td>
+                            <a onclick="document.location='@Url.Content("~/Ftp/ApiTrasladeLatters?Id="+LotActive.Id)'" id="BtnAddUser" class="btn btn-primary btn-sm" style="float: right;"><i class="fa fa-play"> </i></a>
+                        </td>
+
+                        <td>
+                            <a onclick="document.location='@Url.Content("~/Ftp/Pause?Id="+LotActive.Id)'" id="BtnAddUser" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-close"> </i></a>
+                            <a onclick="document.location='@Url.Content("~/Ftp/Remove?Id="+LotActive.Id)'" id="BtnAddUser" class="btn btn-primary btn-sm" style="float: right;"><i class="fa fa-download"> </i></a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Finalizados</strong>
+            </div>
+            <table class="table " id="bootstrap-data-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Fecha inicial</th>
+                        <th>Fecha Final</th>
+                        <th>Ftp</th>
+                        <th>Total</th>
+                        <th>Copiada</th>
+                        <th>Porcentaje</th>
+                        <th style="width:auto">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var LotOld in Model.LotLettersOld)
+                    {
+                        <tr>
+                            <td>  <span class="name">@LotOld.Date.ToString("dd/MM/yyyy")</span> </td>
+                            <td>  <span class="name">@LotOld.DateInit.ToString("dd/MM/yyyy")</span> </td>
+                            <td>  <span class="name">@LotOld.DateEnd.ToString("dd/MM/yyyy")</span> </td>
+                            <td>  <span class="name">@LotOld.Name</span></td>
+                            <td>  <span class="name">@LotOld.Count</span> </td>
+                            <td>  <span class="name">@LotOld.Run</span> </td>
+                            <td>  <span class="name">@LotOld.Percentage</span> </td>
+                            <td>
+                                <a onclick="document.location='@Url.Content("~/Ftp/Pause?Id="+LotOld.Id)'" id="BtnAddUser" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-download"> </i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

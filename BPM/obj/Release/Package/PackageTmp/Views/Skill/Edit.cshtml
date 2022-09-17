@@ -1,0 +1,76 @@
+﻿@using BPM.Dto.Configuration
+@model SkillCreationDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Editar Habilidad</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Skill/Skill">Habilidades</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/Skill/Edit")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+                <input type="hidden" name="IdSkill" value="@Model.SkillList.FirstOrDefault().IdSkill" />
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Name" name="Name" placeholder="Nombre" required class="form-control" value="@Model.SkillList.FirstOrDefault().Name" onkeypress="return validar(event)">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Cliente</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedClient, new SelectList(Model.ClientList, "IdClient", "Name", Model.SkillList.FirstOrDefault().IdClient, "Seleccione un cliente"), new { required = "required", @class="form-control"})
+                    </div>
+                </div>
+
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Actualizar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+
+@Scripts.Render("~/Scripts/User/User.js")
+
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>

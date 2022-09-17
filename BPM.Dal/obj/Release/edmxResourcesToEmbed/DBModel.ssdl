@@ -1,0 +1,2451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BPMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Action">
+    <Key>
+      <PropertyRef Name="IdAction" />
+    </Key>
+    <Property Name="IdAction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Action" Type="varchar" MaxLength="20" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="AddCQs">
+    <Key>
+      <PropertyRef Name="Idcq" />
+    </Key>
+    <Property Name="Idcq" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationMethod" Type="varchar" MaxLength="50" />
+    <Property Name="Typing" Type="varchar" MaxLength="50" />
+    <Property Name="ManagementMail" Type="varchar" MaxLength="200" />
+    <Property Name="AffairMail" Type="varchar" MaxLength="200" />
+    <Property Name="EmailAccount" Type="varchar" MaxLength="200" />
+    <Property Name="IdOrigin" Type="int" />
+    <Property Name="GeneratingUnit" Type="varchar" MaxLength="200" />
+    <Property Name="Policy" Type="varchar" MaxLength="200" />
+    <Property Name="Delegation" Type="varchar" MaxLength="200" />
+    <Property Name="ManagementTelephone" Type="varchar" MaxLength="200" />
+    <Property Name="Id" Type="int" />
+    <Property Name="Activity" Type="varchar" MaxLength="200" />
+    <Property Name="Cause" Type="varchar" MaxLength="200" />
+    <Property Name="Observations" Type="varchar(max)" />
+    <Property Name="ClientName" Type="varchar" MaxLength="200" />
+    <Property Name="DNI" Type="varchar" MaxLength="200" />
+    <Property Name="IdCity" Type="int" />
+    <Property Name="ManagementAddress" Type="varchar" MaxLength="200" />
+    <Property Name="Reference" Type="varchar" MaxLength="200" />
+    <Property Name="IdCompany" Type="int" />
+    <Property Name="Administrative_Action" Type="varchar" MaxLength="200" />
+    <Property Name="ManagementQueue" Type="varchar" MaxLength="200" />
+    <Property Name="TailCase" Type="varchar" MaxLength="200" />
+    <Property Name="Ticket" Type="varchar" MaxLength="200" />
+    <Property Name="Process" Type="varchar" MaxLength="200" />
+    <Property Name="Reassigned" Type="varchar" MaxLength="200" />
+    <Property Name="IdResultado" Type="int" />
+    <Property Name="CustomeRequest" Type="varchar" MaxLength="200" />
+    <Property Name="IdContacto" Type="int" />
+    <Property Name="IdSMS" Type="int" />
+    <Property Name="NotificationTelephone" Type="varchar" MaxLength="200" />
+    <Property Name="IdContesta" Type="int" />
+    <Property Name="IdCertificado" Type="int" />
+    <Property Name="IdNoticacion" Type="int" />
+    <Property Name="Weight" Type="int" />
+    <Property Name="DateEmail" Type="datetime" />
+    <Property Name="ManagementDate" Type="datetime" />
+    <Property Name="ClaimDate" Type="datetime" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="PQRS" Type="int" />
+    <Property Name="EmailRS" Type="varchar" MaxLength="200" />
+    <Property Name="Market" Type="varchar" MaxLength="200" />
+    <Property Name="Province" Type="int" />
+    <Property Name="Chanel" Type="int" />
+    <Property Name="Event" Type="int" />
+    <Property Name="Letter" Type="int" />
+  </EntityType>
+  <EntityType Name="Base">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="IdService" Type="int" />
+    <Property Name="Old" Type="bit" />
+    <Property Name="IdSkill" Type="int" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Cause">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="Matter" Type="varchar" MaxLength="500" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Certificado">
+    <Key>
+      <PropertyRef Name="IdCertificado" />
+    </Key>
+    <Property Name="IdCertificado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Chanel">
+    <Key>
+      <PropertyRef Name="IdChanel" />
+    </Key>
+    <Property Name="IdChanel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="IdCity" />
+    </Key>
+    <Property Name="IdCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Identifier" Type="varchar" MaxLength="200" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="Division" Type="varchar" MaxLength="20" />
+    <Property Name="Phone" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Condition">
+    <Key>
+      <PropertyRef Name="IdCondition" />
+    </Key>
+    <Property Name="IdCondition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Condition" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="IdContacto" />
+    </Key>
+    <Property Name="IdContacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Contesta">
+    <Key>
+      <PropertyRef Name="IdContesta" />
+    </Key>
+    <Property Name="IdContesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Escalation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" />
+    <Property Name="Orden" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EscalationC4C">
+    <Key>
+      <PropertyRef Name="IdC4C" />
+    </Key>
+    <Property Name="IdC4C" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="EscalationCompany">
+    <Key>
+      <PropertyRef Name="IdCompany" />
+    </Key>
+    <Property Name="IdCompany" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="EscalationManual">
+    <Key>
+      <PropertyRef Name="IdManual" />
+    </Key>
+    <Property Name="IdManual" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Names" Type="varchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="ObservationsAnalista" Type="varchar" MaxLength="200" />
+    <Property Name="StateEscalations" Type="varchar" MaxLength="200" />
+    <Property Name="Contents" Type="varchar" MaxLength="200" />
+    <Property Name="IdAorganization" Type="int" />
+    <Property Name="IdProcess" Type="int" />
+    <Property Name="IdC4C" Type="int" />
+    <Property Name="IdPQR" Type="int" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="DateEmail" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EscalationOrganizativa">
+    <Key>
+      <PropertyRef Name="IdAorganization" />
+    </Key>
+    <Property Name="IdAorganization" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="EscalationProcess">
+    <Key>
+      <PropertyRef Name="IdProcess" />
+    </Key>
+    <Property Name="IdProcess" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="IdEvent" />
+    </Key>
+    <Property Name="IdEvent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Event_Radication">
+    <Key>
+      <PropertyRef Name="IdEvent" />
+    </Key>
+    <Property Name="IdEvent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Field">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Field_Escalation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Value" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Filter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Field" Type="int" />
+    <Property Name="Value" Type="varchar" MaxLength="200" />
+    <Property Name="Action" Type="varchar" MaxLength="200" />
+    <Property Name="IdBase" Type="int" Nullable="false" />
+    <Property Name="Condition" Type="varchar" MaxLength="200" />
+    <Property Name="TypeFilter" Type="int" />
+  </EntityType>
+  <EntityType Name="Filter_Escalation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Field" Type="int" />
+    <Property Name="Value" Type="varchar" MaxLength="200" />
+    <Property Name="Action" Type="varchar" MaxLength="200" />
+    <Property Name="IdEscalation" Type="int" Nullable="false" />
+    <Property Name="Condition" Type="varchar" MaxLength="200" />
+    <Property Name="TypeFilter" Type="int" />
+  </EntityType>
+  <EntityType Name="Justified">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Clave" Type="varchar" MaxLength="10" />
+    <Property Name="Valor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LetterCQ">
+    <Key>
+      <PropertyRef Name="IdLetter" />
+    </Key>
+    <Property Name="IdLetter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Login_Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="IdNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Market">
+    <Key>
+      <PropertyRef Name="IdMarket" />
+    </Key>
+    <Property Name="IdMarket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Matrix_Escalation">
+    <Key>
+      <PropertyRef Name="IdMatrix" />
+    </Key>
+    <Property Name="IdMatrix" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAorganization" Type="int" />
+    <Property Name="IdCompany" Type="int" />
+    <Property Name="IdProcess" Type="int" />
+    <Property Name="IdC4C" Type="int" />
+    <Property Name="Cause" Type="varchar" MaxLength="200" />
+    <Property Name="Names" Type="varchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="Jefe1" Type="varchar" MaxLength="200" />
+    <Property Name="Email2" Type="varchar" MaxLength="200" />
+    <Property Name="Jefe2" Type="varchar" MaxLength="200" />
+    <Property Name="Email3" Type="varchar" MaxLength="200" />
+    <Property Name="Jefe3" Type="varchar" MaxLength="200" />
+    <Property Name="Email4" Type="varchar" MaxLength="200" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Matrix_Radication">
+    <Key>
+      <PropertyRef Name="IdMatrix" />
+    </Key>
+    <Property Name="IdMatrix" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMarket" Type="int" />
+    <Property Name="IdActivity" Type="int" />
+    <Property Name="IdEvent" Type="int" />
+    <Property Name="Cause" Type="varchar" MaxLength="200" />
+    <Property Name="Result" Type="varchar" MaxLength="200" />
+    <Property Name="IdResult" Type="int" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="Controller" Type="varchar" MaxLength="100" />
+    <Property Name="Action" Type="varchar" MaxLength="100" />
+    <Property Name="Parent" Type="int" />
+  </EntityType>
+  <EntityType Name="Notificacion">
+    <Key>
+      <PropertyRef Name="IdNotificacion" />
+    </Key>
+    <Property Name="IdNotificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="IdModule" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OriginQC">
+    <Key>
+      <PropertyRef Name="IdOrigin" />
+    </Key>
+    <Property Name="IdOrigin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PQR">
+    <Key>
+      <PropertyRef Name="IdPQR" />
+    </Key>
+    <Property Name="IdPQR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Division" Type="varchar" MaxLength="2000" />
+    <Property Name="Company" Type="varchar" MaxLength="2000" />
+    <Property Name="Policy" Type="varchar" MaxLength="2000" />
+    <Property Name="NameCC" Type="varchar" MaxLength="2000" />
+    <Property Name="TelephoneBP" Type="varchar" MaxLength="2000" />
+    <Property Name="MobileBP" Type="varchar" MaxLength="2000" />
+    <Property Name="EmailBP" Type="varchar" MaxLength="2000" />
+    <Property Name="Province" Type="varchar" MaxLength="2000" />
+    <Property Name="ManagementCity" Type="varchar" MaxLength="2000" />
+    <Property Name="AddressBP" Type="varchar" MaxLength="2000" />
+    <Property Name="ClientName" Type="varchar" MaxLength="2000" />
+    <Property Name="MunicipalityContact" Type="varchar" MaxLength="2000" />
+    <Property Name="AddressContact" Type="varchar" MaxLength="2000" />
+    <Property Name="TelephoneContact" Type="varchar" MaxLength="2000" />
+    <Property Name="MobileContact" Type="varchar" MaxLength="2000" />
+    <Property Name="EmailContact" Type="varchar" MaxLength="2000" />
+    <Property Name="ManagementMail" Type="varchar" MaxLength="2000" />
+    <Property Name="Reference" Type="varchar" MaxLength="2000" />
+    <Property Name="Origin" Type="varchar" MaxLength="2000" />
+    <Property Name="FilingSpecial" Type="varchar" MaxLength="2000" />
+    <Property Name="TypeMatrix" Type="varchar" MaxLength="2000" />
+    <Property Name="Event" Type="varchar" MaxLength="2000" />
+    <Property Name="ActivityDescription" Type="varchar" MaxLength="2000" />
+    <Property Name="CauseCode" Type="varchar" MaxLength="2000" />
+    <Property Name="CauseDescription" Type="varchar" MaxLength="2000" />
+    <Property Name="FilingDate" Type="varchar" MaxLength="2000" />
+    <Property Name="PostingUser" Type="varchar" MaxLength="2000" />
+    <Property Name="GeneratingUnit" Type="varchar" MaxLength="2000" />
+    <Property Name="States" Type="varchar" MaxLength="2000" />
+    <Property Name="AuthorizesEmail" Type="varchar" MaxLength="2000" />
+    <Property Name="CurrentDeliveryUnit" Type="varchar" MaxLength="2000" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="FinalizedDate" Type="varchar" MaxLength="2000" />
+    <Property Name="UserFinal" Type="varchar" MaxLength="2000" />
+    <Property Name="FinalDeliveryUnit" Type="varchar" MaxLength="2000" />
+    <Property Name="Result" Type="varchar" MaxLength="2000" />
+    <Property Name="ClosingReason" Type="varchar" MaxLength="2000" />
+    <Property Name="FinalDay" Type="int" />
+    <Property Name="ManagementDays" Type="int" />
+    <Property Name="ModificationDate" Type="datetime" />
+    <Property Name="Observaciones" Type="varchar(max)" />
+    <Property Name="Dialing" Type="varchar" MaxLength="2000" />
+    <Property Name="CreationDialingDate" Type="varchar" MaxLength="2000" />
+    <Property Name="EndDialingDate" Type="varchar" MaxLength="2000" />
+    <Property Name="DayLa" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="2000" />
+    <Property Name="Activity" Type="varchar" MaxLength="2000" />
+    <Property Name="Observations" Type="varchar(max)" />
+    <Property Name="IdBase" Type="int" />
+    <Property Name="Written" Type="int" />
+    <Property Name="ManagementDate" Type="datetime" />
+    <Property Name="DataCaptureDate" Type="datetime" />
+    <Property Name="PrintingDate" Type="datetime" />
+    <Property Name="ScanDate" Type="datetime" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="IdSkill" Type="int" />
+    <Property Name="State" Type="int" />
+    <Property Name="NotificationMethod" Type="varchar" MaxLength="2000" />
+    <Property Name="LetterPath" Type="varchar" MaxLength="2000" />
+    <Property Name="Petente" Type="varchar" MaxLength="2000" />
+    <Property Name="ManagementAddress" Type="varchar" MaxLength="2000" />
+    <Property Name="ManagementNeighborhood" Type="varchar" MaxLength="2000" />
+    <Property Name="LetterReference" Type="varchar" MaxLength="2000" />
+    <Property Name="ManagementContent" Type="varchar" MaxLength="2000" />
+    <Property Name="ManagementObservations" Type="varchar(max)" />
+    <Property Name="ManagementWeight" Type="varchar" MaxLength="2000" />
+    <Property Name="ManagementTelephone" Type="varchar" MaxLength="2000" />
+    <Property Name="PropertyAddress" Type="varchar" MaxLength="2000" />
+    <Property Name="Justified" Type="varchar" MaxLength="2000" />
+    <Property Name="DeliveryUnit" Type="varchar" MaxLength="2000" />
+    <Property Name="StatePQR" Type="int" />
+    <Property Name="ResultMatrix" Type="varchar" MaxLength="2000" />
+    <Property Name="ObservationsEscalations" Type="varchar" MaxLength="2000" />
+    <Property Name="IdEscalamiento" Type="int" />
+  </EntityType>
+  <EntityType Name="PQR_Latters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_PQR" Type="int" Nullable="false" />
+    <Property Name="Id_typeLatter" Type="int" Nullable="false" />
+    <Property Name="Id_DocumentCloud" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PQR_Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPQR" Type="int" />
+    <Property Name="IdUser" Type="int" />
+    <Property Name="EventDate" Type="datetime" />
+    <Property Name="EventDescription" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="PQR_State">
+    <Key>
+      <PropertyRef Name="IdState" />
+    </Key>
+    <Property Name="IdState" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PqrsCQ">
+    <Key>
+      <PropertyRef Name="IdPQRS" />
+    </Key>
+    <Property Name="IdPQRS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ProvinciaCQ">
+    <Key>
+      <PropertyRef Name="IdProvincia" />
+    </Key>
+    <Property Name="IdProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Clave" Type="varchar" MaxLength="10" />
+    <Property Name="Valor" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Resultado">
+    <Key>
+      <PropertyRef Name="IdResultado" />
+    </Key>
+    <Property Name="IdResultado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BPMV2.dbo.Role_Operation' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Role_Operation">
+    <Key>
+      <PropertyRef Name="IdRole" />
+      <PropertyRef Name="IdOperation" />
+    </Key>
+    <Property Name="IdRole" Type="int" Nullable="false" />
+    <Property Name="IdOperation" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SendEmail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Affair" Type="varchar" MaxLength="200" />
+    <Property Name="Contents" Type="varchar" MaxLength="200" />
+    <Property Name="Image" Type="varchar(max)" />
+    <Property Name="Path" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="IdClient" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'BPMV2.dbo.Skill_User' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Skill_User">
+    <Key>
+      <PropertyRef Name="IdSkill" />
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdSkill" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SMS">
+    <Key>
+      <PropertyRef Name="IdSMS" />
+    </Key>
+    <Property Name="IdSMS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="IdState" />
+    </Key>
+    <Property Name="IdState" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Names" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Surnames" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="IdNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+    <Property Name="IdClient" Type="int" Nullable="false" />
+    <Property Name="State" Type="bit" Nullable="false" />
+    <Property Name="Salt" Type="varchar" MaxLength="32" />
+    <Property Name="Epx" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Written">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Observation" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Writting_State">
+    <Key>
+      <PropertyRef Name="IdWritting" />
+    </Key>
+    <Property Name="IdWritting" Type="int" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ftps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Host" Type="varchar" MaxLength="100" />
+    <Property Name="Port" Type="varchar" MaxLength="100" />
+    <Property Name="Login" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Lots">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateInit" Type="datetime" />
+    <Property Name="DateEnd" Type="datetime" />
+    <Property Name="IdFtp" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <EntityType Name="Exceptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Template" Type="int" Nullable="false" />
+    <Property Name="Id_Cause" Type="int" />
+    <Property Name="Id_Skill" Type="int" />
+    <Property Name="Id_City" Type="int" />
+    <Property Name="Id_Company" Type="int" />
+  </EntityType>
+  <EntityType Name="Paragraph">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Cause" Type="int" Nullable="false" />
+    <Property Name="Id_TypeParagraph" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="paragraphContent" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PQR_Paragraph">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPQR" Type="int" />
+    <Property Name="Id_Paragraph" Type="int" />
+  </EntityType>
+  <EntityType Name="Template">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Id_TypeTemplate" Type="int" Nullable="false" />
+    <Property Name="Id_Company" Type="int" />
+  </EntityType>
+  <EntityType Name="Template_TypeNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Template" Type="int" Nullable="false" />
+    <Property Name="Id_TypeNotification" Type="int" Nullable="false" />
+    <Property Name="Id_typeLatter" Type="int" Nullable="false" />
+    <Property Name="Id_DocumentCloud" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tokens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Formule" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeLatter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeParagraph">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AddCQs_Certificado">
+    <End Role="Certificado" Type="Self.Certificado" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificado">
+        <PropertyRef Name="IdCertificado" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdCertificado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Chanel">
+    <End Role="Chanel" Type="Self.Chanel" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chanel">
+        <PropertyRef Name="IdChanel" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="Chanel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_City">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdCompany" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Contacto">
+    <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contacto">
+        <PropertyRef Name="IdContacto" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdContacto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Contesta">
+    <End Role="Contesta" Type="Self.Contesta" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contesta">
+        <PropertyRef Name="IdContesta" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdContesta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Event">
+    <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="IdEvent" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="Event" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Justified">
+    <End Role="Justified" Type="Self.Justified" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Justified">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Letter">
+    <End Role="LetterCQ" Type="Self.LetterCQ" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LetterCQ">
+        <PropertyRef Name="IdLetter" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="Letter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Notificacion">
+    <End Role="Notificacion" Type="Self.Notificacion" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notificacion">
+        <PropertyRef Name="IdNotificacion" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdNoticacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_OriginQC">
+    <End Role="OriginQC" Type="Self.OriginQC" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OriginQC">
+        <PropertyRef Name="IdOrigin" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdOrigin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_PQRS">
+    <End Role="PqrsCQ" Type="Self.PqrsCQ" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PqrsCQ">
+        <PropertyRef Name="IdPQRS" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="PQRS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Provincia">
+    <End Role="ProvinciaCQ" Type="Self.ProvinciaCQ" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProvinciaCQ">
+        <PropertyRef Name="IdProvincia" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="Province" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_Resultado">
+    <End Role="Resultado" Type="Self.Resultado" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resultado">
+        <PropertyRef Name="IdResultado" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdResultado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_SMS">
+    <End Role="SMS" Type="Self.SMS" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SMS">
+        <PropertyRef Name="IdSMS" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdSMS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AddCQs_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="AddCQs" Type="Self.AddCQs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AddCQs">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Base_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="Base" Type="Self.Base" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Base">
+        <PropertyRef Name="IdService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_exception">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="Exceptions" Type="Self.Exceptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="IdCity" />
+      </Principal>
+      <Dependent Role="Exceptions">
+        <PropertyRef Name="Id_City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Company_exception">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Exceptions" Type="Self.Exceptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exceptions">
+        <PropertyRef Name="Id_Company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EscalationManual_C4C">
+    <End Role="EscalationC4C" Type="Self.EscalationC4C" Multiplicity="0..1" />
+    <End Role="EscalationManual" Type="Self.EscalationManual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscalationC4C">
+        <PropertyRef Name="IdC4C" />
+      </Principal>
+      <Dependent Role="EscalationManual">
+        <PropertyRef Name="IdC4C" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EscalationManual_Organization">
+    <End Role="EscalationOrganizativa" Type="Self.EscalationOrganizativa" Multiplicity="0..1" />
+    <End Role="EscalationManual" Type="Self.EscalationManual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscalationOrganizativa">
+        <PropertyRef Name="IdAorganization" />
+      </Principal>
+      <Dependent Role="EscalationManual">
+        <PropertyRef Name="IdAorganization" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EscalationManual_PQR">
+    <End Role="PQR" Type="Self.PQR" Multiplicity="0..1" />
+    <End Role="EscalationManual" Type="Self.EscalationManual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PQR">
+        <PropertyRef Name="IdPQR" />
+      </Principal>
+      <Dependent Role="EscalationManual">
+        <PropertyRef Name="IdPQR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EscalationManual_Process">
+    <End Role="EscalationProcess" Type="Self.EscalationProcess" Multiplicity="0..1" />
+    <End Role="EscalationManual" Type="Self.EscalationManual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscalationProcess">
+        <PropertyRef Name="IdProcess" />
+      </Principal>
+      <Dependent Role="EscalationManual">
+        <PropertyRef Name="IdProcess" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exceptions_Template">
+    <End Role="Template" Type="Self.Template" Multiplicity="1" />
+    <End Role="Exceptions" Type="Self.Exceptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Template">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exceptions">
+        <PropertyRef Name="Id_Template" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Filter_Escalation_Field_Escalation">
+    <End Role="Field_Escalation" Type="Self.Field_Escalation" Multiplicity="0..1" />
+    <End Role="Filter_Escalation" Type="Self.Filter_Escalation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Field_Escalation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Filter_Escalation">
+        <PropertyRef Name="Field" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Filter_Field">
+    <End Role="Field" Type="Self.Field" Multiplicity="0..1" />
+    <End Role="Filter" Type="Self.Filter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Field">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Filter">
+        <PropertyRef Name="Field" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matrix_Escalation_C4C">
+    <End Role="EscalationC4C" Type="Self.EscalationC4C" Multiplicity="0..1" />
+    <End Role="Matrix_Escalation" Type="Self.Matrix_Escalation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscalationC4C">
+        <PropertyRef Name="IdC4C" />
+      </Principal>
+      <Dependent Role="Matrix_Escalation">
+        <PropertyRef Name="IdC4C" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matrix_Escalation_Company">
+    <End Role="EscalationCompany" Type="Self.EscalationCompany" Multiplicity="0..1" />
+    <End Role="Matrix_Escalation" Type="Self.Matrix_Escalation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscalationCompany">
+        <PropertyRef Name="IdCompany" />
+      </Principal>
+      <Dependent Role="Matrix_Escalation">
+        <PropertyRef Name="IdCompany" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matrix_Escalation_Organizativa">
+    <End Role="EscalationOrganizativa" Type="Self.EscalationOrganizativa" Multiplicity="0..1" />
+    <End Role="Matrix_Escalation" Type="Self.Matrix_Escalation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscalationOrganizativa">
+        <PropertyRef Name="IdAorganization" />
+      </Principal>
+      <Dependent Role="Matrix_Escalation">
+        <PropertyRef Name="IdAorganization" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matrix_Escalation_Process">
+    <End Role="EscalationProcess" Type="Self.EscalationProcess" Multiplicity="0..1" />
+    <End Role="Matrix_Escalation" Type="Self.Matrix_Escalation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EscalationProcess">
+        <PropertyRef Name="IdProcess" />
+      </Principal>
+      <Dependent Role="Matrix_Escalation">
+        <PropertyRef Name="IdProcess" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matrix_Radication_Event">
+    <End Role="Event_Radication" Type="Self.Event_Radication" Multiplicity="0..1" />
+    <End Role="Matrix_Radication" Type="Self.Matrix_Radication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event_Radication">
+        <PropertyRef Name="IdEvent" />
+      </Principal>
+      <Dependent Role="Matrix_Radication">
+        <PropertyRef Name="IdEvent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matrix_Radication_Market">
+    <End Role="Market" Type="Self.Market" Multiplicity="0..1" />
+    <End Role="Matrix_Radication" Type="Self.Matrix_Radication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Market">
+        <PropertyRef Name="IdMarket" />
+      </Principal>
+      <Dependent Role="Matrix_Radication">
+        <PropertyRef Name="IdMarket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matrix_Radication_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Matrix_Radication" Type="Self.Matrix_Radication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Matrix_Radication">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paragraph_Cause">
+    <End Role="Cause" Type="Self.Cause" Multiplicity="1" />
+    <End Role="Paragraph" Type="Self.Paragraph" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cause">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paragraph">
+        <PropertyRef Name="Id_Cause" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paragraph_TypeParagraph">
+    <End Role="TypeParagraph" Type="Self.TypeParagraph" Multiplicity="1" />
+    <End Role="Paragraph" Type="Self.Paragraph" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeParagraph">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paragraph">
+        <PropertyRef Name="Id_TypeParagraph" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PQR_Latters_TypeLatter">
+    <End Role="TypeLatter" Type="Self.TypeLatter" Multiplicity="1" />
+    <End Role="PQR_Latters" Type="Self.PQR_Latters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeLatter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PQR_Latters">
+        <PropertyRef Name="Id_typeLatter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Operation_Operation">
+    <End Role="Operation" Type="Self.Operation" Multiplicity="1" />
+    <End Role="Role_Operation" Type="Self.Role_Operation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role_Operation">
+        <PropertyRef Name="IdOperation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Operation_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Role_Operation" Type="Self.Role_Operation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Role_Operation">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skill_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="Skill">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skill_User_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Skill_User" Type="Self.Skill_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Skill_User">
+        <PropertyRef Name="IdUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Template_TypeNotification_Template">
+    <End Role="Template" Type="Self.Template" Multiplicity="1" />
+    <End Role="Template_TypeNotification" Type="Self.Template_TypeNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Template">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Template_TypeNotification">
+        <PropertyRef Name="Id_Template" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Template_TypeNotification_TypeLatter">
+    <End Role="TypeLatter" Type="Self.TypeLatter" Multiplicity="1" />
+    <End Role="Template_TypeNotification" Type="Self.Template_TypeNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeLatter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Template_TypeNotification">
+        <PropertyRef Name="Id_typeLatter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Template_TypeNotification_TypeNotification">
+    <End Role="TypeNotification" Type="Self.TypeNotification" Multiplicity="1" />
+    <End Role="Template_TypeNotification" Type="Self.Template_TypeNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeNotification">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Template_TypeNotification">
+        <PropertyRef Name="Id_TypeNotification" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Template_TypeTemplate">
+    <End Role="TypeTemplate" Type="Self.TypeTemplate" Multiplicity="1" />
+    <End Role="Template" Type="Self.Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeTemplate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Template">
+        <PropertyRef Name="Id_TypeTemplate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_User">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Sp_GetCauseParagraphsCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="IdPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRLetters_DeleteCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="idPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRLettersCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="idPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_IdentifyTemplateCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="IdPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_PQR_Latters_InsertCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="Id_PQR" Type="int" Mode="In" />
+    <Parameter Name="Id_typeLatter" Type="int" Mode="In" />
+    <Parameter Name="Id_DocumentCloud" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PQR_Paragraph_DeleteCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_PQR_Paragraph_InsertCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="Id_Paragraph" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Tokens_GetForLattersCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="cq">
+    <Parameter Name="IdPQRContext" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Fn_CanBeChecked" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="idPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Fn_IsSelectedParagraph" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="idPqr" Type="int" Mode="In" />
+    <Parameter Name="idParagraph" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Fn_IsSelectedParagraphCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="idParagraph" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllPQRfromBPM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_AddBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Service" Type="int" Mode="In" />
+    <Parameter Name="Skill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddCause" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Matter" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Identifier" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Division" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NotificationMethod" Type="varchar" Mode="In" />
+    <Parameter Name="Typing" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementMail" Type="varchar" Mode="In" />
+    <Parameter Name="AffairMail" Type="varchar" Mode="In" />
+    <Parameter Name="EmailAccount" Type="varchar" Mode="In" />
+    <Parameter Name="IdOrigin" Type="int" Mode="In" />
+    <Parameter Name="GeneratingUnit" Type="varchar" Mode="In" />
+    <Parameter Name="Policy" Type="varchar" Mode="In" />
+    <Parameter Name="Delegation" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementTelephone" Type="varchar" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Activity" Type="varchar" Mode="In" />
+    <Parameter Name="Cause" Type="varchar" Mode="In" />
+    <Parameter Name="Observations" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ClientName" Type="varchar" Mode="In" />
+    <Parameter Name="DNI" Type="varchar" Mode="In" />
+    <Parameter Name="IdCity" Type="int" Mode="In" />
+    <Parameter Name="ManagementAddress" Type="varchar" Mode="In" />
+    <Parameter Name="Reference" Type="varchar" Mode="In" />
+    <Parameter Name="IdCompany" Type="int" Mode="In" />
+    <Parameter Name="Administrative_Action" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementQueue" Type="varchar" Mode="In" />
+    <Parameter Name="TailCase" Type="varchar" Mode="In" />
+    <Parameter Name="Ticket" Type="varchar" Mode="In" />
+    <Parameter Name="Process" Type="varchar" Mode="In" />
+    <Parameter Name="Reassigned" Type="varchar" Mode="In" />
+    <Parameter Name="IdResultado" Type="int" Mode="In" />
+    <Parameter Name="CustomeRequest" Type="varchar" Mode="In" />
+    <Parameter Name="IdContacto" Type="int" Mode="In" />
+    <Parameter Name="IdSMS" Type="int" Mode="In" />
+    <Parameter Name="NotificationTelephone" Type="varchar" Mode="In" />
+    <Parameter Name="IdContesta" Type="int" Mode="In" />
+    <Parameter Name="IdCertificado" Type="int" Mode="In" />
+    <Parameter Name="IdNoticacion" Type="int" Mode="In" />
+    <Parameter Name="Weight" Type="int" Mode="In" />
+    <Parameter Name="DateEmail" Type="datetime" Mode="In" />
+    <Parameter Name="ClaimDate" Type="datetime" Mode="In" />
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+    <Parameter Name="PQRS" Type="int" Mode="In" />
+    <Parameter Name="EmailRS" Type="varchar" Mode="In" />
+    <Parameter Name="Market" Type="varchar" Mode="In" />
+    <Parameter Name="Provincia" Type="int" Mode="In" />
+    <Parameter Name="Chanel" Type="int" Mode="In" />
+    <Parameter Name="Event" Type="int" Mode="In" />
+    <Parameter Name="Letter" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Orden" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddFilterBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdBase" Type="int" Mode="In" />
+    <Parameter Name="Field" Type="int" Mode="In" />
+    <Parameter Name="Value" Type="varchar" Mode="In" />
+    <Parameter Name="Action" Type="int" Mode="In" />
+    <Parameter Name="Condition" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddFilterEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEscalation" Type="int" Mode="In" />
+    <Parameter Name="Field" Type="int" Mode="In" />
+    <Parameter Name="Value" Type="varchar" Mode="In" />
+    <Parameter Name="Action" Type="int" Mode="In" />
+    <Parameter Name="Condition" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddMatriz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdMarket" Type="int" Mode="In" />
+    <Parameter Name="IdActivity" Type="int" Mode="In" />
+    <Parameter Name="IdEvent" Type="int" Mode="In" />
+    <Parameter Name="Cause" Type="varchar" Mode="In" />
+    <Parameter Name="Result" Type="varchar" Mode="In" />
+    <Parameter Name="IdResult" Type="int" Mode="In" />
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddMatrizEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdAOrganization" Type="int" Mode="In" />
+    <Parameter Name="IdCompany" Type="int" Mode="In" />
+    <Parameter Name="IdProcess" Type="int" Mode="In" />
+    <Parameter Name="IdC4C" Type="int" Mode="In" />
+    <Parameter Name="Cause" Type="varchar" Mode="In" />
+    <Parameter Name="Names" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Jefe1" Type="varchar" Mode="In" />
+    <Parameter Name="Email2" Type="varchar" Mode="In" />
+    <Parameter Name="Jefe2" Type="varchar" Mode="In" />
+    <Parameter Name="Email3" Type="varchar" Mode="In" />
+    <Parameter Name="Jefe3" Type="varchar" Mode="In" />
+    <Parameter Name="Email4" Type="varchar" Mode="In" />
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddModule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddModuleRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRole" Type="int" Mode="In" />
+    <Parameter Name="IdModule" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddPQREscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Names" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="ObservationsAnalista" Type="varchar" Mode="In" />
+    <Parameter Name="StateEscalations" Type="varchar" Mode="In" />
+    <Parameter Name="Contents" Type="varchar" Mode="In" />
+    <Parameter Name="IdAOrganization" Type="int" Mode="In" />
+    <Parameter Name="IdProcess" Type="int" Mode="In" />
+    <Parameter Name="IdC4C" Type="int" Mode="In" />
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+    <Parameter Name="IdCompany" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddScan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Scan" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddSendEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Affair" Type="varchar" Mode="In" />
+    <Parameter Name="Contents" Type="varchar" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Path" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddSkill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Client" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="IdRole" Type="int" Mode="In" />
+    <Parameter Name="Names" Type="varchar" Mode="In" />
+    <Parameter Name="Surnames" Type="varchar" Mode="In" />
+    <Parameter Name="IdClient" Type="varchar" Mode="In" />
+    <Parameter Name="Salt" Type="varchar" Mode="In" />
+    <Parameter Name="Epx" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddUserSkills" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="varchar" Mode="In" />
+    <Parameter Name="Skills" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AssignPQRS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_CreatedLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DateStart" Type="datetime" Mode="In" />
+    <Parameter Name="DateEnd" Type="datetime" Mode="In" />
+    <Parameter Name="TypeLatter" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_CreatedLotFtp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DateStart" Type="datetime" Mode="In" />
+    <Parameter Name="DateEnd" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_DeleteFinishedSGC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_Depuration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_DepurationBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_DepurationEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdBase" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Service" Type="int" Mode="In" />
+    <Parameter Name="Skill" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditCause" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Matter" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCompany" Type="int" Mode="In" />
+    <Parameter Name="Identifier" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Division" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEscalation" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditMatriz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdMarket" Type="int" Mode="In" />
+    <Parameter Name="IdActivity" Type="int" Mode="In" />
+    <Parameter Name="IdEvent" Type="int" Mode="In" />
+    <Parameter Name="Cause" Type="varchar" Mode="In" />
+    <Parameter Name="Result" Type="varchar" Mode="In" />
+    <Parameter Name="IdResult" Type="int" Mode="In" />
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditMatrizEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdAOrganization" Type="int" Mode="In" />
+    <Parameter Name="IdCompany" Type="int" Mode="In" />
+    <Parameter Name="IdProcess" Type="int" Mode="In" />
+    <Parameter Name="IdC4C" Type="int" Mode="In" />
+    <Parameter Name="Cause" Type="varchar" Mode="In" />
+    <Parameter Name="Names" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Jefe1" Type="varchar" Mode="In" />
+    <Parameter Name="Email2" Type="varchar" Mode="In" />
+    <Parameter Name="Jefe2" Type="varchar" Mode="In" />
+    <Parameter Name="Email3" Type="varchar" Mode="In" />
+    <Parameter Name="Jefe3" Type="varchar" Mode="In" />
+    <Parameter Name="Email4" Type="varchar" Mode="In" />
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditModule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditSendEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmail" Type="int" Mode="In" />
+    <Parameter Name="Affair" Type="varchar" Mode="In" />
+    <Parameter Name="Contents" Type="varchar" Mode="In" />
+    <Parameter Name="Image" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Path" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditSkill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Client" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="IdRole" Type="int" Mode="In" />
+    <Parameter Name="Names" Type="varchar" Mode="In" />
+    <Parameter Name="Surnames" Type="varchar" Mode="In" />
+    <Parameter Name="IdClient" Type="varchar" Mode="In" />
+    <Parameter Name="Salt" Type="varchar" Mode="In" />
+    <Parameter Name="Epx" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Asunto" Type="varchar" Mode="In" />
+    <Parameter Name="CorreoU" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Adjunto" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Sp_EmailsAutomaticEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_EmailsAutomaticEscalation2do" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_EmailsAutomaticManual" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_EmailsAutomaticManual2do" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_FiltroEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEscalation" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_FiltroUpEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEscalation" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Get_ProcessType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetActions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetActivity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetAdvisers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetAssignedPQRReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetAssignedPQRsReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdBase" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetBases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetCauseParagraphs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCause" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetCauses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetCertificados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetChanel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetCities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetCitys" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetClients" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetCompanies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetCompaniesCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetConditions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetContactos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetContestados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetCQReportDto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetDailyBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetDailyReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetDeliveryUnit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetDuplicatePQR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="company" Type="varchar" Mode="In" />
+    <Parameter Name="Policy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_getEmailEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdMatriz" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEscalation" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetEscalationAA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetEscalationC4C" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetEscalationCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetEscalationOrg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetEscalationProcess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetEscalations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetFields" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetFieldsEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetFilteredEscalationList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idSkill" Type="int" Mode="In" />
+    <Parameter Name="idUser" Type="int" Mode="In" />
+    <Parameter Name="managementDays" Type="int" Mode="In" />
+    <Parameter Name="reference" Type="varchar" Mode="In" />
+    <Parameter Name="cause" Type="varchar" Mode="In" />
+    <Parameter Name="idBase" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetFilteredPQRList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idSkill" Type="int" Mode="In" />
+    <Parameter Name="idUser" Type="int" Mode="In" />
+    <Parameter Name="managementDays" Type="int" Mode="In" />
+    <Parameter Name="reference" Type="varchar" Mode="In" />
+    <Parameter Name="cause" Type="varchar" Mode="In" />
+    <Parameter Name="idBase" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetFilteredPQRs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idSkill" Type="int" Mode="In" />
+    <Parameter Name="idUser" Type="int" Mode="In" />
+    <Parameter Name="managementDays" Type="int" Mode="In" />
+    <Parameter Name="reference" Type="varchar" Mode="In" />
+    <Parameter Name="cause" Type="varchar" Mode="In" />
+    <Parameter Name="idBase" Type="int" Mode="In" />
+    <Parameter Name="policy" Type="varchar" Mode="In" />
+    <Parameter Name="idState" Type="int" Mode="In" />
+    <Parameter Name="deliveryUnit" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetFiltersBases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdBase" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetFiltersEscalations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEscalation" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetFinishedBPMandSGC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetGlobalDashboardReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetGlobalImpositionReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetInconsistenciesBPMandSGC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetJustified" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetLetter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetMailImpositionReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetMarkets" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetMatriz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetMatrizEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetModules" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetModulesRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Role" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetNotificados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetOrigines" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetPhysicalImpositionReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQR_Edit_View" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="State" Type="int" Mode="In" />
+    <Parameter Name="NotificationMethod" Type="varchar" Mode="In" />
+    <Parameter Name="LetterPath" Type="varchar" Mode="In" />
+    <Parameter Name="Petente" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementAddress" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementNeighborhood" Type="varchar" Mode="In" />
+    <Parameter Name="LetterReference" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementContent" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementObservations" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementWeight" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementTelephone" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementMail" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementCity" Type="int" Mode="In" />
+    <Parameter Name="ManagementDays" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQR_View" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQREscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdManual" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRLetters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRLetters_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRLetters_view" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRLog_IdPqr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRParagraphs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPQRReference" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reference" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPqrsCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetProvincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetRedesCQReportDto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetReportSendEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetReportSendEmailManual" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetResultados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetResultC4C" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdResult" Type="int" Mode="In" />
+    <Parameter Name="IdTicket" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetResults" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetSAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetSAPNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetSendEmailManual" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPqr" Type="int" Mode="In" />
+    <Parameter Name="Organization" Type="int" Mode="In" />
+    <Parameter Name="Process" Type="int" Mode="In" />
+    <Parameter Name="DeliveryUnit" Type="int" Mode="In" />
+    <Parameter Name="Company" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetSendEmails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetServices" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetSkill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetSMSs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetStateEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetStates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetStatesCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetUserCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetUserMatriz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetUserModules" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetUserPQR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetUserPQREscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetUserPQRs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_GetUserSalt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetUserSkills" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetUserStates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_IdentifyPossibleWritings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_IdentifyTemplate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPqr" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_insertLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Mensaje" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_LoadInconsistenciesBOT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_ManageEscalationsPQR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="OrganizativaList" Type="int" Mode="In" />
+    <Parameter Name="ProcessList" Type="int" Mode="In" />
+    <Parameter Name="C4CList" Type="int" Mode="In" />
+    <Parameter Name="Names" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="ObservationsAnalista" Type="varchar" Mode="In" />
+    <Parameter Name="StateEscalations" Type="varchar" Mode="In" />
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_ManagePQR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Company" Type="varchar" Mode="In" />
+    <Parameter Name="Policy" Type="varchar" Mode="In" />
+    <Parameter Name="IdUser" Type="int" Mode="In" />
+    <Parameter Name="State" Type="int" Mode="In" />
+    <Parameter Name="NotificationMethod" Type="varchar" Mode="In" />
+    <Parameter Name="LetterPath" Type="varchar" Mode="In" />
+    <Parameter Name="Petente" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementAddress" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementNeighborhood" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementCity" Type="varchar" Mode="In" />
+    <Parameter Name="LetterReference" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementContent" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementObservations" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementWeight" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementTelephone" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementMail" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyAddress" Type="varchar" Mode="In" />
+    <Parameter Name="Justified" Type="int" Mode="In" />
+    <Parameter Name="DeliveryUnit" Type="int" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ObservacionesEscaladas" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ResultMatrix" Type="varchar" Mode="In" />
+    <Parameter Name="Result" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_ModulesPerUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_PQR_Latters_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_PQR" Type="int" Mode="In" />
+    <Parameter Name="Id_typeLatter" Type="int" Mode="In" />
+    <Parameter Name="Id_DocumentCloud" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_ReassignPQR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="varchar" Mode="In" />
+    <Parameter Name="Pqrs" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdBase" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveCause" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCompany" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEscalation" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveFiltersBases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdBase" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveFiltersEscalations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEscalation" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveMatriz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveMatrizEscalation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveModule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveModulesRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Role" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveSendEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmail" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveSkill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveUserSkills" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Set_Process_State" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdBot" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_StatusEscalationPQR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_UpdatePossibleWritings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_UpdateWritings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Sp_UpdateWritten" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="Written" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Sp_VerifyModuleUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Module" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="splitstring" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="stringToSplit" Type="varchar(max)" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="UpdateDataPQRfromBotBPM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="Petente" Type="varchar" Mode="In" />
+    <Parameter Name="PropertyAddress" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementAddress" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementNeighborhood" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementCity" Type="int" Mode="In" />
+    <Parameter Name="ManagementTelephone" Type="varchar" Mode="In" />
+    <Parameter Name="ManagementMail" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddFtp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Host" Type="varchar" Mode="In" />
+    <Parameter Name="Port" Type="varchar" Mode="In" />
+    <Parameter Name="Login" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddLotFtp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="DateInit" Type="datetime" Mode="In" />
+    <Parameter Name="DateEnd" Type="datetime" Mode="In" />
+    <Parameter Name="IdFtp" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_EditFtp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Host" Type="varchar" Mode="In" />
+    <Parameter Name="Port" Type="varchar" Mode="In" />
+    <Parameter Name="Login" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetFtp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="IdLote" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetFtps" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp" />
+  <Function Name="Sp_GetLetters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="IdLot" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="IdLot" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetLotsActive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp" />
+  <Function Name="Sp_GetLotsOld" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp" />
+  <Function Name="Sp_PauseFtp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_RemoveFtp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_UpdateStateLatter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_UpdateStateLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ftp">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Exceptions_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id_Template" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Exceptions_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id_Template" Type="int" Mode="In" />
+    <Parameter Name="Id_Cause" Type="int" Mode="In" />
+    <Parameter Name="Id_Skill" Type="int" Mode="In" />
+    <Parameter Name="Id_City" Type="int" Mode="In" />
+    <Parameter Name="Id_Company" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_ExceptionsContext_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id_Template" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Paragraph_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Paragraph_get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Paragraph_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id_Cause" Type="int" Mode="In" />
+    <Parameter Name="Id_TypeParagraph" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="paragraphContent" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Paragraph_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Id_Cause" Type="int" Mode="In" />
+    <Parameter Name="Id_TypeParagraph" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="paragraphContent" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_PQR_Paragraph_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_PQR_Paragraph_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="Id_Paragraph" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_SelectTemplateLatter_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="IdTemplate" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_SelectTemplateLatter_GetCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IdPQR" Type="int" Mode="In" />
+    <Parameter Name="IdTemplate" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Template_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id_Template" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Template_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Template_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Id_TypeTemplate" Type="int" Mode="In" />
+    <Parameter Name="Id_Company" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Template_TypeNotification_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id_Template" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Template_TypeNotification_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id_Template" Type="int" Mode="In" />
+    <Parameter Name="Id_TypeNotification" Type="int" Mode="In" />
+    <Parameter Name="Id_typeLatter" Type="int" Mode="In" />
+    <Parameter Name="Id_DocumentCloud" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Template_TypeNotificationContext_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id_Template" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Template_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="Id_TypeTemplate" Type="int" Mode="In" />
+    <Parameter Name="Id_Company" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_TemplateContext_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Tokens_GetForLatters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IdPQRContext" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Tokens_GetForLattersOLD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IdPQRContext" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_TypeLatter_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IsAdim" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_TypeNotification_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IsAdim" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_TypeParagraph_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IsAdm" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_TypeTemplate_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="latters">
+    <Parameter Name="IsAdim" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="GetLotReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="IdLot" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddLettersToLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="idCompany" Type="varchar" Mode="In" />
+    <Parameter Name="reference" Type="varchar" Mode="In" />
+    <Parameter Name="idTypeLatter" Type="int" Mode="In" />
+    <Parameter Name="idLot" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_AddPqrToLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="company" Type="int" Mode="In" />
+    <Parameter Name="reference" Type="varchar" Mode="In" />
+    <Parameter Name="idLot" Type="int" Mode="In" />
+    <Parameter Name="SelectedTypeLatter" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_CancelLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_CreateLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing" />
+  <Function Name="Sp_CreateSinglePqrLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="idCompany" Type="int" Mode="In" />
+    <Parameter Name="reference" Type="varchar" Mode="In" />
+    <Parameter Name="idTypeLatter" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_DeletePrint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetAllLots" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing" />
+  <Function Name="Sp_GetDailyScanReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing" />
+  <Function Name="Sp_GetFinalizedLotReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="initialDate" Type="datetime" Mode="In" />
+    <Parameter Name="finalDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetLotInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetLotLetters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="IdLot" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_GetPrinterInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing" />
+  <Function Name="Sp_RemovePqrFromLot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="company" Type="int" Mode="In" />
+    <Parameter Name="reference" Type="varchar" Mode="In" />
+    <Parameter Name="idLot" Type="int" Mode="In" />
+    <Parameter Name="SelectedTypeLatter" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Sp_UpdateLetter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="state" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Sp_UpdateLotState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="IdLot" Type="int" Mode="In" />
+    <Parameter Name="state" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Sp_UpdatePrinterConfiguration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="printing">
+    <Parameter Name="printer" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="BPMModelStoreContainer">
+    <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AddCQs" EntityType="Self.AddCQs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Base" EntityType="Self.Base" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cause" EntityType="Self.Cause" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Certificado" EntityType="Self.Certificado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chanel" EntityType="Self.Chanel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Condition" EntityType="Self.Condition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contesta" EntityType="Self.Contesta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Escalation" EntityType="Self.Escalation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EscalationC4C" EntityType="Self.EscalationC4C" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EscalationCompany" EntityType="Self.EscalationCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EscalationManual" EntityType="Self.EscalationManual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EscalationOrganizativa" EntityType="Self.EscalationOrganizativa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EscalationProcess" EntityType="Self.EscalationProcess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event_Radication" EntityType="Self.Event_Radication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Field" EntityType="Self.Field" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Field_Escalation" EntityType="Self.Field_Escalation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Filter" EntityType="Self.Filter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Filter_Escalation" EntityType="Self.Filter_Escalation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Justified" EntityType="Self.Justified" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LetterCQ" EntityType="Self.LetterCQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login_Log" EntityType="Self.Login_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Market" EntityType="Self.Market" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matrix_Escalation" EntityType="Self.Matrix_Escalation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matrix_Radication" EntityType="Self.Matrix_Radication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notificacion" EntityType="Self.Notificacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operation" EntityType="Self.Operation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OriginQC" EntityType="Self.OriginQC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PQR" EntityType="Self.PQR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PQR_Latters" EntityType="Self.PQR_Latters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PQR_Log" EntityType="Self.PQR_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PQR_State" EntityType="Self.PQR_State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PqrsCQ" EntityType="Self.PqrsCQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProvinciaCQ" EntityType="Self.ProvinciaCQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resultado" EntityType="Self.Resultado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SendEmail" EntityType="Self.SendEmail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMS" EntityType="Self.SMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Written" EntityType="Self.Written" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Writting_State" EntityType="Self.Writting_State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ftps" EntityType="Self.Ftps" Schema="ftp" store:Type="Tables" />
+    <EntitySet Name="Lots" EntityType="Self.Lots" Schema="ftp" store:Type="Tables" />
+    <EntitySet Name="Exceptions" EntityType="Self.Exceptions" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="Paragraph" EntityType="Self.Paragraph" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="PQR_Paragraph" EntityType="Self.PQR_Paragraph" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="Template" EntityType="Self.Template" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="Template_TypeNotification" EntityType="Self.Template_TypeNotification" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="TypeLatter" EntityType="Self.TypeLatter" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="TypeNotification" EntityType="Self.TypeNotification" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="TypeParagraph" EntityType="Self.TypeParagraph" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="TypeTemplate" EntityType="Self.TypeTemplate" Schema="latters" store:Type="Tables" />
+    <EntitySet Name="Role_Operation" EntityType="Self.Role_Operation" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Role_Operation].[IdRole] AS [IdRole], 
+[Role_Operation].[IdOperation] AS [IdOperation]
+FROM [dbo].[Role_Operation] AS [Role_Operation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Skill_User" EntityType="Self.Skill_User" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Skill_User].[IdSkill] AS [IdSkill], 
+[Skill_User].[IdUser] AS [IdUser]
+FROM [dbo].[Skill_User] AS [Skill_User]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_AddCQs_Certificado" Association="Self.FK_AddCQs_Certificado">
+      <End Role="Certificado" EntitySet="Certificado" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Chanel" Association="Self.FK_AddCQs_Chanel">
+      <End Role="Chanel" EntitySet="Chanel" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_City" Association="Self.FK_AddCQs_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Company" Association="Self.FK_AddCQs_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Contacto" Association="Self.FK_AddCQs_Contacto">
+      <End Role="Contacto" EntitySet="Contacto" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Contesta" Association="Self.FK_AddCQs_Contesta">
+      <End Role="Contesta" EntitySet="Contesta" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Event" Association="Self.FK_AddCQs_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Justified" Association="Self.FK_AddCQs_Justified">
+      <End Role="Justified" EntitySet="Justified" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Letter" Association="Self.FK_AddCQs_Letter">
+      <End Role="LetterCQ" EntitySet="LetterCQ" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Notificacion" Association="Self.FK_AddCQs_Notificacion">
+      <End Role="Notificacion" EntitySet="Notificacion" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_OriginQC" Association="Self.FK_AddCQs_OriginQC">
+      <End Role="OriginQC" EntitySet="OriginQC" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_PQRS" Association="Self.FK_AddCQs_PQRS">
+      <End Role="PqrsCQ" EntitySet="PqrsCQ" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Provincia" Association="Self.FK_AddCQs_Provincia">
+      <End Role="ProvinciaCQ" EntitySet="ProvinciaCQ" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_Resultado" Association="Self.FK_AddCQs_Resultado">
+      <End Role="Resultado" EntitySet="Resultado" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_SMS" Association="Self.FK_AddCQs_SMS">
+      <End Role="SMS" EntitySet="SMS" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AddCQs_User" Association="Self.FK_AddCQs_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="AddCQs" EntitySet="AddCQs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Base_Service" Association="Self.FK_Base_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="Base" EntitySet="Base" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_exception" Association="Self.FK_City_exception">
+      <End Role="City" EntitySet="City" />
+      <End Role="Exceptions" EntitySet="Exceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Company_exception" Association="Self.FK_Company_exception">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Exceptions" EntitySet="Exceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EscalationManual_C4C" Association="Self.FK_EscalationManual_C4C">
+      <End Role="EscalationC4C" EntitySet="EscalationC4C" />
+      <End Role="EscalationManual" EntitySet="EscalationManual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EscalationManual_Organization" Association="Self.FK_EscalationManual_Organization">
+      <End Role="EscalationOrganizativa" EntitySet="EscalationOrganizativa" />
+      <End Role="EscalationManual" EntitySet="EscalationManual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EscalationManual_PQR" Association="Self.FK_EscalationManual_PQR">
+      <End Role="PQR" EntitySet="PQR" />
+      <End Role="EscalationManual" EntitySet="EscalationManual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EscalationManual_Process" Association="Self.FK_EscalationManual_Process">
+      <End Role="EscalationProcess" EntitySet="EscalationProcess" />
+      <End Role="EscalationManual" EntitySet="EscalationManual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exceptions_Template" Association="Self.FK_Exceptions_Template">
+      <End Role="Template" EntitySet="Template" />
+      <End Role="Exceptions" EntitySet="Exceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Filter_Escalation_Field_Escalation" Association="Self.FK_Filter_Escalation_Field_Escalation">
+      <End Role="Field_Escalation" EntitySet="Field_Escalation" />
+      <End Role="Filter_Escalation" EntitySet="Filter_Escalation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Filter_Field" Association="Self.FK_Filter_Field">
+      <End Role="Field" EntitySet="Field" />
+      <End Role="Filter" EntitySet="Filter" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matrix_Escalation_C4C" Association="Self.FK_Matrix_Escalation_C4C">
+      <End Role="EscalationC4C" EntitySet="EscalationC4C" />
+      <End Role="Matrix_Escalation" EntitySet="Matrix_Escalation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matrix_Escalation_Company" Association="Self.FK_Matrix_Escalation_Company">
+      <End Role="EscalationCompany" EntitySet="EscalationCompany" />
+      <End Role="Matrix_Escalation" EntitySet="Matrix_Escalation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matrix_Escalation_Organizativa" Association="Self.FK_Matrix_Escalation_Organizativa">
+      <End Role="EscalationOrganizativa" EntitySet="EscalationOrganizativa" />
+      <End Role="Matrix_Escalation" EntitySet="Matrix_Escalation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matrix_Escalation_Process" Association="Self.FK_Matrix_Escalation_Process">
+      <End Role="EscalationProcess" EntitySet="EscalationProcess" />
+      <End Role="Matrix_Escalation" EntitySet="Matrix_Escalation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matrix_Radication_Event" Association="Self.FK_Matrix_Radication_Event">
+      <End Role="Event_Radication" EntitySet="Event_Radication" />
+      <End Role="Matrix_Radication" EntitySet="Matrix_Radication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matrix_Radication_Market" Association="Self.FK_Matrix_Radication_Market">
+      <End Role="Market" EntitySet="Market" />
+      <End Role="Matrix_Radication" EntitySet="Matrix_Radication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matrix_Radication_User" Association="Self.FK_Matrix_Radication_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Matrix_Radication" EntitySet="Matrix_Radication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paragraph_Cause" Association="Self.FK_Paragraph_Cause">
+      <End Role="Cause" EntitySet="Cause" />
+      <End Role="Paragraph" EntitySet="Paragraph" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paragraph_TypeParagraph" Association="Self.FK_Paragraph_TypeParagraph">
+      <End Role="TypeParagraph" EntitySet="TypeParagraph" />
+      <End Role="Paragraph" EntitySet="Paragraph" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PQR_Latters_TypeLatter" Association="Self.FK_PQR_Latters_TypeLatter">
+      <End Role="TypeLatter" EntitySet="TypeLatter" />
+      <End Role="PQR_Latters" EntitySet="PQR_Latters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Operation_Operation" Association="Self.FK_Role_Operation_Operation">
+      <End Role="Operation" EntitySet="Operation" />
+      <End Role="Role_Operation" EntitySet="Role_Operation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Operation_Role" Association="Self.FK_Role_Operation_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Role_Operation" EntitySet="Role_Operation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skill_Client" Association="Self.FK_Skill_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Skill" EntitySet="Skill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skill_User_User" Association="Self.FK_Skill_User_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Skill_User" EntitySet="Skill_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Template_TypeNotification_Template" Association="Self.FK_Template_TypeNotification_Template">
+      <End Role="Template" EntitySet="Template" />
+      <End Role="Template_TypeNotification" EntitySet="Template_TypeNotification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Template_TypeNotification_TypeLatter" Association="Self.FK_Template_TypeNotification_TypeLatter">
+      <End Role="TypeLatter" EntitySet="TypeLatter" />
+      <End Role="Template_TypeNotification" EntitySet="Template_TypeNotification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Template_TypeNotification_TypeNotification" Association="Self.FK_Template_TypeNotification_TypeNotification">
+      <End Role="TypeNotification" EntitySet="TypeNotification" />
+      <End Role="Template_TypeNotification" EntitySet="Template_TypeNotification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Template_TypeTemplate" Association="Self.FK_Template_TypeTemplate">
+      <End Role="TypeTemplate" EntitySet="TypeTemplate" />
+      <End Role="Template" EntitySet="Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Client" Association="Self.FK_User_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

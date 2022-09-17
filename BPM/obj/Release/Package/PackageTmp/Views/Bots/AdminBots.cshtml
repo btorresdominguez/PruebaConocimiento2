@@ -1,0 +1,97 @@
+﻿@using BPM.Dto.Models.Configuration
+@model IEnumerable<BotDto>
+@{
+    ViewBag.Title = "Bots";
+}
+
+
+@section scripts{
+    <script>
+    var table = $('#bootstrap-data-table').DataTable({
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        }
+
+    })
+    </script>
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de Bots</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Bots</a></li>
+                            <li><a href="#">Administración</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+
+            <table class="table " id="bootstrap-data-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th style="width:auto">Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var BotView in Model)
+                    {
+                        <tr>
+                            <td>  <span class="name">@BotView.Name</span> </td>
+                            <td>  <span class="name">@BotView.DescriptionProcess</span> </td>
+                            <td>  <span class="name">@BotView.NameActive</span> </td>
+                            <td>
+                                <a onclick="document.location='@Url.Content("~/Bots/Edit?Id="+BotView.Id)'" id="BtnEditUser" class="btn btn-primary btn-sm" style="float: right;"><i class="fa fa-play"> </i></a>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+

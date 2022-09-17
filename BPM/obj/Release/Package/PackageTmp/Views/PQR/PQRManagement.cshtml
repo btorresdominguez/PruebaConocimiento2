@@ -1,0 +1,407 @@
+﻿@using BPM.Dto.PQR
+@model ManagedPQRDto
+
+@{
+    ViewBag.Title = "PQRManagement";
+}
+<script src="~/Scripts/User/User.js"></script>
+<style type="text/css">
+    .showDiv {
+        display: block;
+    }
+
+    .hideDiv {
+        display: none;
+    }
+</style>
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Gestión de PQR</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Inicio</a></li>
+                            <li><a href="~/PQR/PQR">PQRs</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content" style="width:60%">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/PQR/ManagePQR")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:100%">
+
+                @Html.Hidden("Company", Model.PQR.Company)
+                @Html.Hidden("Policy", Model.PQR.Policy)
+
+                @*@if (Model.Duplicates.duplicates.Count > 1)
+                    {
+                        foreach (string item in Model.Duplicates.duplicates)
+                        {
+                            if (item != Model.PQR.Reference)
+                            {
+                                <div class="alert alert-warning" role="alert">
+                                    Tiene un PQR duplicado con la referencia: @item
+                                </div>
+                            }
+                        }
+                    }*@
+                <div class="row form-group">
+                    <input type="hidden" name="Id" id="Ticket" value="@Model.PQR.ID" />
+
+
+
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Tipificación</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedState, new SelectList(Model.StateList, "IdState", "Name"), "Seleccione una tipificación", new { required = "required", @class = "form-control", @onchange = "showhide(this)" })
+                    </div>
+                </div>
+                <div id="prueba" class="hideDiv">
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Método de notificación</label></div>
+                        <div class="col-12 col-md-9">
+                            @Html.DropDownListFor(m => m.SelectedNotificationMethod, new SelectList(Model.NotificationMethods), "Elija un método...", new { @class = "form-control", @onchange = "toggleNotification(this)" })
+
+                            @*<select data-placeholder="Elija un método..." name="@Model.PQR." class="form-control" tabindex="1" onchange="toggleNotification(this)">
+                    <option value="0" label="(Ninguno)"></option>
+                    <option value="1">Físico</option>
+                    <option value="2">Correo</option>
+                    <option value="3">Publicación</option>
+                </select>*@
+                        </div>
+                    </div>
+                    <div class="row form-group" id="ubicacionCarta">
+                        <div class="col col-md-3"><label for="text-input" class="form-control-label">Ubicación Carta</label></div>
+                        <div class="col-12 col-md-9">
+                            <textarea class="form-control" id="text-input" name="LetterPath" placeholder="Ubicación carta" value="@Model.PQR.LetterPath" onkeypress="return validar(event)"></textarea>
+                        </div>
+                    </div>
+                    <div class="row form-group" id="petente">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Contacto</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="Petente" placeholder="Petente" class="form-control" value="@Model.PQR.ClientName" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group" id="direccionPredio">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Dirección del predio</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="PropertyAddress" placeholder="Dirección del predio" class="form-control" value="@Model.PQR.PropertyAddress" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group" id="direccion">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Dirección</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="ManagementAddress" placeholder="Dirección" class="form-control" value="@Model.PQR.ManagementAddress" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group" id="barrio">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Barrio</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="ManagementNeighborhood" placeholder="Barrio" value="" class="form-control" onkeypress="return validar(event)"></div>
+                    </div>
+                    <div class="row form-group" id="ciudad">
+                        <div class="col col-md-3"><label for="select" class=" form-control-label">Ciudad</label></div>
+                        <div class="col-12 col-md-9">
+                            @Html.DropDownListFor(m => m.SelectedCity, new SelectList(Model.CityList, "IdCity", "Name"), "Seleccione una ciudad", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row form-group" id="correo">
+                        <div class="col col-md-3"><label for="text" class=" form-control-label">Correo</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="ManagementMail" value="@Model.PQR.ManagementMail" class="form-control"></div>
+                    </div>
+                    <div class="row form-group" id="telefono">
+                        <div class="col col-md-3"><label for="text" class=" form-control-label">Teléfono</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="ManagementTelephone" value="@Model.PQR.ManagementTelephone" class="form-control"></div>
+                    </div>
+                    <div class="row form-group" id="referencia">
+                        <div class="col col-md-3"><label for="text" class=" form-control-label">Referencia</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text" name="LetterReference" readonly value="@Model.PQR.LetterReference" class="form-control"></div>
+                    </div>
+                    <div class="row form-group" id="contenido">
+                        <div class="col col-md-3"><label for="text" class=" form-control-label">Contenido</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text" name="ManagementContent" readonly value="@Model.PQR.ManagementContent" class="form-control"></div>
+                    </div>
+                    <div class="row form-group" id="observaciones">
+                        <div class="col col-md-3"><label for="text" class=" form-control-label">Observaciones</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text" name="ManagementObservations" readonly value="@Model.PQR.ManagementObservations" class="form-control"></div>
+                    </div>
+                    <div class="row form-group" id="peso">
+                        <div class="col col-md-3"><label for="text" class=" form-control-label">Peso</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text" name="ManagementWeight" readonly value="@Model.PQR.ManagementWeight" class="form-control"></div>
+                    </div>
+
+                    <div class="row form-group" id="UnidadEnvio">
+                        <div class="col col-md-3"><label for="select" class=" form-control-label">Unidad de envio</label></div>
+                        <div class="col-12 col-md-9">
+                            @Html.DropDownListFor(m => m.SelectedDeliveryUnit, new SelectList(Model.DeliveryUnit, "Id", "Clave"), "Seleccione una unidad de envio", new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    @*<div class="col-12 col-md-9">
+            @Html.DropDownListFor(m => m.SelectedJustified, new SelectList(Model.Justified, "Id", "Clave"), "Seleccione una Justificación", new { @class = "form-control" })
+        </div>*@
+                    @*<div class="row form-group" id="Resultado">
+            <div class="col col-md-3"><label for="select" class=" form-control-label">Resultado</label></div>
+            <div class="col-12 col-md-9">
+                <select class="form-control" data-val="true" data-val-number="El campo SelectedResult debe ser un número." data-val-required="El campo SelectedResult es obligatorio." id="SelectedResult" name="SelectedResult">
+                    <option value="">Seleccione un resultado</option>
+                    <option value="15">01 - Accede</option>
+                    <option value="16">02 - Accede Parcialmente</option>
+                    <option value="17">03 - No Accede</option>
+                    <option value="18">04 - Confirma</option>
+                    <option value="19">05 - Modifica</option>
+                    <option value="20">06 - Revoca</option>
+                    <option value="21">07 - Rechaza</option>
+                    <option value="22">11 - Archiva</option>
+                </select>
+            </div>
+        </div>*@
+
+
+                    <div class="row form-group" id="Resultado">
+                        <div class="col col-md-3"><label for="select" class=" form-control-label">Resultado</label></div>
+                        <div class="col-12 col-md-9">
+                            @Html.DropDownListFor(m => m.SelectedResult, new SelectList(Model.ResultList, "Id", "Clave"), "Seleccione un resultado", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row form-group" id="Observacion">
+                        <div class="col col-md-3"><label for="text-input" class="form-control-label">Observacion</label></div>
+                        <div class="col-12 col-md-9">
+                            <textarea class="form-control" id="text-input" name="Observaciones" placeholder="Observaciones" value="@Model.PQR.Observaciones" onkeypress="return validar(event)"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row form-group" id="Idresultado">
+                        <div class="col col-md-3"><label for="text" class=" form-control-label">C4C Resultado</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="text" name="ResultMatrix" value="@Model.PQR.ResultMatrix" placeholder="No existe Ninguna Combinación" class="form-control"></div>
+                    </div>
+
+                    <div class="row form-group" id="ObservacionesEscaladas">
+                        <div class="col col-md-3"><label for="text-input" class="form-control-label">Observaciones Escalamientos</label></div>
+                        <div class="col-12 col-md-9">
+                            <textarea class="form-control" id="text-input" name="ObservacionesEscaladas" placeholder="Observaciones de Escalamientos" value="@Model.PQR.ObservacionesEscaladas" onkeypress="return validar(event)"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Gestionar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+<div class="content" style="width:40%">
+    <div class="card">
+        <div class="card-body card-block">
+            <div class="post-it-note">
+                <h4> Dirección de notificación</h4>
+                <p>@Model.PQR.ManagementNeighborhood</p>
+            </div>
+            <div class="post-it-note">
+                <h4> Observaciones</h4>
+
+                <p>@Model.PQR.Observations</p>
+            </div>
+            <div class="post-it-note">
+                <h4> Observaciones Escaladas</h4>
+
+                <p>@Model.PQR.ObservacionesEscaladas</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+
+    .post-it-note {
+        padding: 2em;
+        background: yellow;
+        position: relative;
+    }
+
+        .post-it-note:after {
+            content: "";
+            position: absolute;
+            bottom: -2em;
+            left: 0;
+            right: 2em;
+            border-width: 1em;
+            border-style: solid;
+            border-color: yellow;
+        }
+
+        .post-it-note:before {
+            content: "";
+            position: absolute;
+            bottom: -2em;
+            right: 0;
+            border-width: 2em 2em 0 0;
+            border-style: solid;
+            border-color: yellow;
+        }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+
+
+    function showhide(ddl) {
+        var div1 = document.getElementById('prueba');
+        if (ddl.value == 1 || ddl.value == 2) {
+            document.getElementById('prueba').style.visibility = 'visible';
+            document.getElementById('ObservacionesEscaladas').style.visibility = 'hidden';
+            div1.className = "showDiv";
+        }
+        else if (ddl.value == 5) {
+            document.getElementById('ubicacionCarta').className = "hideDiv row form-group";
+            document.getElementById('direccionPredio').className = "hideDiv row form-group";
+            document.getElementById('petente').className = "hideDiv row form-group";
+            document.getElementById('direccion').className = "hideDiv row form-group";
+            document.getElementById('barrio').className = "hideDiv row form-group";
+            document.getElementById('ciudad').className = "hideDiv row form-group";
+            document.getElementById('referencia').className = "hideDiv row form-group";
+            document.getElementById('contenido').className = "hideDiv row form-group";
+            document.getElementById('observaciones').className = "hideDiv row form-group";
+            document.getElementById('peso').className = "hideDiv row form-group";
+            document.getElementById('correo').className = "hideDiv row form-group";
+            document.getElementById('telefono').className = "hideDiv row form-group";
+            document.getElementById('UnidadEnvio').className = "hideDiv row form-group";
+            document.getElementById('Idresultado').className = "hideDiv row form-group";
+            document.getElementById('Resultado').className = "hideDiv row form-group";
+            document.getElementById('Observacion').className = "hideDiv row form-group";
+            document.getElementById('ObservacionesEscaladas').style.visibility = 'visible';
+            document.getElementById('prueba').style.visibility = 'hidden';
+            div1.className = "showDiv";
+
+        }
+        else {
+            div1.className = "hideDiv";
+        }
+    }
+
+
+
+    function toggleNotification(ddl) {
+        hideAll();
+        if (ddl.value == 'Físico') {
+            document.getElementById('ubicacionCarta').className = "showDiv row form-group";
+            document.getElementById('direccionPredio').className = "showDiv row form-group";
+            document.getElementById('petente').className = "showDiv row form-group";
+            document.getElementById('direccion').className = "showDiv row form-group";
+            document.getElementById('barrio').className = "showDiv row form-group";
+            document.getElementById('ciudad').className = "showDiv row form-group";
+            document.getElementById('UnidadEnvio').className = "showDiv row form-group";
+            document.getElementById('Resultado').className = "showDiv row form-group";
+            document.getElementById('Observacion').className = "showDiv row form-group";
+            document.getElementById('Idresultado').className = "showDiv row form-group";
+
+            //document.getElementById('referencia').className = "showDiv row form-group";
+            //document.getElementById('contenido').className = "showDiv row form-group";
+            //document.getElementById('observaciones').className = "showDiv row form-group";
+            //document.getElementById('peso').className = "showDiv row form-group";
+            document.getElementById('telefono').className = "showDiv row form-group";
+        }
+        else if (ddl.value == 'Correo') {
+            document.getElementById('ubicacionCarta').className = "showDiv row form-group";
+            document.getElementById('direccionPredio').className = "showDiv row form-group";
+            document.getElementById('petente').className = "showDiv row form-group";
+            document.getElementById('correo').className = "showDiv row form-group";
+            document.getElementById('ciudad').className = "showDiv row form-group";
+            document.getElementById('telefono').className = "showDiv row form-group";
+            document.getElementById('UnidadEnvio').className = "showDiv row form-group";
+            document.getElementById('Idresultado').className = "showDiv row form-group";
+            document.getElementById('Resultado').className = "showDiv row form-group";
+            document.getElementById('Observacion').className = "showDiv row form-group";
+
+        }
+        else if (ddl.value == 'Publicación') {
+            document.getElementById('ubicacionCarta').className = "showDiv row form-group";
+            document.getElementById('direccionPredio').className = "showDiv row form-group";
+            document.getElementById('petente').className = "showDiv row form-group";
+            document.getElementById('ciudad').className = "showDiv row form-group";
+            document.getElementById('telefono').className = "showDiv row form-group";
+            document.getElementById('UnidadEnvio').className = "showDiv row form-group";
+            document.getElementById('Idresultado').className = "showDiv row form-group";
+            document.getElementById('Resultado').className = "showDiv row form-group";
+            document.getElementById('Observacion').className = "showDiv row form-group";
+
+        }
+
+
+
+    }
+
+    function hideAll() {
+
+        document.getElementById('ubicacionCarta').className = "hideDiv row form-group";
+        document.getElementById('direccionPredio').className = "hideDiv row form-group";
+        document.getElementById('petente').className = "hideDiv row form-group";
+        document.getElementById('direccion').className = "hideDiv row form-group";
+        document.getElementById('barrio').className = "hideDiv row form-group";
+        document.getElementById('ciudad').className = "hideDiv row form-group";
+        document.getElementById('referencia').className = "hideDiv row form-group";
+        document.getElementById('contenido').className = "hideDiv row form-group";
+        document.getElementById('observaciones').className = "hideDiv row form-group";
+        document.getElementById('peso').className = "hideDiv row form-group";
+        document.getElementById('correo').className = "hideDiv row form-group";
+        document.getElementById('telefono').className = "hideDiv row form-group";
+        document.getElementById('UnidadEnvio').className = "hideDiv row form-group";
+        document.getElementById('Idresultado').className = "hideDiv row form-group";
+        document.getElementById('Resultado').className = "hideDiv row form-group";
+        document.getElementById('Observacion').className = "hideDiv row form-group";
+        //document.getElementById('ObservacionesEscaladas').className = "hideDiv row form-group";
+
+    }
+
+</script>
+
+<script>
+
+    $(document).ready(() => {
+
+        $("#SelectedResult").change(() => {
+
+            var Lista = document.getElementById("SelectedResult");
+            var Result = Lista.options[Lista.selectedIndex].value;
+            var Ticket = document.getElementById('Ticket').value;
+            var backendUrl = "http://bpm.grupogss.com.co/BPM/api/pqr/GetResult?Result=" + Result + "&IdTicket=" + Ticket;
+
+            $.ajax({
+                url: backendUrl,
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (response) {
+                    console.log("response " + JSON.stringify(response));
+                    $('input[name ="ResultMatrix"]').val(response);
+                    // $("#Idresultado").val(response);
+                },
+                error: function (error) {
+                    alert("Ha ocurrido un error, revise su conexion a internet");
+                }
+            });
+
+        });
+    });
+
+
+</script>
+
+

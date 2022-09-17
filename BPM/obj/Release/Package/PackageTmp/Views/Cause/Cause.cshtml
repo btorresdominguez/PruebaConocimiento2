@@ -1,0 +1,152 @@
+﻿
+@using BPM.Dto.Models.Configuration
+@model IEnumerable<CauseDto>
+@{
+    ViewBag.Title = "Cause";
+}
+
+
+@section scripts{
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de causas</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Depuración</a></li>
+                            <li><a href="#">Causas</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar causa</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Cause/Add")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Código</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Code" name="Code" required placeholder="Código" class="form-control"></div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Descripción</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Description" required placeholder="Descripción" class="form-control"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Asunto</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Matter" name="Matter" required placeholder="Asunto" class="form-control"></div>
+                                </div>
+
+                                <div>
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Causas</strong>
+                <a href="AddUser" id="BtnAddUser" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar Causa</a>
+            </div>
+                <table class="table " id="bootstrap-data-table">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Descripción</th>
+                            <th>Asunto</th>
+                            <th>Estado</th>
+                            <th style="width:auto">Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var CauseView in Model)
+                        {
+                            <tr>
+                                <td>  <span class="name">@CauseView.Code</span> </td>
+                                <td>  <span class="name">@CauseView.Description</span> </td>
+                                <td>  <span class="name">@CauseView.Matter</span> </td>
+                                <td>  <span class="name">@CauseView.NameState</span> </td>
+
+                                <td>
+                                    <a onclick="document.location='@Url.Content("~/Cause/Edit?Code="+CauseView.Code)'" id="BtnEditUser" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></a>
+
+                                    <a onclick="document.location='@Url.Content("~/Cause/Remove?Code="+CauseView.Code)'" id="BtnAddUser" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-remove"> </i></a>
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
+
+

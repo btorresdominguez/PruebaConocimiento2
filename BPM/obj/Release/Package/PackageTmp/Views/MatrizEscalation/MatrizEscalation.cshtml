@@ -1,0 +1,229 @@
+﻿@using BPM.Dto.Configuration
+@model MEscalationCreationDto
+
+@{
+    ViewBag.Title = "MatrizEscalation";
+}
+
+
+@section scripts{
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+
+<script src="~/Scripts/User/User.js"></script>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Matriz de Escalamientos</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/MatrizEscalation/MatrizEscalation">Escalamientos</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar Matriz de Escalamientos</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/MatrizEscalation/Add")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                               
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Área Organizativa</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedOrganization, new SelectList(Model.OrganizationList, "IdAorganization", "Description"), "Seleccione el Área Organizativa", new { required = "required", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Empresa</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedCompany, new SelectList(Model.CompanyList, "IdCompany", "Description"), "Seleccione la empresa", new { required = "required", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Proceso</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedProcess, new SelectList(Model.ProcessList, "IdProcess", "Description"), "Seleccione el proceso Matriz", new { required = "required", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="select" class=" form-control-label">Unidad Envio C4C</label></div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.DropDownListFor(m => m.SelectedC4C, new SelectList(Model.C4CList, "IdC4C", "Description"), "Seleccione la unidad de envio C4C", new { required = "required", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Causas</label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Cause" name="Cause" placeholder="Causa" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre y Apellidos Usuario </label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Names" name="Names" placeholder="Nombres" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo Electrónico </label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Email" name="Email" placeholder="Email" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Jefe1 </label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Jefe1" name="Jefe1" placeholder="Jefe1" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo Electrónico </label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Email2" name="Email2" placeholder="Email" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Jefe2 </label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Jefe2" name="Jefe2" placeholder="Jefe2" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo Electrónico </label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Email3" name="Email3" placeholder="Email" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Jefe3 </label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Jefe3" name="Jefe3" placeholder="Jefe3" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo Electrónico </label></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="Email4" name="Email4" placeholder="Email" required class="form-control" onkeypress="return validar(event)"></div>
+                                </div>
+                                <div>
+                                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Matriz de Escalamientos</strong>
+                <a href="AddMatrizEscalation" id="BtnAddMatriz" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar Matriz</a>
+
+            </div>
+            <table class="table " id="bootstrap-data-table">
+                <thead>
+                    <tr>
+                    
+                        <th>Área </th>
+                        <th>Empresa</th>
+                        @*<th>Proceso</th>*@
+                        <th>C4C</th>
+                        <th>Causas</th>
+                        <th>Nombre</th>
+                        <th>Correo </th>
+                        <th>Jefe1</th>
+                        <th>Correo</th>
+                        @*<th>Jefe2</th>*@
+                        @*<th>Correo</th>*@
+                        @*<th>Jefe3</th>
+                        <th>Correo Electrónico</th>*@
+                        @*<th>Estado</th>*@
+                        <th style="width:auto">Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var MatrizView in Model.MatrizList)
+                    {
+                    <tr>
+                     
+                        <td>  <span class="name">@MatrizView.NameAOrganization</span> </td>
+                        <td>  <span class="name">@MatrizView.NameCompany</span> </td>
+                        @*<td>  <span class="name">@MatrizView.NameProcess</span> </td>*@
+                        <td>  <span class="name">@MatrizView.NameC4C</span> </td>
+                        <td>  <span class="name">@MatrizView.Cause</span> </td>
+                        <td>  <span class="name">@MatrizView.Names</span> </td>
+                        <td>  <span class="name">@MatrizView.Email</span> </td>
+                        <td>  <span class="name">@MatrizView.Jefe1</span> </td>
+                        <td>  <span class="name">@MatrizView.Email2</span> </td>
+                        @*<td>  <span class="name">@MatrizView.Jefe2</span> </td>*@
+                        @*<td>  <span class="name">@MatrizView.Email3</span> </td>
+        <td>  <span class="name">@MatrizView.Jefe3</span> </td>
+        <td>  <span class="name">@MatrizView.Email4</span> </td>*@
+                        @*<td>  <span class="name">@MatrizView.NameState</span> </td>*@
+                        <td>
+                            <a onclick="document.location='@Url.Content("~/MatrizEscalation/Edit?IdMatrix="+@MatrizView.IdMatrix)'" id="BtnEditMatriz" class="btn btn-primary btn-sm" style="float: left"><i class="fa fa-edit"> </i></a>
+                            <a onclick="document.location='@Url.Content("~/MatrizEscalation/Remove?Id="+@MatrizView.IdMatrix)'" id="BtnAddMatriz" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-remove"> </i></a>
+
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>

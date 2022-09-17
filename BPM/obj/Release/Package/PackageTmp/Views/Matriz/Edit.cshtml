@@ -1,0 +1,99 @@
+﻿@using BPM.Dto.Configuration
+@model MatrizCreationDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Editar Matriz de Radicación</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Matriz/Matriz">Matriz de Radicación</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/Matriz/Edit")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+                <input type="hidden" name="IdMatrix" value="@Model.MatrizList.FirstOrDefault().IdMatrix" />
+
+               
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Mercado</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedMarket, new SelectList(Model.MarketList, "IdMarket", "Description", Model.MatrizList.FirstOrDefault().IdMarket, "Seleccione el mercado"), new { required = "required", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Actividad</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedActivity, new SelectList(Model.ActivityList, "IdActivity", "Description", Model.MatrizList.FirstOrDefault().IdActivity, "Seleccione una actividad"), new { required = "required", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Evento</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedEvent, new SelectList(Model.EventList, "IdEvent", "Description", Model.MatrizList.FirstOrDefault().IdEvent, "Seleccione un evento"), new { required = "required", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Código de la Causa</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="Cause" name="Cause" placeholder="Causa" value="@Model.MatrizList.FirstOrDefault().Cause" class="form-control" onkeypress="return validar(event)"></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Código Resultado</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="Result" name="Result" placeholder="Resultado" value="@Model.MatrizList.FirstOrDefault().Result" class="form-control" onkeypress="return validar(event)"></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Resultado</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedResult, new SelectList(Model.ResultList, "Id", "Clave", Model.MatrizList.FirstOrDefault().IdResult, "Seleccione un resultado"), new { required = "required", @class = "form-control" })
+                    </div>
+                </div>
+
+
+
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Actualizar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+
+@Scripts.Render("~/Scripts/User/User.js")
+
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>

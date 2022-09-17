@@ -1,0 +1,205 @@
+﻿@using BPM.Dto.Configuration
+@model IEnumerable<EmpresaDto>
+
+@{
+    ViewBag.Title = "Empresa";
+}
+
+@section scripts{
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Empresas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+
+<script src="~/Scripts/User/User.js"></script>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de Empresas</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Empresa/Empresa">Empresa</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Formulario de creación-->
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="largeModalLabel">Agregar Empresa</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <div class="card">
+                        <div class="card-body card-block">
+                            <form action="@Url.Content("~/Empresa/Add")" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                                    <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tipo</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="EmpresaTra.Tipo" placeholder="TipoDocumento" data-val="true" data-val-required="Este campo es obligatorio" required class="form-control" onkeypress="return validar(event)">
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Documento</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="EmpresaTra.NumeroDocumento" placeholder="Documento" data-val="true" data-val-required="Este campo es obligatorio" required class="form-control" onkeypress="return validar(event)">
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="EmpresaTra.NombreCompleto" placeholder="NombreCompleto" data-val="true" data-val-required="Este campo es obligatorio" required class="form-control" onkeypress="return validar(event)">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Direccion</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="EmpresaTra.Direccion" placeholder="Nombre" data-val="true"  required class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Ciudad</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="EmpresaTra.Ciudad" placeholder="Ciudad" data-val="true" required class="form-control" onkeypress="return validar(event)">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Departamento</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="EmpresaTra.Departamento" placeholder="Departamento" data-val="true"  required class="form-control" onkeypress="return validar(event)">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Pais</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="EmpresaTra.Pais" placeholder="Pais" data-val="true"  required class="form-control" onkeypress="return validar(event)">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Telefono</label></div>
+                                    <div class="col-12 col-md-9">
+                                        <input type="text" id="text-input" name="EmpresaTra.Telefono" placeholder="Telefono" data-val="true"  required class="form-control" onkeypress="return validar(event)">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"></i>&nbsp; Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="danger">
+                        <p class="error">@ViewBag.Error</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Barra con botón de creación de Empresas y listado de Empresas-->
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Empresas</strong>
+                <a href="AddEmpresaTra" id="BtnAddEmpresaTra" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar Empresa</a>
+
+            </div>
+                <table class="table " id="bootstrap-data-table">
+                    <thead>
+                        <tr>
+                             <th>Tipo</th>
+                            <th>NumeroDocumento</th>
+                            <th>NombreCompleto</th>
+                            <th>Direccion</th>
+                            <th>Ciudad</th>
+                            @*<th>Departamento</th>
+                            <th>Pais</th>*@
+                            <th>Telefono</th>
+                            <th>Estado</th>
+                            <th style="width:auto">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var EmpresaTraView in Model)
+                        {
+                            <tr>
+                                <td>  <span class="name">@EmpresaTraView.Tipo</span> </td>
+                                <td>  <span class="name">@EmpresaTraView.NumeroDocumento</span> </td>
+                                 <td>  <span class="name">@EmpresaTraView.NombreCompleto</span> </td>
+                                  <td>  <span class="name">@EmpresaTraView.Direccion</span> </td>
+                                <td>  <span class="name">@EmpresaTraView.Ciudad</span> </td>
+                                <td>  <span class="name">@EmpresaTraView.Telefono</span> </td>
+                                <td>  <span class="name">@EmpresaTraView.NameState</span> </td>
+                                <td>
+
+                                    <a onclick="document.location='@Url.Content("~/Empresa/Edit?IdEmpresa="+EmpresaTraView.IdEmpresa)'" id="BtnEditEmpresaTra" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></a>
+                                    <a onclick="document.location='@Url.Content("~/Empresa/Remove?IdEmpresa="+EmpresaTraView.IdEmpresa)'" id="BtnAddEmpresaTra" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-remove"> </i></a>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function validar(e) { // 1
+        tecla = (document.all) ? e.keyCode : e.which; // 2
+        if (tecla == 8) return true; // 3
+        patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+        te = String.fromCharCode(tecla); // 5
+        return patron.test(te); // 6
+    }
+</script>
+

@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransporteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Conductor">
+    <Key>
+      <PropertyRef Name="IdConductor" />
+    </Key>
+    <Property Name="IdConductor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="TipoDocumento" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Documento" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Conductor_Vehiculo" Relationship="Self.FK_Conductor_Vehiculo_Conductor" FromRole="Conductor" ToRole="Conductor_Vehiculo" />
+  </EntityType>
+  <EntityType Name="Conductor_Vehiculo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdVehiculo" Type="Int32" />
+    <Property Name="IdConductor" Type="Int32" />
+    <Property Name="IdEmpresa" Type="Int32" />
+    <NavigationProperty Name="Conductor" Relationship="Self.FK_Conductor_Vehiculo_Conductor" FromRole="Conductor_Vehiculo" ToRole="Conductor" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Conductor_Vehiculo_Conductor_Vehiculo" FromRole="Conductor_Vehiculo" ToRole="Vehiculo" />
+    <NavigationProperty Name="Empresa" Relationship="TransporteModel.FK_Conductor_Vehiculo_Empresa" FromRole="Conductor_Vehiculo" ToRole="Empresa" />
+  </EntityType>
+  <EntityType Name="RepresentanteLegal">
+    <Key>
+      <PropertyRef Name="IdRepresentante" />
+    </Key>
+    <Property Name="IdRepresentante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroDocumento" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCompleto" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Departamento" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="IdEmpresa" Type="Int32" />
+    <NavigationProperty Name="Empresa" Relationship="TransporteModel.FK_RepresentanteLegal_Empresa" FromRole="RepresentanteLegal" ToRole="Empresa" />
+    <Property Name="Estado" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="IdVehiculo" />
+    </Key>
+    <Property Name="IdVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Placa" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Color" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Modelo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Conductor_Vehiculo" Relationship="Self.FK_Conductor_Vehiculo_Conductor_Vehiculo" FromRole="Vehiculo" ToRole="Conductor_Vehiculo" />
+  </EntityType>
+  <Association Name="FK_Conductor_Vehiculo_Conductor">
+    <End Role="Conductor" Type="Self.Conductor" Multiplicity="0..1" />
+    <End Role="Conductor_Vehiculo" Type="Self.Conductor_Vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conductor">
+        <PropertyRef Name="IdConductor" />
+      </Principal>
+      <Dependent Role="Conductor_Vehiculo">
+        <PropertyRef Name="IdConductor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Conductor_Vehiculo_Conductor_Vehiculo">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="0..1" />
+    <End Role="Conductor_Vehiculo" Type="Self.Conductor_Vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="IdVehiculo" />
+      </Principal>
+      <Dependent Role="Conductor_Vehiculo">
+        <PropertyRef Name="IdVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TransporteEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Conductor" EntityType="Self.Conductor" />
+    <EntitySet Name="Conductor_Vehiculo" EntityType="Self.Conductor_Vehiculo" />
+    <EntitySet Name="RepresentanteLegal" EntityType="Self.RepresentanteLegal" />
+    <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
+    <AssociationSet Name="FK_Conductor_Vehiculo_Conductor" Association="Self.FK_Conductor_Vehiculo_Conductor">
+      <End Role="Conductor" EntitySet="Conductor" />
+      <End Role="Conductor_Vehiculo" EntitySet="Conductor_Vehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Conductor_Vehiculo_Conductor_Vehiculo" Association="Self.FK_Conductor_Vehiculo_Conductor_Vehiculo">
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+      <End Role="Conductor_Vehiculo" EntitySet="Conductor_Vehiculo" />
+    </AssociationSet>
+    <FunctionImport Name="Sp_EditarEmpresa" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+      <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="Ciudad" Mode="In" Type="String" />
+      <Parameter Name="Departamento" Mode="In" Type="String" />
+      <Parameter Name="Pais" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_EliminarEmpresa" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_InsertarEmpresa" ReturnType="Collection(Int32)">
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+      <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="Ciudad" Mode="In" Type="String" />
+      <Parameter Name="Departamento" Mode="In" Type="String" />
+      <Parameter Name="Pais" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_ListarEmpresas" ReturnType="Collection(TransporteModel.Sp_ListarEmpresas_Result)" />
+    <EntitySet Name="Empresa" EntityType="TransporteModel.Empresa" />
+    <AssociationSet Name="FK_Conductor_Vehiculo_Empresa" Association="TransporteModel.FK_Conductor_Vehiculo_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Conductor_Vehiculo" EntitySet="Conductor_Vehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RepresentanteLegal_Empresa" Association="TransporteModel.FK_RepresentanteLegal_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="RepresentanteLegal" EntitySet="RepresentanteLegal" />
+    </AssociationSet>
+    <FunctionImport Name="Sp_EditarRepresentante" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+      <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="Ciudad" Mode="In" Type="String" />
+      <Parameter Name="Departamento" Mode="In" Type="String" />
+      <Parameter Name="Pais" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_EliminarRepresentante" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_InsertarRepresentante" ReturnType="Collection(Int32)">
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+      <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+      <Parameter Name="Ciudad" Mode="In" Type="String" />
+      <Parameter Name="Departamento" Mode="In" Type="String" />
+      <Parameter Name="Pais" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Sp_ListarRepresentantes" ReturnType="Collection(TransporteModel.Sp_ListarRepresentantes_Result)" />
+  </EntityContainer>
+  <ComplexType Name="Sp_ListarEmpresas_Result">
+    <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+    <Property Type="String" Name="Tipo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroDocumento" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="NombreCompleto" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Direccion" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Pais" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="NameState" Nullable="false" MaxLength="13" />
+  </ComplexType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroDocumento" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCompleto" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Departamento" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="Boolean" />
+    <NavigationProperty Name="Conductor_Vehiculo" Relationship="TransporteModel.FK_Conductor_Vehiculo_Empresa" FromRole="Empresa" ToRole="Conductor_Vehiculo" />
+    <NavigationProperty Name="RepresentanteLegal" Relationship="TransporteModel.FK_RepresentanteLegal_Empresa" FromRole="Empresa" ToRole="RepresentanteLegal" />
+  </EntityType>
+  <Association Name="FK_Conductor_Vehiculo_Empresa">
+    <End Type="TransporteModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+    <End Type="TransporteModel.Conductor_Vehiculo" Role="Conductor_Vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="Conductor_Vehiculo">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RepresentanteLegal_Empresa">
+    <End Type="TransporteModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+    <End Type="TransporteModel.RepresentanteLegal" Role="RepresentanteLegal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdEmpresa" />
+      </Principal>
+      <Dependent Role="RepresentanteLegal">
+        <PropertyRef Name="IdEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Sp_ListarRepresentantes_Result">
+    <Property Type="Int32" Name="IdRepresentante" Nullable="false" />
+    <Property Type="String" Name="Tipo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NumeroDocumento" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="NombreCompleto" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Direccion" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Departamento" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Pais" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="60" />
+    <Property Type="Int32" Name="IdEmpresa" Nullable="true" />
+    <Property Type="Boolean" Name="Estado" Nullable="true" />
+    <Property Type="String" Name="NameEmpresa" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="NameState" Nullable="false" MaxLength="13" />
+  </ComplexType>
+</Schema>

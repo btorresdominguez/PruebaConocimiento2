@@ -1,0 +1,87 @@
+C:\Users\1129531779\Documents\Proyectos\bpm\bpm\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Proyectos\bpm\bpm\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\bpm\bpm\BPM.Dto\obj\Debug\BPM.Dto.csprojAssemblyReference.cache
+C:\Users\1129531779\Documents\Proyectos\bpm\bpm\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Proyectos\bpm\bpm\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpm\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpm\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.csprojAssemblyReference.cache
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\bpm1\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Proyectos\bpm1\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\bpm1\BPM.Dto\obj\Debug\BPM.Dto.csprojAssemblyReference.cache
+C:\Users\1129531779\Documents\Proyectos\bpm1\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Proyectos\bpm1\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\bpm\bpm\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpmv2\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpmv2\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpmv2\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\jhonathan.quiroz\Documents\Proyectos\bpmv2\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\Publicaciones\bpmv2\bpmv2\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\1129531779\Documents\Proyectos\Publicaciones\bpmv2\bpmv2\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Proyectos\Publicaciones\bpmv2\bpmv2\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\Publicaciones\bpmv2\bpmv2\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Proyectos\Publicaciones\bpmv2\bpmv2\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\Publicaciones\bpmv2\bpmv2\BPM.Dto\obj\Debug\BPM.Dto.csprojAssemblyReference.cache
+C:\Users\jhonathan.quiroz\Documents\Proyectos\BPM\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\bever\OneDrive\Documentos2\Proyectos\bpm\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\bever\OneDrive\Documentos2\Proyectos\bpm\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\bever\OneDrive\Documentos2\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.csprojAssemblyReference.cache
+C:\Users\bever\OneDrive\Documentos2\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\bever\OneDrive\Documentos2\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\bever\OneDrive\Documentos2\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\bin\Debug\Dapper.dll
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\bin\Debug\Dapper.xml
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.csproj.CopyComplete
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Proyectos\bpm\BPM.Dto\obj\Debug\BPM.Dto.csprojAssemblyReference.cache
+C:\Users\1129531779\Documents\bpm\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\bpm\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\bpm\BPM.Dto\bin\Debug\Dapper.dll
+C:\Users\1129531779\Documents\bpm\BPM.Dto\bin\Debug\Dapper.xml
+C:\Users\1129531779\Documents\bpm\BPM.Dto\obj\Debug\BPM.Dto.csproj.AssemblyReference.cache
+C:\Users\1129531779\Documents\bpm\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\1129531779\Documents\bpm\BPM.Dto\obj\Debug\BPM.Dto.csproj.CopyComplete
+C:\Users\1129531779\Documents\bpm\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\bpm\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\bin\Debug\Dapper.dll
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\bin\Debug\Dapper.xml
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\obj\Debug\BPM.Dto.csproj.CopyComplete
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Prueba\BPM.Dto\obj\Debug\BPM.Dto.csproj.AssemblyReference.cache
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\bin\Debug\Dapper.dll
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\bin\Debug\Dapper.xml
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\obj\Debug\BPM.Dto.csproj.AssemblyReference.cache
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\obj\Debug\BPM.Dto.csproj.CopyComplete
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\1129531779\Documents\Nueva carpeta\Prueba\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\bin\Debug\Dapper.dll
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\bin\Debug\Dapper.xml
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\obj\Debug\BPM.Dto.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\obj\Debug\BPM.Dto.csproj.CopyComplete
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\Usuario\Documents\Pruebas\Pruebas\Pruebas\BPM.Dto\obj\Debug\BPM.Dto.pdb
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\bin\Debug\BPM.Dto.dll
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\bin\Debug\BPM.Dto.pdb
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\bin\Debug\Dapper.dll
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\bin\Debug\Dapper.xml
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\obj\Debug\BPM.Dto.csproj.AssemblyReference.cache
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\obj\Debug\BPM.Dto.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\obj\Debug\BPM.Dto.csproj.CopyComplete
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\obj\Debug\BPM.Dto.dll
+C:\Users\Usuario\Documents\PruebaConocimiento\PruebaConocimiento\BPM.Dto\obj\Debug\BPM.Dto.pdb

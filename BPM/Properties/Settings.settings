@@ -1,0 +1,128 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BPM.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DatabaseImportPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\ImportedDatabases</Value>
+    </Setting>
+    <Setting Name="DatabaseDownloadPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\ExportedDatabases</Value>
+    </Setting>
+    <Setting Name="DatabaseFields" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+        <string>EMPRESA ID</string>
+        <string>EMPRESA</string>
+        <string>CUENTA CONTRATO</string>
+        <string>TITULAR CC</string>
+        <string>TEL. FIJO BP</string>
+        <string>TEL. MÓVIL BP</string>
+        <string>E-MAIL BP</string>
+        <string>PROVINCIA</string>
+        <string>MUNICIPIO</string>
+        <string>DIRECCIÓN BP</string>
+        <string>NOMBRE DEL CONTACTO</string>
+        <string>MUNICIPIO CONTACTO</string>
+        <string>DIRECCIÓN CONTACTO</string>
+        <string>TEL. FIJO CONTACTO</string>
+        <string>TEL. MÓVIL CONTACTO</string>
+        <string>E-MAIL CONTACTO</string>
+        <string>DIRECC. NOTIFICACIÓN</string>
+        <string>ID TICKET PQR</string>
+        <string>ORIGEN DEL TCK</string>
+        <string>RADICACIÓN ESPECIAL</string>
+        <string>TIPO DE MATRIZ</string>
+        <string>EVENTO</string>
+        <string>ACTIVIDAD</string>
+        <string>CÓDIGO CAUSA</string>
+        <string>CAUSA</string>
+        <string>FECHA RADICACIÓN</string>
+        <string>TÉCNICO DE RADICACIÓN</string>
+        <string>UNIDAD GENERADORA</string>
+        <string>ESTADO</string>
+        <string>AUTORIZA RESPUESTA E-MAIL</string>
+        <string>UNIDAD DE ENVÍO ACTUAL</string>
+        <string>FECHA DE ENVÍO ACTUAL</string>
+        <string>FECHA FINALIZADO</string>
+        <string>TÉCNICO FINALIZACIÓN</string>
+        <string>UNIDAD DE ENVÍO FINALIZADO</string>
+        <string>RESULTADO</string>
+        <string>MOTIVO DE CIERRE</string>
+        <string>DÍAS FINALIZACIÓN</string>
+        <string>DÍAS DE GESTIÓN</string>
+        <string>FECHA DEVOLUCIÓN</string>
+        <string>OBSERVACIONES</string>
+        <string>MARCACIÓN</string>
+        <string>FECHA DE INICIO MARCACIÓN</string>
+        <string>FECHA DE FIN MARCACIÓN</string>
+        <string>NÚMERO DÍAS MARCACIÓN</string>
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="DatabaseFinished" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;EMPRESA&lt;/string&gt;
+  &lt;string&gt;Póliza&lt;/string&gt;
+  &lt;string&gt;Nombre&lt;/string&gt;
+  &lt;string&gt;Telefono poliza&lt;/string&gt;
+  &lt;string&gt;Referencia&lt;/string&gt;
+  &lt;string&gt;Actividad&lt;/string&gt;
+  &lt;string&gt;Cod. Provincia&lt;/string&gt;
+  &lt;string&gt;Provincia&lt;/string&gt;
+  &lt;string&gt;Cod. Municipio&lt;/string&gt;
+  &lt;string&gt;Municipio&lt;/string&gt;
+  &lt;string&gt;Delegación&lt;/string&gt;
+  &lt;string&gt;Distrito&lt;/string&gt;
+  &lt;string&gt;Dirección&lt;/string&gt;
+  &lt;string&gt;Fecha radicación&lt;/string&gt;
+  &lt;string&gt;Tec. Radicación&lt;/string&gt;
+  &lt;string&gt;Fecha finalizado&lt;/string&gt;
+  &lt;string&gt;Tec. Finalización&lt;/string&gt;
+  &lt;string&gt;Resultado&lt;/string&gt;
+  &lt;string&gt;Días&lt;/string&gt;
+  &lt;string&gt;Origen&lt;/string&gt;
+  &lt;string&gt;Unidad generadora&lt;/string&gt;
+  &lt;string&gt;Un. Envío fin&lt;/string&gt;
+  &lt;string&gt;Fecha envío&lt;/string&gt;
+  &lt;string&gt;Usuario envío&lt;/string&gt;
+  &lt;string&gt;Estrato/Categ&lt;/string&gt;
+  &lt;string&gt;Justificado&lt;/string&gt;
+  &lt;string&gt;Analista&lt;/string&gt;
+  &lt;string&gt;Causa&lt;/string&gt;
+  &lt;string&gt;Fecha devolución&lt;/string&gt;
+  &lt;string&gt;Evento&lt;/string&gt;
+  &lt;string&gt;Observaciones&lt;/string&gt;
+  &lt;string&gt;División&lt;/string&gt;
+  &lt;string&gt;Marcación&lt;/string&gt;
+  &lt;string&gt;Día fin marcación&lt;/string&gt;
+  &lt;string&gt;Tel. contacto&lt;/string&gt;
+  &lt;string&gt;Tel. petente&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="LettersServiceURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://10.80.40.245/servicios/StorageCloudServices/api/1.0</Value>
+    </Setting>
+    <Setting Name="ReplaceServiceURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://10.80.40.245/servicios/ReplaceDocx/api/1.0</Value>
+    </Setting>
+    <Setting Name="IdDocumentModel" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1CfhzXbfDAL3WQ8O-u3uxhabEhYsbJSno</Value>
+    </Setting>
+    <Setting Name="AuthorizationBPMLetters" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AV_AppAuthorization QzVFMjcyNEItNUUxOC00RTAwLTg5RTktMzQ3REU1RUQ2MEUz</Value>
+    </Setting>
+    <Setting Name="AuthorizationTemplates" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AV_AppAuthorization ZTNhOWUyYTItZjc0Ny00NjU4LWI4MGYtYTYxMTllMjg5MzIz</Value>
+    </Setting>
+    <Setting Name="PrintingServiceURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://181.143.170.107:8089/BPM/PrintService/api/</Value>
+    </Setting>
+    <Setting Name="LotFields" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;Referencia&lt;/string&gt;
+  &lt;string&gt;Division&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

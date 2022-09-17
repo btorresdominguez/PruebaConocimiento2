@@ -1,0 +1,88 @@
+﻿
+@using BPM.Dto.Models.Depuration
+@model CompanyDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Editar filial</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Cause/Cause">Filial</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/Company/Edit")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+                <input type="hidden" name="IdCompany" value="@Model.IdCompany" />
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Identificador</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Identifier" name="Identifier" placeholder="Nombre" required class="form-control" value="@Model.Identifier" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Identifier)
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Descripción</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Description" name="Description" placeholder="Descripcion" required class="form-control" value="@Model.Description" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Division</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Division" name="Division" placeholder="Division" required class="form-control" value="@Model.Division" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Division)
+                    </div>
+                </div>
+
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Actualizar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+
+@Scripts.Render("~/Scripts/User/User.js")
+
+<script type="text/javascript">
+function validar(e) { // 1
+            tecla = (document.all) ? e.keyCode : e.which; // 2
+            if (tecla == 8) return true; // 3
+            patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+            te = String.fromCharCode(tecla); // 5
+            return patron.test(te); // 6
+        }
+</script>

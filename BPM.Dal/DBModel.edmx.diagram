@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c207044cf47f4b0abf0948ff79420ea5" Name="Diagram1">
+        <EntityTypeShape EntityType="TransporteModel.Conductor" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporteModel.Conductor_Vehiculo" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporteModel.RepresentanteLegal" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransporteModel.Vehiculo" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="TransporteModel.FK_Conductor_Vehiculo_Conductor" ManuallyRouted="false" />
+        <AssociationConnector Association="TransporteModel.FK_Conductor_Vehiculo_Conductor_Vehiculo" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TransporteModel.Empresa" Width="1.5" PointX="0.75" PointY="2.875" />
+        <AssociationConnector Association="TransporteModel.FK_Conductor_Vehiculo_Empresa" />
+        <AssociationConnector Association="TransporteModel.FK_RepresentanteLegal_Empresa" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

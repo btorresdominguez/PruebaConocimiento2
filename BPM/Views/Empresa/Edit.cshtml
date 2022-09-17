@@ -1,0 +1,118 @@
+﻿@using BPM.Dto.Configuration
+@model EmpresaDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Editar Empresa</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Empresa/Empresa">Empresas</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/Empresa/Edit")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+<div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tipo de Documento</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Tipo" name="Tipo" placeholder="Tipo" required class="form-control" value="@Model.Tipo" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Tipo)
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Documento</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="NumeroDocumento" name="NumeroDocumento" placeholder="NumeroDocumento" required class="form-control" value="@Model.NumeroDocumento" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.NumeroDocumento)
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="NombreCompleto" name="NombreCompleto" placeholder="NombreCompleto" required class="form-control" value="@Model.NombreCompleto" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.NombreCompleto)
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Direccion</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Direccion" name="Direccion" placeholder="Direccion" required class="form-control" value="@Model.Direccion">
+                        @Html.ValidationMessageFor(model => model.Direccion)
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Ciudad</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Ciudad" name="Ciudad" placeholder="Ciudad" required class="form-control" value="@Model.Ciudad" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Ciudad)
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Departamento</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Departamento" name="Departamento" placeholder="Departamento" required class="form-control" value="@Model.Departamento" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Departamento)
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Pais</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Pais" name="Pais" placeholder="Nombre" required class="form-control" value="@Model.Pais" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Pais)
+                    </div>
+                </div>
+               <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Telefono</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="Telefono" name="Telefono" placeholder="Telefono" required class="form-control" value="@Model.Telefono" onkeypress="return validar(event)">
+                        @Html.ValidationMessageFor(model => model.Telefono)
+                    </div>
+                </div>
+                <input type="hidden" name="IdEmpresa" value="@Model.IdEmpresa" />
+
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Actualizar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+
+@Scripts.Render("~/Scripts/User/User.js")
+<script type="text/javascript">
+function validar(e) { // 1
+            tecla = (document.all) ? e.keyCode : e.which; // 2
+            if (tecla == 8) return true; // 3
+            patron = /[^-'`~!#$%^&*()_|+=?;:'",.<>\{\}\[\]\\\/]/; // 4
+            te = String.fromCharCode(tecla); // 5
+            return patron.test(te); // 6
+        }
+</script>

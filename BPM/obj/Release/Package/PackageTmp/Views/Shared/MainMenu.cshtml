@@ -1,0 +1,33 @@
+﻿@using BPM.Dto.Configuration
+@model  IEnumerable<MenuItem>
+
+@{
+    Layout = null;
+}
+
+
+<li class="active">
+    <a>@Html.ActionLink("TICKETS", "PQR", "PQR")</a>
+</li>
+
+@foreach (var item in Model)
+{
+    if (item.Parent == 0)
+    {
+        <li class="menu-item-has-children dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> @item.Name</a>
+            <ul class="sub-menu children dropdown-menu">
+                @foreach (var subitem in Model)
+                {
+                    if (subitem.Parent == item.Id)
+                    {
+                        <li><i class="fa fa-cogs"></i>@Html.ActionLink(subitem.Name, subitem.Action, subitem.Controller)</li>
+                    }
+                }
+
+            </ul>
+        </li>
+
+    }
+}
+

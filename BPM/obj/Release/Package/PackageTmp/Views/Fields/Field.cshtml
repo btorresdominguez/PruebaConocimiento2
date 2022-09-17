@@ -1,0 +1,74 @@
+﻿
+@using BPM.Dto.Models.Configuration
+@model IEnumerable<FieldDto>
+
+@{
+    ViewBag.Title = "Field";
+}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Administración de campos</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Configuración</a></li>
+                            <li><a href="~/Client/Client">Campos</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Barra con botón de creación de clientes y listado de clientes-->
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Clientes</strong>
+                <a href="AddClient" id="BtnAddClient" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal"><i class="fa fa-plus"> </i>&nbsp;Agregar cliente</a>
+
+            </div>
+            <div class="table-stats order-table ov-h">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Valor en Excel</th>
+                            <th>Estado</th>
+                            <th style="width:auto">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var FieldView in Model)
+                        {
+                        <tr>
+                            <td>  <span class="name">@FieldView.Name</span> </td>
+                            <td>  <span class="name">@FieldView.Value</span> </td>
+                            <td>  <span class="name">@FieldView.NameState</span> </td>
+
+                            <td>
+
+                                <a onclick="document.location='@Url.Content("~/Field/Edit?IdClient="+FieldView.IdField)'" id="BtnEditClient" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></a>
+                                <a onclick="document.location='@Url.Content("~/Field/Remove?IdClient="+FieldView.IdField)'" id="BtnAddClient" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#largeModal" style="float: right;"><i class="fa fa-remove"> </i></a>
+
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,852 @@
+﻿@using BPM.Dto.Models.CQ
+@model ManagedCQDto
+
+@{ ViewBag.Title = "CQManagement";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+<script src="~/Scripts/User/User.js"></script>
+<style type="text/css">
+    /*.showDiv {
+        display: block;
+    }
+
+    .hideDiv {
+        display: none;
+    }*/
+</style>
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Gestión de CQ / Redes sociales</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Inicio</a></li>
+                            <li><a href="~/CQ/CQ">CQ/PQR</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/CQ/CQManagement")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+
+                <div class="row form-group">
+                    @*<input type="hidden" name="Id" value="@Model.IdCQ" />*@
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tipo de gestión</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedNotificationMethod, new SelectList(Model.NotificationMethods), "Elija una gestion...", new { @class = "form-control", required = "required", @onchange = "toggleNotification(this)" })
+
+                        @*<select data-placeholder="Elija un método..." name="@Model.PQR." class="form-control" tabindex="1" onchange="toggleNotification(this)">
+                                <option value="0" label="(Ninguno)"></option>
+                                <option value="1">Físico</option>
+                                <option value="2">Correo</option>
+                                <option value="3">Publicación</option>
+                            </select>*@
+                    </div>
+                </div>
+
+                @*<div class="row form-group" style="display:none">
+
+                        <div class="col col-md-3"><label for="select" class=" form-control-label">Tipificación</label></div>
+                        <div class="col-12 col-md-9">
+                            @Html.DropDownListFor(m => m.SelectedState, new SelectList(Model.IdStateCQ, "IdState", "Name"), "Seleccione una tipificación", new
+                       {/*required = "required",*/
+                                @class = "form-control"
+
+                       })
+                        </div>
+                    </div>*@
+                <div class="row form-group">
+
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Tipificación</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedTyping, new SelectList(Model.Typings), "Seleccione una tipificación", new
+                        {
+                            required = "required",
+                            @class = "form-control",
+                            @onchange = "toggleNotification2(this)"
+                        })
+
+
+                    </div>
+                </div>
+                <div class="row form-group" id="correor" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo Recibido</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="ManagementMail" placeholder="Correo Recibido" class="form-control" value="@Model.ManagementMail" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.ManagementMail)
+                </div>
+                <div class="row form-group" id="asunto" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Asunto del Correo</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="AffairMail" placeholder="Asunto del Correo" class="form-control" value="@Model.AffairMail" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.AffairMail)
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fecha de Recepción e Ingreso</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.TextBoxFor(m => m.DateEmail, new
+                        {
+                            @type = "time",
+                            @class = "form-control datepicker",
+                            @name = "DateEmail"
+                            //required = "required"
+                        })
+                        @Html.ValidationMessageFor(m => m.DateEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row form-group" id="cuenta">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Cuenta de Correo</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="EmailAccount" placeholder="scliente@grupovanti.com" class="form-control" value="@Model.EmailAccount" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.EmailAccount)
+
+                </div>
+                @*<div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fecha de Gestión</label></div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.ManagementDate, new
+                            {
+                                @type = "date",
+                                @class = "form-control datepicker",
+                                @name = "ManagementDate"
+
+                            })
+                            @Html.ValidationMessageFor(m => m.ManagementDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fecha de Reclamación</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.TextBoxFor(m => m.ClaimDate, new
+                        {
+                            @type = "date",
+                            @class = "form-control datepicker",
+                            @name = "ClaimDate",
+                            required = "required"
+                        })
+                        @Html.ValidationMessageFor(m => m.ClaimDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="row form-group" id="origen" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Origen</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedOrigin, new SelectList(Model.Origin, "IdOrigin", "Name"), "Seleccione el origen", new { @class = "form-control", @onchange = "showhide(this)" })
+                        @Html.HiddenFor(m => m.SelectedOrigin, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="unidad" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Unidad Generadora</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="GeneratingUnit" placeholder="CQ" class="form-control" value="@Model.GeneratingUnit" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.GeneratingUnit)
+                </div>
+                <div class="row form-group" id="poliza" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Poliza</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Policy" placeholder="Poliza" class="form-control" value="@Model.Policy" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Policy)
+                </div>
+                <div class="row form-group" id="delegacion" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Delegación</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Delegation" placeholder="Delegacion" class="form-control" value="@Model.Delegation" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Delegation)
+                </div>
+                @*<div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fecha del Reclamo</label></div>
+                        <div class="col-12 col-md-9">
+                            @Html.TextBoxFor(m => m.DateReclamo, new { @type = "date", @class = "form-control datepicker", @name = "DateReclamo", required = "required" })
+                            @Html.ValidationMessageFor(m => m.DateReclamo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                <div class="row form-group" id="telefono" style="display:;">
+                    <div class="col col-md-3"><label for="text" class=" form-control-label">Teléfono de Contacto</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="ManagementTelephone" value="@Model.ManagementTelephone" class="form-control"></div>
+                    @Html.HiddenFor(m => m.ManagementTelephone)
+                </div>
+                <div class="row form-group" id="justificado" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Justificado</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedJustified, new SelectList(Model.Justified, "Id", "Clave"), "Seleccione una Justificación", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.SelectedJustified, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="pqrs" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">PQRS</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedPQRS, new SelectList(Model.PQRS, "IdPQRS", "Name"), "Seleccione P, Q, R o S", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.SelectedPQRS, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="actividad" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Actividad</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Activity" placeholder="Actividad" class="form-control" value="@Model.Activity" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Activity)
+                </div>
+                <div class="row form-group" id="causa" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Causa</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Cause" placeholder="Causa" class="form-control" value="@Model.Cause" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Cause)
+                </div>
+                <div class="row form-group" id="observaciones" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class="form-control-label">Observaciones</label></div>
+                    <div class="col-12 col-md-9">
+                        <textarea class="form-control" id="text-input" name="Observations" placeholder="Observaciones" value="@Model.Observations" onkeypress="return validar(event)"></textarea>
+                        @Html.HiddenFor(m => m.Observations)
+                    </div>
+                </div>
+                <div class="row form-group" id="petente" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombre del Cliente</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="ClientName" placeholder="Petente" class="form-control" value="@Model.ClientName" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.ClientName)
+                </div>
+                <div class="row form-group" id="dni" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">DNI/CFI</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="DNI" text="1" placeholder="1" class="form-control" value="@Model.DNI" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.DNI, new { Value = "1" })
+                </div>
+                <div class="row form-group" id="ciudad" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Provincia/Ciudad</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedProvincia, new SelectList(Model.Provincia, "IdProvince", "Name"), "Seleccione la Provincia", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.SelectedProvincia, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="municipio" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Municipio</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedCity, new SelectList(Model.Province, "IdCity", "Name"), "Seleccione el municipio", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.SelectedCity, new { Value = "0" })
+
+
+                    </div>
+                </div>
+                <div class="row form-group" id="direccion" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Direccion y Barrio</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="ManagementAddress" placeholder="Dirección" class="form-control" value="@Model.ManagementAddress" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.ManagementAddress)
+                </div>
+                @*Campos Redes Sociales*@
+
+
+                <div class="row form-group" id="referencia" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Referencia</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Reference" placeholder="Referencia" class="form-control" value="@Model.Reference" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Reference)
+                </div>
+                <div class="row form-group" id="canal" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Canal</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedChanel, new SelectList(Model.Channel, "IdChanel", "Name"), "Seleccione el canal de atención", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.SelectedChanel, new { Value = "0" })
+
+                    </div>
+                </div>
+                <div class="row form-group" id="evento" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Evento</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedEvent, new SelectList(Model.Event, "IdEvent", "Name"), "Seleccione el evento", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.SelectedEvent, new { Value = "0" })
+
+                    </div>
+                </div>
+                <div class="row form-group" id="empresa" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Empresa/Filial</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedCompany, new SelectList(Model.Company, "IdCompany", "Division"), "Seleccione la empresa", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.Company, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="mercado" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Mercado</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Market" placeholder="Mercado" class="form-control" value="@Model.Market" onkeypress="return validar(event)"></div>
+                </div>
+                <div class="row form-group" id="actuacion" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Actuación Administrativa</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Administrative_Action" placeholder="Actuacion Administrativa" class="form-control" value="@Model.Administrative_Action" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Administrative_Action)
+                </div>
+                <div class="row form-group" id="cola" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Cola de Gestión </label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="ManagementQueue" placeholder="Cola de Gestión" class="form-control" value="@Model.ManagementQueue" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.ManagementQueue)
+                </div>
+                <div class="row form-group" id="colacaso" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Cola del Caso</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="TailCase" placeholder="Cola del Caso" class="form-control" value="@Model.TailCase" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.TailCase)
+                </div>
+                <div class="row form-group" id="ticket" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Ticket Inventa</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Ticket" placeholder="Ticket Inventa" class="form-control" value="@Model.Ticket" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Ticket)
+                </div>
+                <div class="row form-group" id="proceso" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Proceso</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Process" placeholder="Proceso" class="form-control" value="@Model.Process" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Process)
+                </div>
+                <div class="row form-group" id="reasignado" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Gestión o Reasignado</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Reassigned" placeholder="Gestión o Reasignado" class="form-control" value="@Model.Reassigned" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Reassigned)
+                </div>
+                <div class="row form-group" id="resultado" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Resultado Para el Cliente</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedResultado, new SelectList(Model.ClientResult, "IdResultado", "Name"), "Seleccione el Resultado", new { @class = "form-control", @onchange = "showhide(this)" })
+                        @Html.HiddenFor(m => m.SelectedResultado, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="carta" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Carta de Ofrecimientos de Disculpas</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedLetter, new SelectList(Model.Letter, "IdLetter", "Name"), "Seleccione... ", new { @class = "form-control", @onchange = "showhide(this)" })
+                        @Html.HiddenFor(m => m.SelectedLetter, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="solicitud" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Solicitud clientes</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="CustomeRequest" placeholder="Solicitud clientes" class="form-control" value="@Model.CustomeRequest" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.CustomeRequest)
+                </div>
+                <div class="row form-group" id="contactacion" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Contactación</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedContacto, new SelectList(Model.Contact, "IdContacto", "Name"), "Seleccione la contactación", new { @class = "form-control", @onchange = "showhide(this)" })
+                        @Html.HiddenFor(m => m.SelectedContacto, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="llamadasms" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Llamada / SMS / Mensaje Correo de Voz(Cel)</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedSMS, new SelectList(Model.ContactMeans, "IdSMS", "Name"), "Seleccione Llamada / SMS / Mensaje Correo de Voz(Cel) ", new { @class = "form-control", @onchange = "showhide(this)" })
+                        @Html.HiddenFor(m => m.SelectedSMS, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="notificacion" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Número Tel Notificación</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="NotificationTelephone" placeholder="Número Tel Notificación" class="form-control" value="@Model.NotificationTelephone" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.NotificationTelephone)
+                </div>
+
+                <div class="row form-group" id="noefectivo" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">No Efectivo</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedContesta, new SelectList(Model.NotAnswer, "IdContesta", "Name"), "Seleccione si contesta o no contesta", new { @class = "form-control", @onchange = "showhide(this)" })
+                        @Html.HiddenFor(m => m.SelectedContesta, new { Value = "1" })
+                    </div>
+                </div>
+                <div class="row form-group" id="Correocertificado" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Correo Certificado</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedCertificado, new SelectList(Model.CertifiedEmail, "IdCertificado", "Name"), "Seleccione el correo certificado", new { @class = "form-control", @onchange = "showhide(this)" })
+                        @Html.HiddenFor(m => m.CertifiedEmail)
+                    </div>
+                </div>
+                <div class="row form-group" id="electronico" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Correo Electrónico</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="EmailRS" placeholder="Correo Electronico" class="form-control" value="@Model.EmailRS" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.EmailRS)
+                </div>
+                <div class="row form-group" id="notificacion2" style="display:;">
+                    <div class="col col-md-3"><label for="select" class=" form-control-label">Notificación</label></div>
+                    <div class="col-12 col-md-9">
+                        @Html.DropDownListFor(m => m.SelectedNotificacion, new SelectList(Model.Notification, "IdNoticacion", "Name"), "Seleccione el método de notificación", new { @class = "form-control", @onchange = "showhide(this)" })
+                        @Html.HiddenFor(m => m.SelectedNotificacion)
+                    </div>
+                </div>
+                <div class="row form-group" id="peso" style="display:;">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Peso</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Weight" placeholder="200" class="form-control" value="@Model.Weight" onkeypress="return validar(event)"></div>
+                    @Html.HiddenFor(m => m.Weight, new { Value = 200 })
+                </div>
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Gestionar</button>
+                </div>
+
+
+
+
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+
+    @*<script type="text/javascript">
+
+            function toggleNotification(ddl) {
+                if (ddl.value == 'Redes Sociales') {
+
+                    document.getElementById('referencia').style.visibility = 'visible';
+                   document.getElementById('canal').style.visibility = 'visible';
+                    document.getElementById('evento').style.visibility = 'visible';
+                    document.getElementById('empresa').style.visibility = 'visible';
+                   document.getElementById('actuacion').style.visibility = 'visible';
+                    document.getElementById('cola').style.visibility = 'visible';
+                    document.getElementById('colacaso').style.visibility = 'visible';
+
+                } else {
+
+                    document.getElementById('referencia').style.visibility = 'hidden';
+                   document.getElementById('canal').style.visibility = 'hidden';
+                    document.getElementById('evento').style.visibility = 'hidden';
+                   document.getElementById('empresa').style.visibility = 'hidden';
+                   document.getElementById('actuacion').style.visibility = 'hidden';
+                   document.getElementById('cola').style.visibility = 'hidden';
+                   document.getElementById('colacaso').style.visibility = 'hidden';
+                }
+            }
+
+        </script>*@
+
+    <script type="text/javascript">
+
+        function toggleNotification(ddl) {
+            if (ddl.value == 'Redes Sociales') {
+
+
+                divC = document.getElementById('referencia');
+                divC.style.display = "";
+                divD = document.getElementById('canal');
+                divD.style.display = "";
+                divE = document.getElementById('evento');
+                divE.style.display = "";
+                divF = document.getElementById('empresa');
+                divF.style.display = "";
+                divG = document.getElementById('actuacion');
+                divG.style.display = "";
+                divH = document.getElementById('cola');
+                divH.style.display = "";
+                divI = document.getElementById('colacaso');
+                divI.style.display = "";
+                divJ = document.getElementById('ticket');
+                divJ.style.display = "";
+                divK = document.getElementById('proceso');
+                divK.style.display = "";
+                divL = document.getElementById('reasignado');
+                divL.style.display = "";
+                divM = document.getElementById('resultado');
+                divM.style.display = "";
+                divN = document.getElementById('carta');
+                divN.style.display = "";
+                divO = document.getElementById('solicitud');
+                divO.style.display = "";
+                divP = document.getElementById('contactacion');
+                divP.style.display = "";
+                divQ = document.getElementById('llamadasms');
+                divQ.style.display = "";
+                divR = document.getElementById('notificacion');
+                divR.style.display = "";
+                divS = document.getElementById('noefectivo');
+                divS.style.display = "";
+                divT = document.getElementById('Correocertificado');
+                divT.style.display = "";
+                divU = document.getElementById('notificacion2');
+                divU.style.display = "";
+                divV = document.getElementById('peso');
+                divV.style.display = "none";
+                div31 = document.getElementById('origen');
+                div31.style.display = "";
+                div32 = document.getElementById('unidad');
+                div32.style.display = "none";
+                div33 = document.getElementById('poliza');
+                div33.style.display = "";
+                div34 = document.getElementById('delegacion');
+                div34.style.display = "";
+                div35 = document.getElementById('justificado');
+                div35.style.display = "";
+                div36 = document.getElementById('pqrs');
+                div36.style.display = "";
+                div37 = document.getElementById('actividad');
+                div37.style.display = "";
+                div38 = document.getElementById('causa');
+                div38.style.display = "";
+                div39 = document.getElementById('observaciones');
+                div39.style.display = "";
+                div40 = document.getElementById('petente');
+                div40.style.display = "";
+                div41 = document.getElementById('ciudad');
+                div41.style.display = "";
+                div04 = document.getElementById('direccion');
+                div04.style.display = "";
+                //divZ = document.getElementById('mes');
+                //divZ.style.display = "";
+                div1 = document.getElementById('telefono');
+                div1.style.display = "none";
+                div2 = document.getElementById('dni');
+                div2.style.display = "none";
+                div3 = document.getElementById('municipio');
+                div3.style.display = "none";
+                div80 = document.getElementById('asunto');
+                div80.style.display = "none";
+                div81 = document.getElementById('correor');
+                div81.style.display = "none";
+                div82 = document.getElementById('cuenta');
+                div82.style.display = "none";
+                div83 = document.getElementById('mercado');
+                div83.style.display = "";
+                div84 = document.getElementById('electronico');
+                div84.style.display = "";
+            }
+
+            else if (ddl.value == 'CQ') {
+                div1 = document.getElementById('telefono');
+                div1.style.display = "";
+                div2 = document.getElementById('dni');
+                div2.style.display = "";
+                div3 = document.getElementById('municipio');
+                div3.style.display = "";
+
+                divC = document.getElementById('referencia');
+                divC.style.display = "";
+                divD = document.getElementById('canal');
+                divD.style.display = "none";
+                divE = document.getElementById('evento');
+                divE.style.display = "none";
+                divF = document.getElementById('empresa');
+                divF.style.display = "";
+                divG = document.getElementById('actuacion');
+                divG.style.display = "none";
+                divH = document.getElementById('cola');
+                divH.style.display = "none";
+                divI = document.getElementById('colacaso');
+                divI.style.display = "none";
+                divJ = document.getElementById('ticket');
+                divJ.style.display = "none";
+                divK = document.getElementById('proceso');
+                divK.style.display = "none";
+                divL = document.getElementById('reasignado');
+                divL.style.display = "none";
+                divM = document.getElementById('resultado');
+                divM.style.display = "none";
+                divN = document.getElementById('carta');
+                divN.style.display = "none";
+                divO = document.getElementById('solicitud');
+                divO.style.display = "none";
+                divP = document.getElementById('contactacion');
+                divP.style.display = "none";
+                divQ = document.getElementById('llamadasms');
+                divQ.style.display = "none";
+                divR = document.getElementById('notificacion');
+                divR.style.display = "none";
+                divS = document.getElementById('noefectivo');
+                divS.style.display = "none";
+                divT = document.getElementById('Correocertificado');
+                divT.style.display = "none";
+                divU = document.getElementById('notificacion2');
+                divU.style.display = "none";
+                divV = document.getElementById('peso');
+                divV.style.display = "none";
+                div31 = document.getElementById('origen');
+                div31.style.display = "";
+                div32 = document.getElementById('unidad');
+                div32.style.display = "none";
+                div33 = document.getElementById('poliza');
+                div33.style.display = "";
+                div34 = document.getElementById('delegacion');
+                div34.style.display = "";
+                div35 = document.getElementById('justificado');
+                div35.style.display = "";
+                div36 = document.getElementById('pqrs');
+                div36.style.display = "";
+                div37 = document.getElementById('actividad');
+                div37.style.display = "";
+                div38 = document.getElementById('causa');
+                div38.style.display = "";
+                div39 = document.getElementById('observaciones');
+                div39.style.display = "";
+                div40 = document.getElementById('petente');
+                div40.style.display = "";
+                div41 = document.getElementById('ciudad');
+                div41.style.display = "";
+                div04 = document.getElementById('direccion');
+                div04.style.display = "";
+                //divZ = document.getElementById('mes');
+                //divZ.style.display = "none";
+                div80 = document.getElementById('asunto');
+                div80.style.display = "";
+                div81 = document.getElementById('correor');
+                div81.style.display = "";
+                div82 = document.getElementById('cuenta');
+                div82.style.display = "";
+                div83 = document.getElementById('mercado');
+                div83.style.display = "none";
+                div84 = document.getElementById('electronico');
+                div84.style.display = "none";
+            }
+        }
+
+        function toggleNotification2(ddl2) {
+            if (ddl2.value == 'Repetido') {
+                div4 = document.getElementById('telefono');
+                div4.style.display = "none";
+                div5 = document.getElementById('dni');
+                div5.style.display = "none";
+                div6 = document.getElementById('municipio');
+                div6.style.display = "none";
+
+                div8 = document.getElementById('referencia');
+                div8.style.display = "none";
+                div9 = document.getElementById('canal');
+                div9.style.display = "none";
+                div10 = document.getElementById('evento');
+                div10.style.display = "none";
+                div11 = document.getElementById('empresa');
+                div11.style.display = "none";
+                div12 = document.getElementById('actuacion');
+                div12.style.display = "none";
+                div13 = document.getElementById('cola');
+                div13.style.display = "none";
+                div14 = document.getElementById('colacaso');
+                div14.style.display = "none";
+                div15 = document.getElementById('ticket');
+                div15.style.display = "none";
+                div16 = document.getElementById('proceso');
+                div16.style.display = "none";
+                div17 = document.getElementById('reasignado');
+                div17.style.display = "none";
+                div18 = document.getElementById('resultado');
+                div18.style.display = "none";
+                div19 = document.getElementById('carta');
+                div19.style.display = "none";
+                div20 = document.getElementById('solicitud');
+                div20.style.display = "none";
+                div21 = document.getElementById('contactacion');
+                div21.style.display = "none";
+                div22 = document.getElementById('llamadasms');
+                div22.style.display = "none";
+                div23 = document.getElementById('notificacion');
+                div23.style.display = "none";
+                div24 = document.getElementById('noefectivo');
+                div24.style.display = "none";
+                div25 = document.getElementById('Correocertificado');
+                div25.style.display = "none";
+                div26 = document.getElementById('notificacion2');
+                div26.style.display = "none";
+                div27 = document.getElementById('peso');
+                div27.style.display = "none";
+                div43 = document.getElementById('origen');
+                div43.style.display = "none";
+                div44 = document.getElementById('unidad');
+                div44.style.display = "none";
+                div45 = document.getElementById('poliza');
+                div45.style.display = "none";
+                div46 = document.getElementById('delegacion');
+                div46.style.display = "none";
+                div47 = document.getElementById('justificado');
+                div47.style.display = "none";
+                div48 = document.getElementById('pqrs');
+                div48.style.display = "none";
+                div49 = document.getElementById('actividad');
+                div49.style.display = "none";
+                div50 = document.getElementById('causa');
+                div50.style.display = "none";
+                div51 = document.getElementById('observaciones');
+                div51.style.display = "none";
+                div52 = document.getElementById('petente');
+                div52.style.display = "none";
+                div53 = document.getElementById('ciudad');
+                div53.style.display = "none";
+                div54 = document.getElementById('direccion');
+                div54.style.display = "none";
+                //divZ = document.getElementById('mes');
+                //divZ.style.display = "none";
+                div90 = document.getElementById('asunto');
+                div90.style.display = "";
+                div91 = document.getElementById('correor');
+                div91.style.display = "";
+                div92 = document.getElementById('cuenta');
+                div92.style.display = "";
+                div93 = document.getElementById('mercado');
+                div93.style.display = "none";
+                div94 = document.getElementById('electronico');
+                div94.style.display = "none";
+            }
+
+            else if (ddl2.value == 'Soporte LA') {
+                div4 = document.getElementById('telefono');
+                div4.style.display = "none";
+                div5 = document.getElementById('dni');
+                div5.style.display = "none";
+                div6 = document.getElementById('municipio');
+                div6.style.display = "none";
+
+                div8 = document.getElementById('referencia');
+                div8.style.display = "none";
+                div9 = document.getElementById('canal');
+                div9.style.display = "none";
+                div10 = document.getElementById('evento');
+                div10.style.display = "none";
+                div11 = document.getElementById('empresa');
+                div11.style.display = "none";
+                div12 = document.getElementById('actuacion');
+                div12.style.display = "none";
+                div13 = document.getElementById('cola');
+                div13.style.display = "none";
+                div14 = document.getElementById('colacaso');
+                div14.style.display = "none";
+                div15 = document.getElementById('ticket');
+                div15.style.display = "none";
+                div16 = document.getElementById('proceso');
+                div16.style.display = "none";
+                div17 = document.getElementById('reasignado');
+                div17.style.display = "none";
+                div18 = document.getElementById('resultado');
+                div18.style.display = "none";
+                div19 = document.getElementById('carta');
+                div19.style.display = "none";
+                div20 = document.getElementById('solicitud');
+                div20.style.display = "none";
+                div21 = document.getElementById('contactacion');
+                div21.style.display = "none";
+                div22 = document.getElementById('llamadasms');
+                div22.style.display = "none";
+                div23 = document.getElementById('notificacion');
+                div23.style.display = "none";
+                div24 = document.getElementById('noefectivo');
+                div24.style.display = "none";
+                div25 = document.getElementById('Correocertificado');
+                div25.style.display = "none";
+                div26 = document.getElementById('notificacion2');
+                div26.style.display = "none";
+                div27 = document.getElementById('peso');
+                div27.style.display = "none";
+                div43 = document.getElementById('origen');
+                div43.style.display = "none";
+                div44 = document.getElementById('unidad');
+                div44.style.display = "none";
+                div45 = document.getElementById('poliza');
+                div45.style.display = "none";
+                div46 = document.getElementById('delegacion');
+                div46.style.display = "none";
+                div47 = document.getElementById('justificado');
+                div47.style.display = "none";
+                div48 = document.getElementById('pqrs');
+                div48.style.display = "none";
+                div49 = document.getElementById('actividad');
+                div49.style.display = "none";
+                div50 = document.getElementById('causa');
+                div50.style.display = "none";
+                div51 = document.getElementById('observaciones');
+                div51.style.display = "none";
+                div52 = document.getElementById('petente');
+                div52.style.display = "none";
+                div53 = document.getElementById('ciudad');
+                div53.style.display = "none";
+                div54 = document.getElementById('direccion');
+                div54.style.display = "none";
+                //divZ = document.getElementById('mes');
+                //divZ.style.display = "none";
+                div90 = document.getElementById('asunto');
+                div90.style.display = "";
+                div91 = document.getElementById('correor');
+                div91.style.display = "";
+                div92 = document.getElementById('cuenta');
+                div92.style.display = "";
+                div93 = document.getElementById('mercado');
+                div93.style.display = "none";
+                div94 = document.getElementById('electronico');
+                div94.style.display = "none";
+            }
+            else if (ddl2.value == 'Otros') {
+                div4 = document.getElementById('telefono');
+                div4.style.display = "none";
+                div5 = document.getElementById('dni');
+                div5.style.display = "none";
+                div6 = document.getElementById('municipio');
+                div6.style.display = "none";
+                div8 = document.getElementById('referencia');
+                div8.style.display = "none";
+                div9 = document.getElementById('canal');
+                div9.style.display = "none";
+                div10 = document.getElementById('evento');
+                div10.style.display = "none";
+                div11 = document.getElementById('empresa');
+                div11.style.display = "none";
+                div12 = document.getElementById('actuacion');
+                div12.style.display = "none";
+                div13 = document.getElementById('cola');
+                div13.style.display = "none";
+                div14 = document.getElementById('colacaso');
+                div14.style.display = "none";
+                div15 = document.getElementById('ticket');
+                div15.style.display = "none";
+                div16 = document.getElementById('proceso');
+                div16.style.display = "none";
+                div17 = document.getElementById('reasignado');
+                div17.style.display = "none";
+                div18 = document.getElementById('resultado');
+                div18.style.display = "none";
+                div19 = document.getElementById('carta');
+                div19.style.display = "none";
+                div20 = document.getElementById('solicitud');
+                div20.style.display = "none";
+                div21 = document.getElementById('contactacion');
+                div21.style.display = "none";
+                div22 = document.getElementById('llamadasms');
+                div22.style.display = "none";
+                div23 = document.getElementById('notificacion');
+                div23.style.display = "none";
+                div24 = document.getElementById('noefectivo');
+                div24.style.display = "none";
+                div25 = document.getElementById('Correocertificado');
+                div25.style.display = "none";
+                div26 = document.getElementById('notificacion2');
+                div26.style.display = "none";
+                div27 = document.getElementById('peso');
+                div27.style.display = "none";
+                div43 = document.getElementById('origen');
+                div43.style.display = "none";
+                div44 = document.getElementById('unidad');
+                div44.style.display = "none";
+                div45 = document.getElementById('poliza');
+                div45.style.display = "none";
+                div46 = document.getElementById('delegacion');
+                div46.style.display = "none";
+                div47 = document.getElementById('justificado');
+                div47.style.display = "none";
+                div48 = document.getElementById('pqrs');
+                div48.style.display = "none";
+                div49 = document.getElementById('actividad');
+                div49.style.display = "none";
+                div50 = document.getElementById('causa');
+                div50.style.display = "none";
+                div51 = document.getElementById('observaciones');
+                div51.style.display = "none";
+                div52 = document.getElementById('petente');
+                div52.style.display = "none";
+                div53 = document.getElementById('ciudad');
+                div53.style.display = "none";
+                div54 = document.getElementById('direccion');
+                div54.style.display = "none";
+                //divZ = document.getElementById('mes');
+                //divZ.style.display = "none";
+                div90 = document.getElementById('asunto');
+                div90.style.display = "";
+                div91 = document.getElementById('correor');
+                div91.style.display = "";
+                div92 = document.getElementById('cuenta');
+                div92.style.display = "";
+                div93 = document.getElementById('mercado');
+                div93.style.display = "none";
+                div94 = document.getElementById('electronico');
+                div94.style.display = "none";
+            }
+        }
+    </script>

@@ -1,0 +1,78 @@
+﻿@using BPM.Dto.DataImport
+@model DataImportDto
+
+@{
+    ViewBag.Title = "DatabaseImport";
+}
+<script src="~/Scripts/User/User.js"></script>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Importación de Bases</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="~/Home/Index">Depuración</a></li>
+                            <li><a href="~/DatabaseImport/DatabaseImport">Importación de bases</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="card">
+        <div class="card-body card-block">
+            <form action="@Url.Content("~/DatabaseImport/Import")" method="post" enctype="multipart/form-data" class="form-horizontal" style="width:60%">
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Recibidos</label></div>
+                    <div class="col-12 col-md-9">
+                        <input type="file" id="Database" name="Database" placeholder="Ruta de la base" required class="form-control" value="Database" onchange="checkfile(this)">
+                        @Html.ValidationMessageFor(DataImportDto => DataImportDto.Database)
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label" >@Model.Message</label></div>
+                </div>
+
+                <div>
+                    <button style="float: right;" type="submit" class="btn btn-primary btn-sm"><i class="fa fa-save"> </i>&nbsp; Importar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="danger">
+        <p class="error">@ViewBag.Error</p>
+    </div>
+
+</div>
+
+<script type="text/javascript" language="javascript">
+    function checkfile(sender) {
+        var validExts = new Array(".xlsx", ".xls", ".XLSX", ".XLS");
+        var fileExt = sender.value;
+        fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+        if (validExts.indexOf(fileExt) < 0) {
+            alert("Archivo inválido. Los archivos deben ser del tipo " +
+                validExts.toString());
+            sender.value = '';
+            return false;
+        }
+        else return true;
+    }
+</script>
+
+

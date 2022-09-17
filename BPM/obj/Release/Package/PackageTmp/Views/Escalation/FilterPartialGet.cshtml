@@ -1,0 +1,12 @@
+﻿@using BPM.Dto.Models.Configuration
+@model  FilterCreatEscalationDto
+    <div class="Filter" id="Filter">
+
+        @Html.DropDownListFor(m => m.Fields, new SelectList(Model.ListFieldDto, "IdField", "Name", Model.IdField), "", new { required = "required" })
+        @Html.DropDownListFor(m => m.Actions, new SelectList(Model.ListActions, "IdAction", "Action", Model.Action), "", new { required = "required" })
+        @Html.TextBox("Values", Model.Value, new { required = "required" })
+        @Html.DropDownListFor(m => m.Conditions, new SelectList(Model.ListConditions, "IdCondition", "NameCondition", Model.Condition), "", new { required = "required" })
+
+        <a href="#" class="deleteRow" id="deleteRow" onclick=" $(this).parent('div').remove()"><i class="fa fa-remove"> </i>&nbsp;</a>
+        <br />
+    </div>

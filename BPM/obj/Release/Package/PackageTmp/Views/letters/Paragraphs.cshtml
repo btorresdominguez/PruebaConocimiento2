@@ -1,0 +1,209 @@
+﻿@model List<BPM.Dto.Models.Latters.ParagraphDto>
+@section scripts{
+
+    <script src="~/Scripts/Angular.min.js"></script>
+    <script src="~/Scripts/angular.messages.min.js"></script>
+    <script src="~/Scripts/angular-ui-bootstrap.js"></script>
+    <script src="~/Scripts/PetitionsHttp.min.js"></script>
+    <script src="~/Scripts/Latter/Paragraphs.js"></script>
+
+    <script>
+        var table = $('#bootstrap-data-table').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ PQRS",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+
+        })
+    </script>
+}
+<div ng-app="app" ng-controller="ParagrahpsCtrl">
+    <div class="breadcrumbs">
+        <div class="breadcrumbs-inner">
+            <div class="row m-0">
+                <div class="col-sm-4">
+                    <div class="page-header float-left">
+                        <div class="page-title">
+                            <h1>Cartas</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="page-header float-right">
+                        <div class="page-title">
+                            <ol class="breadcrumb text-right">
+                                <li><a href="~/Home/Index">Cartas</a></li>
+                                <li><a href="~/Letters/Paragraphs">Párrafos</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 ng-show="!IsUpdate" class="modal-title" id="largeModalLabel">Agregar Parrafo</h5>
+                    <h5 ng-show="IsUpdate" class="modal-title" id="largeModalLabel">Actualizar Parrafo</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="content">
+                        <div class="card">
+                            <div class="card-body card-block">
+                                <form name="FormTemplate" ng-submit="initSubmit()" enctype="multipart/form-data" class="form-horizontal" novalidate>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Descripción</label>
+                                            <input type="text" id="text-input" name="Description" placeholder="Descripción" ng-model="model.Description" data-val="true" data-val-required="Este campo es obligatorio" required class="form-control">
+                                            <div ng-messages="FormTemplate.Description.$error" ng-if="FormTemplate.Description.$touched ||FormTemplate.$submitted" style="color:maroon" role="alert">
+                                                <div ng-message="required">Este campo es requerido</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Causa</label>
+                                            <select class="form-control" id="Id_Cause" name="Id_Cause" data-val-required="Este campo es obligatorio" ng-model="model.Id_Cause" required
+                                                    ng-options="option.Id as option.Name for option in Selects.Causes">
+                                                <option value="" disabled>--Seleccione uno-- </option>
+                                            </select>
+                                            <div ng-messages="FormTemplate.Id_Cause.$error" ng-if="FormTemplate.Id_Cause.$touched ||FormTemplate.$submitted" style="color:maroon" role="alert">
+                                                <div ng-message="required">Este campo es requerido</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="text-input" class=" form-control-label">Tipo de parrafo</label>
+                                            <select class="form-control" id="Id_TypeParagraph" name="Id_TypeParagraph" data-val-required="Este campo es obligatorio" ng-model="model.Id_TypeParagraph" required
+                                                    ng-options="option.Id as option.Name for option in Selects.TypePharagraphs">
+                                                <option value="" disabled>--Seleccione uno-- </option>
+                                            </select>
+                                            <div ng-messages="FormTemplate.Id_TypeParagraph.$error" ng-if="FormTemplate.Id_TypeParagraph.$touched ||FormTemplate.$submitted" style="color:maroon" role="alert">
+                                                <div ng-message="required">Este campo es requerido</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+
+                                            <label for="text-input" class=" form-control-label">Contenido</label>
+                                            <textarea ng-model="model.paragraphContent" id="paragraphContent" name="paragraphContent" class="form-control" required></textarea>
+
+                                            <div ng-messages="FormTemplate.paragraphContent.$error" ng-if="FormTemplate.paragraphContent.$touched ||FormTemplate.$submitted" style="color:maroon" role="alert">
+                                                <div ng-message="required">Este campo es requerido</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="alert alert-danger" ng-show="errorsNotification.submit">
+                                        <strong>Alerta!</strong> Ha ocurrido un error.
+                                    </div>
+                                    <div class="alert alert-success" ng-show="successNotification.submit && !IsUpdate">
+                                        <strong>Alerta!</strong> Se ha creado el parrafo correctamente.
+                                    </div>
+                                    <div class="alert alert-success" ng-show="successNotification.submit && IsUpdate">
+                                        <strong>Alerta!</strong> Se ha actualizado el parrafo correctamente.
+                                    </div>
+                                    <div class="row float-right">
+                                        <div class="col-md-3 ">
+                                            <button type="submit" class="btn btn-primary" ng-show="!IsUpdate" ng-disabled="charges.submitTotal"><i ng-show="charges.submitTotal" class="fa fa-spinner fa-spin"></i> Guardar</button>
+
+                                            <button type="submit" class="btn btn-primary" ng-show="IsUpdate" ng-disabled="charges.submitTotal"><i ng-show="charges.submitTotal" class="fa fa-spinner fa-spin"></i> Actualizar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class="danger">
+                            <p class="error">@ViewBag.Error</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--ModalConfirm-->
+    <div class="modal" id="confirm">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">¿Desea borrar el parrafo?</h4>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="ConfirmDelete()" data-dismiss="modal">Borrar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--ModalConfirm-->
+
+    <div class="content">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">Párrafos</strong>
+                    <a href="#" id="BtnUpdateClient" type="button" class="btn btn-primary btn-sm" style="float: right; display:none;" data-toggle="modal" ng-click="UpdateClient()" data-target="#largeModal"></a>
+                    <a href="#" id="BtnAddClient" type="button" class="btn btn-primary btn-sm" style="float: right;" data-toggle="modal" data-target="#largeModal" ng-click="addClient()"><i class="fa fa-plus"> </i>&nbsp;Agregar Párrafo</a>
+
+                </div>
+                    <table class="table " id="bootstrap-data-table">
+                        <thead>
+                            <tr>
+                                <th>Descipción</th>
+                                <th>Contenido</th>
+                                <th>Causa</th>
+                                <th>Tipo de parrafo</th>
+                                <th style="width:100px">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var FieldView in Model)
+                            {
+                            <tr>
+                                <td>  <span class="name">@FieldView.Description</span> </td>
+                                <td>  <span class="name">@FieldView.paragraphContent</span> </td>
+
+                                <td>  <span class="name">@FieldView.CauseCode</span> </td>
+                                <td>  <span class="name">@FieldView.Name_TypeParagraph</span> </td>
+                                <td>
+
+                                    <button ng-click="ChargueModalDataEdit(@FieldView.Id)" id="BtnEditClient" class="btn btn-primary btn-sm" style="float: left;"><i class="fa fa-edit"> </i></button>
+                                    <button ng-click="IdDelete= @FieldView.Id" id="OpenModalConfirm" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#confirm" style="float: right;"><i class="fa fa-remove"> </i></button>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
