@@ -94,7 +94,7 @@ namespace BPM.Controllers
 
      
 
-        [HttpPost]
+      
         // [AuthorizeUser(Module: "Representantes")]
         //public ActionResult Edit(int IdRepresentanteTra, string Name)
         public ActionResult Edit(int IdRepresentante)
